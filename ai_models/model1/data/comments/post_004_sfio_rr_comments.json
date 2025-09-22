@@ -1,62 +1,731 @@
 [
-  {
-    "commentText": "The recruitment rules for SFIO prosecutors are well-structured. The Level-8 pay matrix is appropriate for the responsibilities involved in corporate fraud investigation."
-  },
-  {
-    "commentText": "The 3-year experience requirement for prosecutors seems adequate, but preference should be given to candidates with specific corporate law experience rather than general practice."
-  },
-  {
-    "commentText": "SFIO needs specialized prosecutors who understand complex financial crimes. The qualification criteria should include mandatory training in forensic accounting and corporate fraud detection."
-  },
-  {
-    "commentText": "The temporary tenure of 12 months may not attract quality candidates. Permanent positions with career progression would ensure better continuity and expertise development."
-  },
-  {
-    "commentText": "Given the complexity of corporate fraud cases, prosecutors should have additional qualifications in CA or CS along with law degree for better case handling."
-  },
-  {
-    "commentText": "The recruitment process should include practical case study evaluation to assess candidates' ability to handle complex corporate fraud investigations."
-  },
-  {
-    "commentText": "SFIO prosecutors need continuous training on evolving financial crimes and regulatory changes. A structured professional development program should be mandatory."
-  },
-  {
-    "commentText": "The pay scale of Rs. 47,600-1,51,100 is competitive and should attract quality legal professionals to join SFIO for corporate fraud prosecution."
-  },
-  {
-    "commentText": "Selection criteria should include assessment of candidates' understanding of corporate governance, securities law, and financial regulations beyond basic legal knowledge."
-  },
-  {
-    "commentText": "The recruitment rules should specify language proficiency requirements as SFIO handles cases involving multinational corporations and complex financial transactions."
-  },
-  {
-    "commentText": "Age relaxation for candidates with specialized experience in corporate law and financial crimes should be considered to attract seasoned professionals."
-  },
-  {
-    "commentText": "Performance evaluation criteria for prosecutors should be clearly defined, focusing on case disposal rate, conviction rate, and quality of prosecution."
-  },
-  {
-    "commentText": "The recruitment should prioritize candidates with experience in handling white-collar crimes, securities fraud, and money laundering cases."
-  },
-  {
-    "commentText": "SFIO prosecutors should have access to advanced investigative tools and technology training to handle sophisticated financial frauds effectively."
-  },
-  {
-    "commentText": "The recruitment process should include interaction with senior SFIO officials to assess candidates' understanding of the organization's mandate and challenges."
-  },
-  {
-    "commentText": "Candidates with prior experience in regulatory bodies like SEBI, RBI, or MCA should be given preference due to their domain expertise."
-  },
-  {
-    "commentText": "The recruitment rules should provide for lateral entry of experienced prosecutors from other agencies to bring diverse expertise to SFIO."
-  },
-  {
-    "commentText": "Training modules on international best practices in financial crime prosecution should be part of the onboarding process for new recruits."
-  },
-  {
-    "commentText": "The selection process should assess candidates' analytical skills and ability to work with forensic accountants and technical experts in complex investigations."
-  },
-  {
-    "commentText": "SFIO prosecutors should have mandatory continuing education requirements to stay updated with evolving corporate fraud patterns and legal developments."
-  }
+ {
+   "commentText": "actual_comments"
+ },
+ {
+   "commentText": "यह अस्थायी पद की सूचना अच्छी है, 50k प्रति माह अच्छी सैलरी है।"
+ },
+ {
+   "commentText": "दिसंबर 2024 का पिछला नोटिस क्यों वापस लिया गया? यह आवेदकों के लिए भ्रम पैदा करता है।"
+ },
+ {
+   "commentText": "टीडीएस लागू होगा, नेट राशि कम मिलेगी, यह बिंदु स्पष्ट है।"
+ },
+ {
+   "commentText": "तीन साल के अनुभव वाले एलएलबी वकीलों के लिए बॉम्बे हाई कोर्ट में काम करने का अच्छा मौका है।"
+ },
+ {
+   "commentText": "जॉब प्रोफाइल बहुत विस्तृत है, कानूनी से लेकर लेखांकन तक का काम होगा।"
+ },
+ {
+   "commentText": "इंटरव्यू पैनल में पूर्व हाई कोर्ट जज होंगे, यह प्रक्रिया बहुत विश्वसनीय लगती है।"
+ },
+ {
+   "commentText": "शॉर्टलिस्टेड उम्मीदवारों को ही ईमेल से सूचित किया जाएगा, बाकियों को नहीं, यह थोड़ा निराशाजनक है।"
+ },
+ {
+   "commentText": "निजी प्रैक्टिस की अनुमति शर्तों के साथ है, यह लचीला है।"
+ },
+ {
+   "commentText": "सेवा समाप्ति का खंड बहुत सख्त है, 2-3 दिन अनुपस्थित रहने पर निकाल सकते हैं।"
+ },
+ {
+   "commentText": "कंपनी लॉ का अनुभव प्राथमिकता में है, मुझे लगता है यह भूमिका के लिए relevant है।"
+ },
+ {
+   "commentText": "मुझे यह भूमिका पसंद आई, मैं अपना सीवी भेजकर आवेदन करूंगा।"
+ },
+ {
+   "commentText": "नियम और शर्तें स्पष्ट नहीं हैं, थोड़ा जटिल लग रहा है।"
+ },
+ {
+   "commentText": "मेरे पास 5 साल का अनुभव है, मैं इसके लिए पात्र हूं।"
+ },
+ {
+   "commentText": "केवल ईमेल के माध्यम से आवेदन की अनुमति है, यह सुविधाजनक है।"
+ },
+ {
+   "commentText": "कार्यकाल 12 महीने ही क्यों है? स्थायी पद क्यों नहीं बनाते?"
+ },
+ {
+   "commentText": "पर्यवेक्षण में काम होगा, यह सीखने के लिए अच्छा है।"
+ },
+ {
+   "commentText": "तथ्यों को छुपाने/गलत बताने पर सख्त कार्रवाई होगी, यह सही है।"
+ },
+ {
+   "commentText": "एमएस-एक्सेल आना जरूरी है, आजकल हर नौकरी के लिए यह जरूरी है।"
+ },
+ {
+   "commentText": "मेरे हिसाब से पारिश्रमिक बॉम्बे के हिसाब से थोड़ा कम है।"
+ },
+ {
+   "commentText": "ड्राफ्टिंग काउंसल को कोर्ट भी जाना पड़ेगा, यह रोमांचक है।"
+ },
+ {
+   "commentText": "यह युवा सीए और वकीलों के लिए उच्च-स्तरीय कॉर्पोरेट परिसमापन मामलों में अनुभव हासिल करने का एक शानदार अवसर है।"
+ },
+ {
+   "commentText": "नोटिस वापस लेकर नया निकालना थोड़ा भ्रमित करने वाला है।"
+ },
+ {
+   "commentText": "जॉब प्रोफाइल में बहुत कुछ है, लगता है एक व्यक्ति से बहुत अपेक्षित है।"
+ },
+ {
+   "commentText": "पारिश्रमिक लम्प सम है लेकिन टीडीएस कटेगा, इसलिए नेट पे का पता होना चाहिए।"
+ },
+ {
+   "commentText": "एक महीने के नोटिस पर बिना कारण बताए समाप्ति का खंड अच्छा है।"
+ },
+ {
+   "commentText": "गोपनीयता खंड इस प्रकार के कार्यालय के लिए बहुत महत्वपूर्ण है।"
+ },
+ {
+   "commentText": "मुझे लगता है कि 3 साल का न्यूनतम अनुभव आवश्यकता थोड़ी कम है।"
+ },
+ {
+   "commentText": "एक पूर्व एचसी जज के साथ साक्षात्कार प्रक्रिया बहुत कठोर लग रही है।"
+ },
+ {
+   "commentText": "यह कहना कि निजी प्रैक्टिस कर सकते हो लेकिन ऑफिशियल लिक्विडेटर के खिलाफ नहीं, यह स्पष्ट है।"
+ },
+ {
+   "commentText": "3 साल के अनुभव वाले सीए के लिए 50,000 रुपये का मासिक पारिश्रमिक काफी कम है।"
+ },
+ {
+   "commentText": "आवेदन प्रक्रिया केवल ईमेल के माध्यम से है, यह सुविधाजनक और पेपरलेस भी है।"
+ },
+ {
+   "commentText": "जो भी उम्मीदवार चुना जाएगा, उसे कंपनी अधिनियम और नियमों की अच्छी जानकारी होगी।"
+ },
+ {
+   "commentText": "नियमों में लिखा है कि ऑफिशियल लिक्विडेटर और भी नियम बना सकता है, यह थोड़ा अस्पष्ट है।"
+ },
+ {
+   "commentText": "मैंने नोटिस पढ़ा, सब कुछ विस्तार से समझाया गया है, कोई संदेह नहीं है।"
+ },
+ {
+   "commentText": "एसोसिएट के लिए सीए, सीएस, सीडब्ल्यूए तीनों को मौका मिल रहा है, यह समावेशी दृष्टिकोण है।"
+ },
+ {
+   "commentText": "स्पष्ट मापदंडों के बिना असंतोषजनक प्रदर्शन के लिए सेवा समाप्ति थोड़ी समस्याग्रस्त हो सकती है।"
+ },
+ {
+   "commentText": "कार्यालय का पता और संपर्क विवरण दिया गया है, कोई संदेह हो तो कॉल कर सकते हैं।"
+ },
+ {
+   "commentText": "नौकरी की स्थिरता नहीं है क्योंकि कार्यकाल केवल 12 महीने का है।"
+ },
+ {
+   "commentText": "समय सीमा 01/06/2025 है, आवेदन करने के लिए पर्याप्त समय है।"
+ },
+ {
+   "commentText": "बायो-डाटा के साथ सत्यापित प्रमाणपत्र भेजने हैं, यह मानक प्रक्रिया है।"
+ },
+ {
+   "commentText": "मुझे यह मसौदा बहुत व्यापक लगता है, हर बिंदु कवर किया गया है।"
+ },
+ {
+   "commentText": "कंपनी लॉ का ज्ञान वरीयता में है, यह पंक्ति महत्वपूर्ण है।"
+ },
+ {
+   "commentText": "यह पद हाल के लॉ स्नातकों के लिए एक अच्छा लॉन्चिंग पैड हो सकता है।"
+ },
+ {
+   "commentText": "नोटिस सार्वजनिक अवकाश का नियम स्पष्ट करता है, सामान्यतः अवकाश रहेगा।"
+ },
+ {
+   "commentText": "काम का दबाव ज्यादा होगा क्योंकि जॉब प्रोफाइल बहुत व्यापक है।"
+ },
+ {
+   "commentText": "ऑफिशियल लिक्विडेटर के कार्यालय में काम करने से नेटवर्किंग अच्छी होगी।"
+ },
+ {
+   "commentText": "आवेदन फॉर्म अंतिम पृष्ठ पर दिया गया है, आसानी से डाउनलोड किया जा सकता है।"
+ },
+ {
+   "commentText": "यह अस्थायी प्रकृति की भूमिका है, इसलिए अनुभवी लोग इसे साइड इनकम के तौर पर ले सकते हैं।"
+ },
+ {
+   "commentText": "नोटिस अंग्रेजी में ही क्यों है? हिंदी अनुवाद भी होना चाहिए था।"
+ },
+ {
+   "commentText": "कुल मिलाकर, पात्र उम्मीदवारों के लिए एक अच्छा मौका है।"
+ },
+ {
+   "commentText": "4 साल से अधिक अनुभव वाले एक व्यवहाररत कंपनी सचिव के रूप में, मुझे यह अवसर बहुत दिलचस्प लगता है।"
+ },
+ {
+   "commentText": "मैं इस नोटिस से थोड़ा निराश हूं।"
+ },
+ {
+   "commentText": "मांगी गई योग्यताओं और अनुभव के लिए 50,000 रुपये प्रति माह का पारिश्रमिक स्पष्ट रूप से अपर्याप्त है।"
+ },
+ {
+   "commentText": "मुझे लगता है कि साक्षात्कार पैनल की संरचना बहुत प्रभावशाली और पारदर्शी है।"
+ },
+ {
+   "commentText": "समाप्ति खंड बहुत ही कठोर लग रहे हैं।"
+ },
+ {
+   "commentText": "जॉब प्रोफाइल में जो कार्य बताए गए हैं, वे वास्तव में ऑफिशियल लिक्विडेटर के कार्यालय के मुख्य कार्य हैं।"
+ },
+ {
+   "commentText": "गोपनीयता खंड थोड़ा अत्यधिक सख्त लग सकता है, लेकिन इस संदर्भ में पूरी तरह से उचित है।"
+ },
+ {
+   "commentText": "मैंने नोटिस पढ़ा और मुझे लगता है कि एसोसिएट पद के लिए सीए, सीएस, और सीडब्ल्यूए तीनों को पात्र बनाया गया है, यह अच्छी बात है।"
+ },
+ {
+   "commentText": "कुल मिलाकर, इस मसौदा सूचना में सब कुछ स्पष्ट रूप से परिभाषित किया गया है।"
+ },
+ {
+   "commentText": "बढ़िया पहल! अच्छा एक्सपोजर प्रदान करती है।"
+ },
+ {
+   "commentText": "मुंबई के लिए वेतन अधिक होना चाहिए।"
+ },
+ {
+   "commentText": "सीए, सीएस, सीडब्ल्यूए सभी के लिए मौका है, अच्छा है।"
+ },
+ {
+   "commentText": "पहले वाला नोटिस क्यों वापस लिया? समय बर्बाद हुआ।"
+ },
+ {
+   "commentText": "अदालती मामलों में जाने का मौका मिलेगा, दिलचस्प है।"
+ },
+ {
+   "commentText": "वर्क फ्रॉम होम का विकल्प नहीं है, लगता है।"
+ },
+ {
+   "commentText": "टीडीएस कटने के बाद कितना मिलेगा, गणना करनी होगी।"
+ },
+ {
+   "commentText": "कंपनी कानून का ज्ञान होना महत्वपूर्ण है।"
+ },
+ {
+   "commentText": "आवेदन ईमेल से भेजना है, आसान है।"
+ },
+ {
+   "commentText": "12 महीने के बाद क्या होगा? विस्तार मिलेगा?"
+ },
+ {
+   "commentText": "नौकरी की सुरक्षा बिल्कुल नहीं है।"
+ },
+ {
+   "commentText": "अनुभव प्रमाणपत्र को सत्यापित कराना होगा, थोड़ा थकाऊ है।"
+ },
+ {
+   "commentText": "युवा पेशेवरों के लिए अच्छा मंच है।"
+ },
+ {
+   "commentText": "साक्षात्कार पैनल बहुत उच्च स्तर का है।"
+ },
+ {
+   "commentText": "सूचना प्रकाशित हो गई है, अब आवेदन करना है।"
+ },
+ {
+   "commentText": "पारिश्रमिक पैकेज आकर्षक नहीं है।"
+ },
+ {
+   "commentText": "कार्यालय का स्थान एमजी रोड पर है, सुगम है।"
+ },
+ {
+   "commentText": "समाप्ति के नियम बहुत सख्त हैं।"
+ },
+ {
+   "commentText": "सीवी भेजने में कोई फीस नहीं है।"
+ },
+ {
+   "commentText": "अंतिम तिथि 1 जून, 2025 है।"
+ },
+ {
+   "commentText": "इससे कॉर्पोरेट कानूनों में बेहतर अनुभव मिलेगा।"
+ },
+ {
+   "commentText": "निजी प्रैक्टिस की अनुमति देना एक अच्छी बात है।"
+ },
+ {
+   "commentText": "काम का दबाव ज्यादा होगा, यह स्पष्ट है।"
+ },
+ {
+   "commentText": "जो भी उम्मीदवार चुना जाएगा, उसकी प्रोफाइल मजबूत होगी।"
+ },
+ {
+   "commentText": "ऑफिशियल लिक्विडेटर के खिलाफ काम नहीं कर सकते, यह स्पष्ट है।"
+ },
+ {
+   "commentText": "मुझे लगता है कि बहुत से लोग आवेदन करेंगे।"
+ },
+ {
+   "commentText": "चयन प्रक्रिया लंबी होगी।"
+ },
+ {
+   "commentText": "ईमेल आईडी olmumestt_2020@yahoo.com है, नोट करना है।"
+ },
+ {
+   "commentText": "याहू ईमेल? सरकारी कार्यालय को आधिकारिक डोमेन का उपयोग करना चाहिए।"
+ },
+ {
+   "commentText": "बायो-डाटा में सभी विवरण भरने होंगे।"
+ },
+ {
+   "commentText": "मेरे हिसाब से यह एक अच्छा अवसर है।"
+ },
+ {
+   "commentText": "मेरा दोस्त आवेदन करेगा, मैं उसे बताऊंगा।"
+ },
+ {
+   "commentText": "नोटिस अच्छी तरह से पढ़ना जरूरी है।"
+ },
+ {
+   "commentText": "कोई भी नकली दस्तावेज न दें, पकड़े जाएंगे।"
+ },
+ {
+   "commentText": "सार्वजनिक छुट्टियां मिलेंगी, यह अच्छी बात है।"
+ },
+ {
+   "commentText": "शनिवार रविवार की छुट्टी होगी या नहीं?"
+ },
+ {
+   "commentText": "जॉब प्रोफाइल पढ़कर लगता है चुनौतीपूर्ण भूमिका होगी।"
+ },
+ {
+   "commentText": "मुंबई आधारित उम्मीदवारों के लिए बेहतर है।"
+ },
+ {
+   "commentText": "बाहर के उम्मीदवारों को यात्रा का खर्च खुद उठाना होगा।"
+ },
+ {
+   "commentText": "कुल मिलाकर, एक मानक सरकारी अस्थायी भर्ती सूचना है।"
+ },
+ {
+   "commentText": "This role is a golden chance for those looking to transition into the specialized field of insolvency and bankruptcy. The hands-on experience with liquidation proceedings will be a huge value addition to any legal or finance professional's resume, potentially opening doors to higher positions in law firms or corporate legal departments."
+ },
+ {
+   "commentText": "The notice's requirement for \"team management skills\" is interesting for a temporary associate role. It suggests the selected candidate might be tasked with supervising or coordinating with existing staff, which could lead to internal friction or is an indication that the workload requires managing multiple people."
+ },
+ {
+   "commentText": "I am positively impressed by the emphasis on logical reasoning and a sense of responsibility. These are soft skills that are crucial for handling the complexities of liquidation cases, where each decision can significantly impact creditors and workers. It's good that they are looking beyond just paper qualifications."
+ },
+ {
+   "commentText": "Mujhe ye clause pasand nahi aaya ki \"Official Liquidator aur bhi rules bana sakta hai\". Ye ek sided power hai. Terms and conditions clear aur fixed hone chahiye appointment se pehle. Bad mein naye rules banaye ja sakte hain jo candidate ke against ho, ye fair nahi hai."
+ },
+ {
+   "commentText": "The provision to allow private practice is a very practical and attractive feature. It recognizes that many qualified professionals may have their own practice to maintain and offers the flexibility to do both, as long as there is no conflict of interest. This makes the role appealing to a wider pool of candidates."
+ },
+ {
+   "commentText": "The entire process, from application to selection, seems to be designed for convenience but lacks human touch. No intimation for non-shortlisted candidates? A simple automated email would be a courteous gesture. It reflects a somewhat impersonal approach from a government office."
+ },
+ {
+   "commentText": "The specific mention of \"updating cash books manually\" in the job profile is a very detail-oriented and practical requirement. It shows the office understands the ground-level tasks involved in liquidation and is looking for someone who isn't afraid to get into the nitty-gritty of accounting work."
+ },
+ {
+   "commentText": "\"Preferably with knowledge of Company Law\" - ye 'preferably' wala word problem create kar sakta hai. Interview panel iska galat istemal kar ke kisi ko bhi reject kar sakta hai ya fir kisi ko favor kar sakta hai. Criteria ya to clear hona chahiye ya nahi. 'Preferably' vague hai."
+ },
+ {
+   "commentText": "The notice is very well-drafted and leaves little room for ambiguity. Every important aspect, from qualifications to termination conditions, is covered. This level of clarity is essential for attracting the right candidates and setting correct expectations from the beginning."
+ },
+ {
+   "commentText": "Is role ke liye Mumbai mein rehna hoga, aur 50,000 per month mein Mumbai ka rent aur cost of life manage karna mushkil hoga, especially for someone who has to move from another city. The remuneration does not seem to be calibrated for the high cost of living in the city of operation."
+ },
+ {
+   "commentText": "The chance to work directly with the Official Liquidator's office is invaluable for a fresh graduate."
+ },
+ {
+   "commentText": "The termination policy for absence creates a stressful work environment."
+ },
+ {
+   "commentText": "The requirement for good communication and MS-Excel skills is appreciated."
+ },
+ {
+   "commentText": "Expecting one person to handle both legal and accounting work is unrealistic."
+ },
+ {
+   "commentText": "A former High Court judge on the panel ensures a fair selection based on merit."
+ },
+ {
+   "commentText": "A twelve-month tenure is too short to achieve significant learning or contribution."
+ },
+ {
+   "commentText": "The email-only application process is a good move towards digitization."
+ },
+ {
+   "commentText": "The term lump sum remuneration is vague regarding extra costs like travel."
+ },
+ {
+   "commentText": "Specifying a preference for company law knowledge attracts the right candidates."
+ },
+ {
+   "commentText": "This notice should have been published in Hindi as well for wider reach."
+ },
+ {
+   "commentText": "I will apply for this position as it matches my skills."
+ },
+ {
+   "commentText": "The notice seems to indicate poor planning by the office."
+ },
+ {
+   "commentText": "The pay scale is not aligned with Mumbai's high cost of living."
+ },
+ {
+   "commentText": "The opportunity to assist in dividend disbursement is a valuable learning experience."
+ },
+ {
+   "commentText": "The power to frame additional rules could be misused."
+ },
+ {
+   "commentText": "The notice is very detailed and answers most potential questions."
+ },
+ {
+   "commentText": "The work will involve dealing with sensitive financial data."
+ },
+ {
+   "commentText": "The broad eligibility allows professionals from different fields to apply."
+ },
+ {
+   "commentText": "The temporary nature means no long-term commitment for either party."
+ },
+ {
+   "commentText": "The interview might be intimidating due to the high-profile panel."
+ },
+ {
+   "commentText": "Submitting self-attested documents is a standard and easy process."
+ },
+ {
+   "commentText": "The role might involve mundane tasks like manual book-keeping."
+ },
+ {
+   "commentText": "This could be a good networking opportunity within the legal community."
+ },
+ {
+   "commentText": "The short tenure makes it unsuitable for those seeking stable employment."
+ },
+ {
+   "commentText": "The clarity on tax deduction is good for financial planning."
+ },
+ {
+   "commentText": "The withdrawal of the old notice without apology is discourteous."
+ },
+ {
+   "commentText": "The task of scrutinizing the Statement of Affairs is a core accounting function."
+ },
+ {
+   "commentText": "No provision for salary increment during the tenure is a drawback."
+ },
+ {
+   "commentText": "The notice is professionally drafted without unnecessary information."
+ },
+ {
+   "commentText": "The opportunity might attract more fresh graduates than experienced professionals."
+ },
+ {
+   "commentText": "The requirement to accompany officers to court is a great practical experience."
+ },
+ {
+   "commentText": "The vague term 'preferably' could lead to subjective selection."
+ },
+ {
+   "commentText": "The notice lacks information about the typical work hours."
+ },
+ {
+   "commentText": "This role could serve as a good transition into corporate law practice."
+ },
+ {
+   "commentText": "The strict confidentiality rule is understandable given the nature of work."
+ },
+ {
+   "commentText": "The office location in Fort is convenient for most people in Mumbai."
+ },
+ {
+   "commentText": "The notice does not mention any provision for sick leave."
+ },
+ {
+   "commentText": "The experience gained will be highly regarded on a resume."
+ },
+ {
+   "commentText": "The application form is simple and not complicated to fill out."
+ },
+ {
+   "commentText": "There is a risk of the role becoming overwhelming due to diverse tasks."
+ },
+ {
+   "commentText": "I will recommend this opportunity to my qualified friends."
+ },
+ {
+   "commentText": "The document is long but necessary to understand the role fully."
+ },
+ {
+   "commentText": "The warning against fake documents maintains the process's integrity."
+ },
+ {
+   "commentText": "The holiday policy is clear and aligned with the office."
+ },
+ {
+   "commentText": "The role might require working on weekends during critical periods."
+ },
+ {
+   "commentText": "This is a good chance to understand the judicial process up close."
+ },
+ {
+   "commentText": "Outstation candidates will have to bear their relocation costs."
+ },
+ {
+   "commentText": "The notice is standard and similar to other government contract ads."
+ },
+ {
+   "commentText": "I hope they select a candidate who is truly passionate about the work."
+ },
+ {
+   "commentText": "The pay might be acceptable if it leads to a permanent position later."
+ },
+ {
+   "commentText": "This role is a masterclass in understanding corporate dissolution."
+ },
+ {
+   "commentText": "Expecting a Drafting Counsel to do numerical work is a red flag."
+ },
+ {
+   "commentText": "Allowing private practice makes the role more sustainable and attractive."
+ },
+ {
+   "commentText": "The chance to handle court matters is a golden opportunity for young advocates."
+ },
+ {
+   "commentText": "The 'preferably' clause allows for considering candidates with transferable skills."
+ },
+ {
+   "commentText": "Sole reliance on email can be a barrier for some potential applicants."
+ },
+ {
+   "commentText": "Drafting reports for court scrutiny is an exceptional skill-building opportunity."
+ },
+ {
+   "commentText": "The termination for absence rule lacks provisions for genuine emergencies."
+ },
+ {
+   "commentText": "The notice's business-like tone is appreciated for its clarity."
+ },
+ {
+   "commentText": "The role demands high skills but offers low pay and no job security."
+ },
+ {
+   "commentText": "I am eager to gain experience in high-profile liquidation cases."
+ },
+ {
+   "commentText": "The office might have inadequate staffing, leading to a heavy workload."
+ },
+ {
+   "commentText": "The emphasis on integrity is crucial for this sensitive role."
+ },
+ {
+   "commentText": "Asking a qualified professional to do manual book-keeping is demotivating."
+ },
+ {
+   "commentText": "The detailed job profile allows for accurate self-assessment by candidates."
+ },
+ {
+   "commentText": "The reissuance of the notice might indicate improvements were made."
+ },
+ {
+   "commentText": "MS-Excel proficiency is a valuable and practical skill for any professional."
+ },
+ {
+   "commentText": "The lump sum term likely means no extra payment for overtime work."
+ },
+ {
+   "commentText": "A former judge's involvement ensures assessment of legal depth and temperament."
+ },
+ {
+   "commentText": "This seems like a stop-gap arrangement, not a serious investment in talent."
+ },
+ {
+   "commentText": "I am prepared for the challenge this role presents."
+ },
+ {
+   "commentText": "The job might not offer any clear path for career growth."
+ },
+ {
+   "commentText": "I will submit my application and hope to get shortlisted."
+ },
+ {
+   "commentText": "This experience will be a significant boost to my career profile."
+ },
+ {
+   "commentText": "Dealing with dissatisfied creditors could be a stressful part of the job."
+ },
+ {
+   "commentText": "I need to prepare a strong cover letter to accompany my application."
+ },
+ {
+   "commentText": "My logical reasoning skills are a good match for this role."
+ },
+ {
+   "commentText": "The salary is too low to allow for any significant savings in Mumbai."
+ },
+ {
+   "commentText": "The prospect of living in Mumbai is exciting."
+ },
+ {
+   "commentText": "I am hesitant to relocate for a temporary position."
+ },
+ {
+   "commentText": "The job will certainly not be boring."
+ },
+ {
+   "commentText": "The diverse workload might become overwhelming."
+ },
+ {
+   "commentText": "I possess the required team management skills."
+ },
+ {
+   "commentText": "I will check my email frequently for any communication."
+ },
+ {
+   "commentText": "This could be a good opportunity for a fresh start."
+ },
+ {
+   "commentText": "The temporary nature makes it an unreliable source of income."
+ },
+ {
+   "commentText": "The learning experience will be valuable for my future."
+ },
+ {
+   "commentText": "I have applied to similar contract roles in the past."
+ },
+ {
+   "commentText": "The notice provides all the information I need to decide."
+ },
+ {
+   "commentText": "The previous applicants were treated unfairly."
+ },
+ {
+   "commentText": "I am confident I can meet the performance expectations."
+ },
+ {
+   "commentText": "The value of the job depends on what one makes of it."
+ },
+ {
+   "commentText": "It is a prestigious assignment with the High Court."
+ },
+ {
+   "commentText": "The one-sided termination clause is unacceptable to me."
+ },
+ {
+   "commentText": "I will gain practical knowledge of insolvency laws."
+ },
+ {
+   "commentText": "I might receive a better offer from the private sector."
+ },
+ {
+   "commentText": "The interview will be a good learning experience regardless."
+ },
+ {
+   "commentText": "The offered salary is disappointing for the required expertise."
+ },
+ {
+   "commentText": "This role could be a way to enter the government sector."
+ },
+ {
+   "commentText": "I am cautiously optimistic about this opportunity."
+ },
+ {
+   "commentText": "The role provides a holistic view of the corporate lifecycle."
+ },
+ {
+   "commentText": "The vague job profile suggests a lack of clear role definition."
+ },
+ {
+   "commentText": "Upfront mention of TDS deduction is a mark of transparency."
+ },
+ {
+   "commentText": "Blacklisting candidates for fake documents ensures a fair process."
+ },
+ {
+   "commentText": "The power to add rules is necessary for administrative adaptability."
+ },
+ {
+   "commentText": "The notice reissuance could mean the new one is more refined."
+ },
+ {
+   "commentText": "MS-Excel skills are essential for modern data-driven legal work."
+ },
+ {
+   "commentText": "No overtime pay is a significant downside of the lump sum structure."
+ },
+ {
+   "commentText": "The interview panel is designed to select the most competent candidate."
+ },
+ {
+   "commentText": "The engagement model undervalues professional qualifications."
+ },
+ {
+   "commentText": "I look forward to demonstrating my skills in the interview."
+ },
+ {
+   "commentText": "The reality of the job might be less glamorous than described."
+ },
+ {
+   "commentText": "My application has been submitted successfully."
+ },
+ {
+   "commentText": "This job will help me manage my financial obligations."
+ },
+ {
+   "commentText": "The salary is insufficient for Mumbai's high cost of living."
+ },
+ {
+   "commentText": "Now I must wait for a response from the office."
+ },
+ {
+   "commentText": "I have a positive预感 about this application."
+ },
+ {
+   "commentText": "Office politics could be a challenge in this environment."
+ },
+ {
+   "commentText": "This is a chance to demonstrate my capabilities."
+ },
+ {
+   "commentText": "I am trying not to get my hopes up too high."
+ },
+ {
+   "commentText": "This job will help build my professional character."
+ },
+ {
+   "commentText": "The potential stress might not justify the benefits."
+ },
+ {
+   "commentText": "I am ready for a new professional adventure."
+ },
+ {
+   "commentText": "I am exploring other opportunities simultaneously."
+ },
+ {
+   "commentText": "This role will be a good addition to my resume."
+ },
+ {
+   "commentText": "The lack of security is a constant source of anxiety."
+ },
+ {
+   "commentText": "The practical experience gained will be invaluable."
+ },
+ {
+   "commentText": "The terms of the contract are non-negotiable."
+ },
+ {
+   "commentText": "The notice is thorough and well-written."
+ },
+ {
+   "commentText": "The withdrawal of the old notice was an unnecessary hassle."
+ },
+ {
+   "commentText": "I believe I can perform this job effectively."
+ },
+ {
+   "commentText": "The office location is convenient for me."
+ },
+ {
+   "commentText": "It is a respected and known office."
+ }
 ]
