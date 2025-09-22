@@ -1,0 +1,5402 @@
+[
+  {
+    "companyId": "CIN_S0001",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0002",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0003",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0004",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0005",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0006",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0007",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0008",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0009",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0010",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0011",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0012",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0013",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0014",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0015",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0016",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0017",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0018",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0019",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0020",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0021",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0022",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0023",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0024",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0025",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0026",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0027",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0028",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0029",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0030",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0031",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0032",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0033",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0034",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0035",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0036",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0037",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0038",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0039",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0040",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0041",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0042",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0043",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0044",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0045",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0046",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0047",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0048",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0049",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0050",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0051",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0052",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0053",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0054",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0055",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0056",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0057",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0058",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0059",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0060",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0061",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0062",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0063",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0064",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0065",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0066",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0067",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0068",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0069",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0070",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0071",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0072",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0073",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0074",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0075",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0076",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0077",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0078",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0079",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0080",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0081",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0082",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0083",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0084",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0085",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0086",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0087",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0088",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0089",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0090",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0091",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0092",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0093",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0094",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0095",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0096",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0097",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0098",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0099",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0100",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0101",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0102",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0103",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0104",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0105",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0106",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0107",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0108",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0109",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0110",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0111",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0112",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0113",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0114",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0115",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0116",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0117",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0118",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0119",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0120",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0121",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0122",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0123",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0124",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0125",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0126",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0127",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0128",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0129",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0130",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0131",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0132",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0133",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0134",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0135",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0136",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0137",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0138",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0139",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0140",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0141",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0142",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0143",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0144",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0145",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0146",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0147",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0148",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0149",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0150",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0151",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0152",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0153",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0154",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0155",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0156",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0157",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0158",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0159",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0160",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0161",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0162",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0163",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0164",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0165",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0166",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0167",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0168",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0169",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0170",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0171",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0172",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0173",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0174",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0175",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0176",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0177",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0178",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0179",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0180",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0181",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0182",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0183",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0184",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0185",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0186",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0187",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0188",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0189",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0190",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0191",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0192",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0193",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0194",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0195",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0196",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0197",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0198",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0199",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0200",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0001",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0002",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0003",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0004",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0005",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0006",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0007",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0008",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0009",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0010",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0011",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0012",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0013",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0014",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0015",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0016",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0017",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0018",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0019",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0020",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0021",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0022",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0023",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0024",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0025",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0026",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0027",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0028",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0029",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0030",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0031",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0032",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0033",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0034",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0035",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0036",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0037",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0038",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0039",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0040",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0041",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0042",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0043",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0044",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0045",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0046",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0047",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0048",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0049",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0050",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0051",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0052",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0053",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0054",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0055",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0056",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0057",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0058",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0059",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0060",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0061",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0062",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0063",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0064",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0065",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0066",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0067",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0068",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0069",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0070",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0071",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0072",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0073",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0074",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0075",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0076",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0077",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0078",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0079",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0080",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0081",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0082",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0083",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0084",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0085",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0086",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0087",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0088",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0089",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0090",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0091",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0092",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0093",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0094",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0095",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0096",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0097",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0098",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0099",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0100",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0101",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0102",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0103",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0104",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0105",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0106",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0107",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0108",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0109",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0110",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0111",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0112",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0113",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0114",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0115",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0116",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0117",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0118",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0119",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0120",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0121",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0122",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0123",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0124",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0125",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0126",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0127",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0128",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0129",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0130",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0131",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0132",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0133",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0134",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0135",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0136",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0137",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0138",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0139",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0140",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0141",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0142",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0143",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0144",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0145",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0146",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0147",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0148",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0149",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0150",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0151",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0152",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0153",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0154",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0155",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0156",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0157",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0158",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0159",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0160",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0161",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0162",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0163",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0164",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0165",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0166",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0167",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0168",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0169",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0170",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0171",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0172",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0173",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0174",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0175",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0176",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0177",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0178",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0179",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0180",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0181",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0182",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0183",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0184",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0185",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0186",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0187",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0188",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0189",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0190",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0191",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0192",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0193",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0194",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0195",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0196",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0197",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0198",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0199",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0200",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0201",
+    "companyName": "Fusion Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0202",
+    "companyName": "Aura Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0203",
+    "companyName": "Apex Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0204",
+    "companyName": "Nova Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0205",
+    "companyName": "Apex Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0206",
+    "companyName": "Orion Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0207",
+    "companyName": "Nova Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0208",
+    "companyName": "Apex Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0209",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0210",
+    "companyName": "Pinnacle Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0211",
+    "companyName": "Zenith Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0212",
+    "companyName": "Aura Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0213",
+    "companyName": "Apex Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0214",
+    "companyName": "Stellar Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0215",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0216",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0217",
+    "companyName": "Aura Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0218",
+    "companyName": "Pinnacle Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0219",
+    "companyName": "Pinnacle Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0220",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0221",
+    "companyName": "Stellar Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0222",
+    "companyName": "Quantum Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0223",
+    "companyName": "Apex Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0224",
+    "companyName": "Aura Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0225",
+    "companyName": "Quantum Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0226",
+    "companyName": "Stellar Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0227",
+    "companyName": "Meridian Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0228",
+    "companyName": "Stellar Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0229",
+    "companyName": "Fusion Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0230",
+    "companyName": "Quantum Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0231",
+    "companyName": "Aura Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0232",
+    "companyName": "Aura Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0233",
+    "companyName": "Fusion Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0234",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0235",
+    "companyName": "Apex Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0236",
+    "companyName": "Orion Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0237",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0238",
+    "companyName": "Zenith Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0239",
+    "companyName": "Apex Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0240",
+    "companyName": "Meridian Solutions Pvt. Ltd.",
+    "category": "Others",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0241",
+    "companyName": "Fusion Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0242",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0243",
+    "companyName": "Orion Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0244",
+    "companyName": "Apex Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0245",
+    "companyName": "Quantum Innovations Pvt. Ltd.",
+    "category": "Others",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0246",
+    "companyName": "Pinnacle Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0247",
+    "companyName": "Pinnacle Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0248",
+    "companyName": "Quantum Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0249",
+    "companyName": "Apex Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0250",
+    "companyName": "Apex Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0251",
+    "companyName": "Stellar Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0252",
+    "companyName": "Aura Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0253",
+    "companyName": "Aura Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0254",
+    "companyName": "Quantum Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0255",
+    "companyName": "Pinnacle Tech Pvt. Ltd.",
+    "category": "Others",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0256",
+    "companyName": "Orion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0257",
+    "companyName": "Orion Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0258",
+    "companyName": "Apex Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0259",
+    "companyName": "Aura Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0260",
+    "companyName": "Apex Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0261",
+    "companyName": "Nova Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0262",
+    "companyName": "Stellar Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0263",
+    "companyName": "Aura Innovations Pvt. Ltd.",
+    "category": "Others",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0264",
+    "companyName": "Zenith Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0265",
+    "companyName": "Aura Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0266",
+    "companyName": "Apex Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0267",
+    "companyName": "Zenith Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0268",
+    "companyName": "Stellar Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0269",
+    "companyName": "Orion Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0270",
+    "companyName": "Apex Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0271",
+    "companyName": "Aura Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0272",
+    "companyName": "Quantum Enterprises Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0273",
+    "companyName": "Fusion Partners Pvt. Ltd.",
+    "category": "Others",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0274",
+    "companyName": "Zenith Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0275",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0276",
+    "companyName": "Orion Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0277",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0278",
+    "companyName": "Stellar Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0279",
+    "companyName": "Stellar Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0280",
+    "companyName": "Meridian Enterprises Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0281",
+    "companyName": "Quantum Dynamics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0282",
+    "companyName": "Nova Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0283",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0284",
+    "companyName": "Nova Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0285",
+    "companyName": "Orion Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0286",
+    "companyName": "Fusion Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0287",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0288",
+    "companyName": "Nova Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0289",
+    "companyName": "Pinnacle Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0290",
+    "companyName": "Stellar Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0291",
+    "companyName": "Quantum Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0292",
+    "companyName": "Stellar Partners Pvt. Ltd.",
+    "category": "Others",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0293",
+    "companyName": "Meridian Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0294",
+    "companyName": "Apex Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0295",
+    "companyName": "Aura Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0296",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0297",
+    "companyName": "Stellar Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0298",
+    "companyName": "Apex Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0299",
+    "companyName": "Pinnacle Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0300",
+    "companyName": "Nova Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0301",
+    "companyName": "Stellar Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0302",
+    "companyName": "Zenith Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0303",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0304",
+    "companyName": "Aura Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0305",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0306",
+    "companyName": "Meridian Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0307",
+    "companyName": "Fusion Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0308",
+    "companyName": "Meridian Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0309",
+    "companyName": "Zenith Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0310",
+    "companyName": "Aura Solutions Pvt. Ltd.",
+    "category": "Others",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0311",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0312",
+    "companyName": "Zenith Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0313",
+    "companyName": "Stellar Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0314",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Others",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0315",
+    "companyName": "Orion Solutions Pvt. Ltd.",
+    "category": "Others",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0316",
+    "companyName": "Fusion Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0317",
+    "companyName": "Stellar Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0318",
+    "companyName": "Aura Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0319",
+    "companyName": "Orion Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0320",
+    "companyName": "Aura Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0321",
+    "companyName": "Apex Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0322",
+    "companyName": "Orion Tech Pvt. Ltd.",
+    "category": "Others",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0323",
+    "companyName": "Stellar Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0324",
+    "companyName": "Aura Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0325",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0326",
+    "companyName": "Meridian Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0327",
+    "companyName": "Quantum Solutions Pvt. Ltd.",
+    "category": "Others",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0328",
+    "companyName": "Fusion Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0329",
+    "companyName": "Quantum Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0330",
+    "companyName": "Aura Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0331",
+    "companyName": "Orion Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0332",
+    "companyName": "Nova Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0333",
+    "companyName": "Zenith Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0334",
+    "companyName": "Nova Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0335",
+    "companyName": "Nova Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0336",
+    "companyName": "Nova Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0337",
+    "companyName": "Zenith Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0338",
+    "companyName": "Zenith Dynamics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0339",
+    "companyName": "Stellar Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0340",
+    "companyName": "Nova Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0341",
+    "companyName": "Stellar Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0342",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0343",
+    "companyName": "Nova Partners Pvt. Ltd.",
+    "category": "Others",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0344",
+    "companyName": "Apex Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0345",
+    "companyName": "Pinnacle Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0346",
+    "companyName": "Orion Dynamics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0347",
+    "companyName": "Quantum Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0348",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0349",
+    "companyName": "Stellar Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0350",
+    "companyName": "Meridian Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0351",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0352",
+    "companyName": "Quantum Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0353",
+    "companyName": "Aura Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0354",
+    "companyName": "Quantum Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0355",
+    "companyName": "Apex Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0356",
+    "companyName": "Quantum Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0357",
+    "companyName": "Aura Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0358",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0359",
+    "companyName": "Pinnacle Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0360",
+    "companyName": "Quantum Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0361",
+    "companyName": "Fusion Logistics Pvt. Ltd.",
+    "category": "Others",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0362",
+    "companyName": "Quantum Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0363",
+    "companyName": "Quantum Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0364",
+    "companyName": "Stellar Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0365",
+    "companyName": "Nova Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0366",
+    "companyName": "Apex Consulting Pvt. Ltd.",
+    "category": "Others",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0367",
+    "companyName": "Aura Dynamics Pvt. Ltd.",
+    "category": "Others",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0368",
+    "companyName": "Pinnacle Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0369",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0370",
+    "companyName": "Zenith Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0371",
+    "companyName": "Quantum Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0372",
+    "companyName": "Nova Solutions Pvt. Ltd.",
+    "category": "Others",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0373",
+    "companyName": "Stellar Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0374",
+    "companyName": "Meridian Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0375",
+    "companyName": "Apex Enterprises Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0376",
+    "companyName": "Orion Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0377",
+    "companyName": "Meridian Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0378",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Others",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0379",
+    "companyName": "Fusion Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0380",
+    "companyName": "Apex Solutions Pvt. Ltd.",
+    "category": "Others",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0381",
+    "companyName": "Apex Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0382",
+    "companyName": "Stellar Logistics Pvt. Ltd.",
+    "category": "Others",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0383",
+    "companyName": "Pinnacle Consulting Pvt. Ltd.",
+    "category": "Others",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0384",
+    "companyName": "Nova Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0385",
+    "companyName": "Quantum Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0386",
+    "companyName": "Aura Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0387",
+    "companyName": "Quantum Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0388",
+    "companyName": "Meridian Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0389",
+    "companyName": "Nova Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0390",
+    "companyName": "Apex Logistics Pvt. Ltd.",
+    "category": "Others",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0391",
+    "companyName": "Meridian Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0392",
+    "companyName": "Orion Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0393",
+    "companyName": "Fusion Partners Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0394",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0395",
+    "companyName": "Quantum Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0396",
+    "companyName": "Meridian Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0397",
+    "companyName": "Quantum Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0398",
+    "companyName": "Zenith Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0399",
+    "companyName": "Quantum Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0400",
+    "companyName": "Orion Tech Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0401",
+    "companyName": "Fusion Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0402",
+    "companyName": "Pinnacle Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0403",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0404",
+    "companyName": "Nova Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0405",
+    "companyName": "Stellar Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0406",
+    "companyName": "Stellar Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0407",
+    "companyName": "Fusion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0408",
+    "companyName": "Quantum Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0409",
+    "companyName": "Pinnacle Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0410",
+    "companyName": "Stellar Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0411",
+    "companyName": "Meridian Consulting Pvt. Ltd.",
+    "category": "Others",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0412",
+    "companyName": "Nova Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0413",
+    "companyName": "Fusion Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0414",
+    "companyName": "Quantum Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0415",
+    "companyName": "Apex Solutions Pvt. Ltd.",
+    "category": "Others",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0416",
+    "companyName": "Zenith Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0417",
+    "companyName": "Fusion Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0418",
+    "companyName": "Nova Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0419",
+    "companyName": "Orion Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0420",
+    "companyName": "Apex Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0421",
+    "companyName": "Orion Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0422",
+    "companyName": "Nova Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0423",
+    "companyName": "Quantum Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0424",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0425",
+    "companyName": "Quantum Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0426",
+    "companyName": "Fusion Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0427",
+    "companyName": "Orion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0428",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0429",
+    "companyName": "Quantum Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0430",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0431",
+    "companyName": "Meridian Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0432",
+    "companyName": "Apex Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0433",
+    "companyName": "Fusion Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0434",
+    "companyName": "Pinnacle Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0435",
+    "companyName": "Nova Partners Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0436",
+    "companyName": "Fusion Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0437",
+    "companyName": "Nova Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0438",
+    "companyName": "Fusion Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0439",
+    "companyName": "Fusion Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0440",
+    "companyName": "Pinnacle Consulting Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0441",
+    "companyName": "Meridian Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0442",
+    "companyName": "Nova Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0443",
+    "companyName": "Zenith Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0444",
+    "companyName": "Pinnacle Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0445",
+    "companyName": "Orion Logistics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0446",
+    "companyName": "Stellar Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0447",
+    "companyName": "Apex Enterprises Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0448",
+    "companyName": "Stellar Tech Pvt. Ltd.",
+    "category": "Others",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0449",
+    "companyName": "Quantum Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0450",
+    "companyName": "Nova Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0451",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0452",
+    "companyName": "Zenith Tech Pvt. Ltd.",
+    "category": "Others",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0453",
+    "companyName": "Quantum Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0454",
+    "companyName": "Orion Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0455",
+    "companyName": "Apex Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0456",
+    "companyName": "Apex Partners Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0457",
+    "companyName": "Zenith Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0458",
+    "companyName": "Aura Solutions Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0459",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0460",
+    "companyName": "Apex Tech Pvt. Ltd.",
+    "category": "Others",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0461",
+    "companyName": "Orion Logistics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0462",
+    "companyName": "Stellar Dynamics Pvt. Ltd.",
+    "category": "Others",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0463",
+    "companyName": "Quantum Tech Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0464",
+    "companyName": "Meridian Consulting Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0465",
+    "companyName": "Meridian Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0466",
+    "companyName": "Quantum Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0467",
+    "companyName": "Pinnacle Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0468",
+    "companyName": "Meridian Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0469",
+    "companyName": "Quantum Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0470",
+    "companyName": "Stellar Tech Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0471",
+    "companyName": "Fusion Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0472",
+    "companyName": "Aura Partners Pvt. Ltd.",
+    "category": "Others",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0473",
+    "companyName": "Stellar Dynamics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0474",
+    "companyName": "Quantum Enterprises Pvt. Ltd.",
+    "category": "Others",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "CIN_S0475",
+    "companyName": "Apex Solutions Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0476",
+    "companyName": "Pinnacle Solutions Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0477",
+    "companyName": "Meridian Partners Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0478",
+    "companyName": "Nova Enterprises Pvt. Ltd.",
+    "category": "Investors",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0479",
+    "companyName": "Quantum Enterprises Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0480",
+    "companyName": "Stellar Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0481",
+    "companyName": "Fusion Innovations Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0482",
+    "companyName": "Aura Innovations Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "CIN_S0483",
+    "companyName": "Fusion Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0484",
+    "companyName": "Fusion Consulting Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0485",
+    "companyName": "Stellar Consulting Pvt. Ltd.",
+    "category": "Others",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0486",
+    "companyName": "Meridian Dynamics Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0487",
+    "companyName": "Pinnacle Innovations Pvt. Ltd.",
+    "category": "Investors",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "CIN_S0488",
+    "companyName": "Pinnacle Innovations Pvt. Ltd.",
+    "category": "Others",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "CIN_S0489",
+    "companyName": "Pinnacle Logistics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "CIN_S0490",
+    "companyName": "Fusion Enterprises Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "CIN_S0491",
+    "companyName": "Fusion Partners Pvt. Ltd.",
+    "category": "Others",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0492",
+    "companyName": "Nova Innovations Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "CIN_S0493",
+    "companyName": "Zenith Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "CIN_S0494",
+    "companyName": "Fusion Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0495",
+    "companyName": "Pinnacle Dynamics Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0496",
+    "companyName": "Aura Logistics Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0497",
+    "companyName": "Apex Tech Pvt. Ltd.",
+    "category": "Proprietorship firms",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0498",
+    "companyName": "Orion Solutions Pvt. Ltd.",
+    "category": "Corporate Debtor",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "CIN_S0499",
+    "companyName": "Aura Dynamics Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "CIN_S0500",
+    "companyName": "Stellar Consulting Pvt. Ltd.",
+    "category": "Insolvency Professional",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0001",
+    "companyName": "Vihaan Singh",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0002",
+    "companyName": "Saanvi Jain",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0003",
+    "companyName": "Aarav Gupta",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0004",
+    "companyName": "Aarav Mehta",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0005",
+    "companyName": "Vihaan Singh",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0006",
+    "companyName": "Aditya Patel",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0007",
+    "companyName": "Reyansh Shah",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0008",
+    "companyName": "Aanya Patel",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0009",
+    "companyName": "Sai Gupta",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0010",
+    "companyName": "Arjun Verma",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0011",
+    "companyName": "Diya Singh",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0012",
+    "companyName": "Diya Kumar",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0013",
+    "companyName": "Priya Patel",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0014",
+    "companyName": "Priya Verma",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0015",
+    "companyName": "Diya Singh",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0016",
+    "companyName": "Sai Patel",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0017",
+    "companyName": "Vihaan Mehta",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0018",
+    "companyName": "Aditya Gupta",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0019",
+    "companyName": "Aditya Kumar",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0020",
+    "companyName": "Vihaan Sharma",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0021",
+    "companyName": "Anika Singh",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0022",
+    "companyName": "Priya Sharma",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0023",
+    "companyName": "Anika Gupta",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0024",
+    "companyName": "Arjun Gupta",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0025",
+    "companyName": "Anika Mehta",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0026",
+    "companyName": "Priya Rao",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0027",
+    "companyName": "Aadhya Mehta",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0028",
+    "companyName": "Saanvi Gupta",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0029",
+    "companyName": "Aarav Rao",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0030",
+    "companyName": "Anika Patel",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0031",
+    "companyName": "Arjun Mehta",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0032",
+    "companyName": "Priya Singh",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0033",
+    "companyName": "Aadhya Gupta",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0034",
+    "companyName": "Anika Rao",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0035",
+    "companyName": "Saanvi Gupta",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0036",
+    "companyName": "Saanvi Shah",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0037",
+    "companyName": "Sai Gupta",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0038",
+    "companyName": "Anika Shah",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0039",
+    "companyName": "Saanvi Patel",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0040",
+    "companyName": "Priya Gupta",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0041",
+    "companyName": "Aanya Patel",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0042",
+    "companyName": "Vihaan Rao",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0043",
+    "companyName": "Sai Mehta",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0044",
+    "companyName": "Aanya Verma",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0045",
+    "companyName": "Reyansh Shah",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0046",
+    "companyName": "Priya Gupta",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0047",
+    "companyName": "Anika Mehta",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0048",
+    "companyName": "Sai Verma",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0049",
+    "companyName": "Priya Sharma",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0050",
+    "companyName": "Priya Rao",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0051",
+    "companyName": "Sai Kumar",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0052",
+    "companyName": "Aanya Gupta",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0053",
+    "companyName": "Vihaan Singh",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0054",
+    "companyName": "Arjun Jain",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0055",
+    "companyName": "Sai Kumar",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0056",
+    "companyName": "Reyansh Patel",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0057",
+    "companyName": "Arjun Mehta",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0058",
+    "companyName": "Aadhya Rao",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0059",
+    "companyName": "Aadhya Verma",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0060",
+    "companyName": "Arjun Rao",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0061",
+    "companyName": "Priya Kumar",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0062",
+    "companyName": "Diya Shah",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0063",
+    "companyName": "Aadhya Patel",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0064",
+    "companyName": "Reyansh Sharma",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0065",
+    "companyName": "Vihaan Kumar",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0066",
+    "companyName": "Aanya Rao",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0067",
+    "companyName": "Aditya Shah",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0068",
+    "companyName": "Aadhya Shah",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0069",
+    "companyName": "Anika Rao",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0070",
+    "companyName": "Reyansh Gupta",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0071",
+    "companyName": "Vihaan Jain",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0072",
+    "companyName": "Aarav Gupta",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0073",
+    "companyName": "Diya Singh",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0074",
+    "companyName": "Saanvi Mehta",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0075",
+    "companyName": "Priya Mehta",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0076",
+    "companyName": "Aadhya Kumar",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0077",
+    "companyName": "Vihaan Rao",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0078",
+    "companyName": "Aditya Mehta",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0079",
+    "companyName": "Diya Jain",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0080",
+    "companyName": "Arjun Kumar",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0081",
+    "companyName": "Sai Kumar",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0082",
+    "companyName": "Aditya Singh",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0083",
+    "companyName": "Diya Singh",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0084",
+    "companyName": "Arjun Jain",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0085",
+    "companyName": "Aditya Verma",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0086",
+    "companyName": "Saanvi Mehta",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0087",
+    "companyName": "Aadhya Shah",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0088",
+    "companyName": "Reyansh Kumar",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0089",
+    "companyName": "Aadhya Shah",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0090",
+    "companyName": "Aarav Shah",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0091",
+    "companyName": "Diya Patel",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0092",
+    "companyName": "Anika Sharma",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0093",
+    "companyName": "Anika Shah",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0094",
+    "companyName": "Aanya Patel",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0095",
+    "companyName": "Aarav Gupta",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0096",
+    "companyName": "Saanvi Shah",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0097",
+    "companyName": "Anika Singh",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0098",
+    "companyName": "Anika Jain",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0099",
+    "companyName": "Priya Patel",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0100",
+    "companyName": "Aditya Kumar",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0101",
+    "companyName": "Reyansh Rao",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0102",
+    "companyName": "Aarav Mehta",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0103",
+    "companyName": "Priya Rao",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0104",
+    "companyName": "Diya Verma",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0105",
+    "companyName": "Aadhya Singh",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0106",
+    "companyName": "Vihaan Rao",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0107",
+    "companyName": "Anika Kumar",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0108",
+    "companyName": "Arjun Sharma",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0109",
+    "companyName": "Aditya Sharma",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0110",
+    "companyName": "Diya Patel",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0111",
+    "companyName": "Sai Jain",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0112",
+    "companyName": "Diya Singh",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0113",
+    "companyName": "Arjun Sharma",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0114",
+    "companyName": "Aanya Gupta",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0115",
+    "companyName": "Aditya Rao",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0116",
+    "companyName": "Aarav Mehta",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0117",
+    "companyName": "Arjun Kumar",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0118",
+    "companyName": "Aanya Sharma",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0119",
+    "companyName": "Arjun Verma",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0120",
+    "companyName": "Aanya Gupta",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0121",
+    "companyName": "Anika Sharma",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0122",
+    "companyName": "Sai Rao",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0123",
+    "companyName": "Aditya Rao",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0124",
+    "companyName": "Aarav Patel",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0125",
+    "companyName": "Priya Jain",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0126",
+    "companyName": "Reyansh Kumar",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0127",
+    "companyName": "Priya Gupta",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0128",
+    "companyName": "Sai Jain",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0129",
+    "companyName": "Aarav Verma",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0130",
+    "companyName": "Anika Mehta",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0131",
+    "companyName": "Aarav Gupta",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0132",
+    "companyName": "Sai Sharma",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0133",
+    "companyName": "Vihaan Mehta",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0134",
+    "companyName": "Sai Sharma",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0135",
+    "companyName": "Diya Gupta",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0136",
+    "companyName": "Aanya Mehta",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0137",
+    "companyName": "Aanya Gupta",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0138",
+    "companyName": "Diya Rao",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0139",
+    "companyName": "Reyansh Rao",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0140",
+    "companyName": "Saanvi Kumar",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0141",
+    "companyName": "Saanvi Singh",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0142",
+    "companyName": "Diya Jain",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0143",
+    "companyName": "Saanvi Verma",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0144",
+    "companyName": "Aanya Singh",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0145",
+    "companyName": "Sai Singh",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0146",
+    "companyName": "Aadhya Rao",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0147",
+    "companyName": "Vihaan Verma",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0148",
+    "companyName": "Priya Jain",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0149",
+    "companyName": "Arjun Shah",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0150",
+    "companyName": "Aanya Gupta",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0151",
+    "companyName": "Sai Sharma",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0152",
+    "companyName": "Vihaan Gupta",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0153",
+    "companyName": "Vihaan Mehta",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0154",
+    "companyName": "Aanya Patel",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0155",
+    "companyName": "Aditya Patel",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0156",
+    "companyName": "Reyansh Sharma",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0157",
+    "companyName": "Aditya Jain",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0158",
+    "companyName": "Priya Rao",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0159",
+    "companyName": "Saanvi Gupta",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0160",
+    "companyName": "Reyansh Kumar",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0161",
+    "companyName": "Aanya Mehta",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0162",
+    "companyName": "Aarav Singh",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0163",
+    "companyName": "Diya Jain",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0164",
+    "companyName": "Reyansh Sharma",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0165",
+    "companyName": "Anika Rao",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0166",
+    "companyName": "Aanya Patel",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0167",
+    "companyName": "Saanvi Sharma",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0168",
+    "companyName": "Diya Mehta",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0169",
+    "companyName": "Arjun Verma",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0170",
+    "companyName": "Diya Shah",
+    "category": "User",
+    "state": "West Bengal"
+  },
+  {
+    "companyId": "USR_0171",
+    "companyName": "Anika Jain",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0172",
+    "companyName": "Reyansh Kumar",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0173",
+    "companyName": "Sai Mehta",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0174",
+    "companyName": "Priya Mehta",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0175",
+    "companyName": "Saanvi Gupta",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0176",
+    "companyName": "Aditya Patel",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0177",
+    "companyName": "Priya Gupta",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0178",
+    "companyName": "Aarav Verma",
+    "category": "User",
+    "state": "Karnataka"
+  },
+  {
+    "companyId": "USR_0179",
+    "companyName": "Aarav Rao",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0180",
+    "companyName": "Vihaan Singh",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0181",
+    "companyName": "Anika Singh",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0182",
+    "companyName": "Priya Shah",
+    "category": "User",
+    "state": "Rajasthan"
+  },
+  {
+    "companyId": "USR_0183",
+    "companyName": "Aanya Shah",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0184",
+    "companyName": "Vihaan Singh",
+    "category": "User",
+    "state": "Maharashtra"
+  },
+  {
+    "companyId": "USR_0185",
+    "companyName": "Priya Jain",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0186",
+    "companyName": "Aanya Gupta",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0187",
+    "companyName": "Aditya Kumar",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0188",
+    "companyName": "Vihaan Kumar",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0189",
+    "companyName": "Saanvi Jain",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0190",
+    "companyName": "Priya Patel",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0191",
+    "companyName": "Aadhya Mehta",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0192",
+    "companyName": "Aadhya Rao",
+    "category": "User",
+    "state": "Haryana"
+  },
+  {
+    "companyId": "USR_0193",
+    "companyName": "Diya Verma",
+    "category": "User",
+    "state": "Tamil Nadu"
+  },
+  {
+    "companyId": "USR_0194",
+    "companyName": "Sai Jain",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0195",
+    "companyName": "Aarav Singh",
+    "category": "User",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "companyId": "USR_0196",
+    "companyName": "Aanya Jain",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0197",
+    "companyName": "Sai Patel",
+    "category": "User",
+    "state": "Gujarat"
+  },
+  {
+    "companyId": "USR_0198",
+    "companyName": "Sai Singh",
+    "category": "User",
+    "state": "Punjab"
+  },
+  {
+    "companyId": "USR_0199",
+    "companyName": "Vihaan Gupta",
+    "category": "User",
+    "state": "Delhi"
+  },
+  {
+    "companyId": "USR_0200",
+    "companyName": "Sai Sharma",
+    "category": "User",
+    "state": "Gujarat"
+  }
+]
