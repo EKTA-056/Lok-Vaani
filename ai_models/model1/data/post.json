@@ -7,26 +7,7 @@
     "issueDate": "2025-09-17",
     "deadline": "2025-09-30",
     "language": "ENGLISH",
-    "clauses": [
-      {
-        "clauseId": "mdp_clause_intro",
-        "clauseNumber": "1.1",
-        "clauseTitle": "Introduction",
-        "clauseText": "The global consulting and auditing industry is valued at nearly $240 billion, dominated by international networks and global strategy majors. Despite India's world-class talent pool, domestic firms remain marginal players, particularly in high-value audits and consulting, partly due to structural and regulatory barriers. [cite: 50, 51]"
-      },
-      {
-        "clauseId": "mdp_clause_issues",
-        "clauseNumber": "4",
-        "clauseTitle": "Issues which need to be addressed to help grow Indian firms to International level",
-        "clauseText": "In India, professionals such as chartered accountants, company secretaries, and lawyers face restrictions on advertising and branding due to regulations set by their governing bodies. [cite: 102, 104] [cite_start]This ban limits Indian firms from building strong brands and competing on a global scale. [cite: 106] [cite_start]Additionally, restrictions on multidisciplinary partnerships (MDPs) prevent professionals from different fields from working together under a single firm structure, limiting their ability to offer integrated services. [cite: 108, 109, 110]"
-      },
-      {
-        "clauseId": "mdp_clause_q1",
-        "clauseNumber": "Q1",
-        "clauseTitle": "Questionnaire",
-        "clauseText": "Suggest specific changes in the Rules/Regulations administering different professionals in India to ensure Indian firms develop into globally competitive players in the field of consultancy. [cite: 136, 141]"
-      }
-    ]
+    "draft_text": "The global consulting and auditing industry is valued at nearly $240 billion, dominated by international networks and global strategy majors. Despite India's world-class talent pool, domestic firms remain marginal players, particularly in high-value audits and consulting, partly due to structural and regulatory barriers. The government has taken steps to strengthen Indian firms, including the RBI circular on statutory audits and a focus on 'Make in India' for professional services. A significant asymmetry exists between Indian firms and their global competitors. International firms operate as multidisciplinary networks, offering a wide range of services and leveraging global brands. Indian firms are often smaller, more fragmented, and restricted by regulations that limit their ability to form similar multidisciplinary structures. Several issues hinder the growth of Indian firms, including: (i) An advertising and marketing ban for professionals, (ii-iii) Restrictions on multidisciplinary partnerships (MDPs) and fragmented licensing by different regulators, (iv) Unfair public procurement processes that favor global firms, and (v) A lack of global collaboration platforms for Indian firms. Q1. Suggest specific changes in the Rules/Regulations administering different professionals in India to ensure Indian firms develop into globally competitive players in the field of consultancy. Q2. Suggest successful models of multidisciplinary and large professional service firms, which can be adapted in the Indian context. Q8. Suggest strategies that can be adopted by Indian professional service firms for building their brands globally."
   },
   {
     "postId": "post_002_amalgamations",
@@ -36,20 +17,7 @@
     "issueDate": "2025",
     "deadline": null,
     "language": "ENGLISH",
-    "clauses": [
-      {
-        "clauseId": "amalgamations_clause_1",
-        "clauseNumber": "1",
-        "clauseTitle": "Short title and commencement",
-        "clauseText": "These rules may be called the Companies (Compromises, Arrangements and Amalgamations) Amendment Rules, 2025. They shall come into force on the date of their publication in the Official Gazette. [cite: 6, 7]"
-      },
-      {
-        "clauseId": "amalgamations_clause_2",
-        "clauseNumber": "2",
-        "clauseTitle": "Amendment to Rule 25",
-        "clauseText": "In the Companies (Compromises, Arrangements and Amalgamations) Rules, 2016, in Rule 25, in sub-rule (1A), in clause (ii) for the words 'small company', new clauses are substituted for mergers involving unlisted companies meeting certain criteria, a holding company and its unlisted subsidiaries, or a foreign holding company with its wholly owned Indian subsidiary. [cite: 8, 10, 14, 16]"
-      }
-    ]
+    "draft_text": "These rules may be called the Companies (Compromises, Arrangements and Amalgamations) Amendment Rules, 2025. They shall come into force on the date of their publication in the Official Gazette. In the Companies (Compromises, Arrangements and Amalgamations) Rules, 2016, in Rule 25, in sub-rule (1A), in clause (ii) for the words 'small company', new clauses are substituted for mergers involving unlisted companies meeting certain criteria, a holding company and its unlisted subsidiaries, or a foreign holding company with its wholly owned Indian subsidiary."
   },
   {
     "postId": "post_003_finance_cos",
@@ -69,20 +37,7 @@
     "issueDate": "2025-02-07",
     "deadline": "2025-03-07",
     "language": "ENGLISH",
-    "clauses": [
-      {
-        "clauseId": "sfio_rr_clause_1",
-        "clauseNumber": "1",
-        "clauseTitle": "Prosecutor Post Details",
-        "clauseText": "The post is for a Prosecutor, with 13 positions available. [cite_start]It is classified as General Central Service Group 'B' Gazetted, Non-Ministerial with a Level-8 pay matrix (Rs. 47,600-1,51,100). [cite: 242] [cite_start]Essential qualifications include a Graduate degree plus a Bachelor's in Law, or an Integrated Law degree. [cite: 242]"
-      },
-      {
-        "clauseId": "sfio_rr_clause_2",
-        "clauseNumber": "2",
-        "clauseTitle": "Senior Prosecutor Post Details",
-        "clauseText": "The post is for a Senior Prosecutor, with 9 positions available. [cite_start]It is classified as General Central Service Group 'A' Gazetted, Non-Ministerial with a Level-10 pay matrix (Rs. 56,100-1,77,500). [cite: 248] [cite_start]Recruitment is 67% by promotion and 33% by deputation/absorption. [cite: 249]"
-      }
-    ]
+    "draft_text": "G.S.R. [E].— In exercise of the powers conferred by the proviso to article 309 of the Constitution and in supersession of the Serious Fraud Investigation Office (Prosecutor) Recruitment Rules, 2017, except as respects things done or omitted to be done before such supersession, the President hereby makes the following rules regulating the method of recruitment to the posts of Prosecutor and Senior Prosecutor in the Serious Fraud Investigation Office, under the Ministry of Corporate Affairs, namely:- 1. Short title and commencement.— (1) These rules may be called the Ministry of Corporate Affairs, Serious Fraud Investigation Office, (Prosecutor and Senior Prosecutor) Recruitment Rules, 2025. (2) They shall come into force on the date of their publication in the Official Gazette. 2. Definitions.— In these rules, unless the context otherwise requires,- (a) “Commission” means the Union Public Service Commission; (b) “Controlling Authority” means the Ministry of Corporate Affairs, Government of India; (c) “Departmental Promotion Committee”, “deputation” and “absorption” shall have the same meaning as are assigned to them in the instructions or orders issued by the Central Government. 3. Number of post, classification and pay matrix.— The number of posts, their classification and the pay matrix attached thereto shall be as specified in columns (2) to (4) of the Schedule annexed to these rules. 4. Method of recruitment, age-limit and other qualifications.— The method of recruitment, age-limit, qualifications and other matters relating to the said posts shall be as specified in columns (5) to (13) of the said Schedule. 5. Disqualification.— No person,- (a) who has entered into or contracted a marriage with a person having a spouse living; or (b) who, having a spouse living, has entered into or contracted a marriage with any person, shall be eligible for appointment to the said post. 6. Power to relax.— Where the Central Government is of the opinion that it is necessary or expedient so to do, it may, by order, for reasons to be recorded in writing and in consultation with the Commission, relax any of the provisions of these rules with respect to any class or category of persons. 7. Saving.— Nothing in these rules shall affect reservations, relaxation of age-limit and other concessions required to be provided for the Scheduled Castes, the Scheduled Tribes, Other Backward Classes, Ex-servicemen and other special categories of persons, in accordance with the orders issued by the Central Government from time to time in this regard. SCHEDULE: Name of post: Prosecutor. Number of post: 13 (2025) *Subject to variation dependent on workload. Classification: General Central Service Group ‘B’ Gazetted, Non-Ministerial. Pay matrix: Level-8 in the pay matrix (Rs. 47600-151100). Age-limit for direct recruits: Not exceeding 30 years. Educational and other qualifications required for direct recruits: Essential: (A) (i) Graduate from a recognised University; (ii) Bachelors Degree in Law from a recognised University or Institute. OR Integrated graduate in Law (Five years duration) from a recognised University or Institute. Desirable: (i) A Masters Degree in Law or equivalent; (ii) Three years’ experience at the Bar in dealing with criminal cases or fiscal laws. Whether age and educational qualifications prescribed for direct recruits will apply in the case of promotees: Not applicable. Period of probation, if any: Two years. Method of recruitment: 75% by direct recruitment and 25% by promotion. In case of recruitment by promotion/deputation/absorption, grades from which promotion/deputation/absorption to be made: Promotion: Upper Division Clerk of the Serious Fraud Investigation Office with at least ten years of regular service in the grade and possessing the educational qualifications. Name of post: Senior Prosecutor. Number of post: 09 (2025) *Subject to variation dependent on workload. Classification: General Central Service Group ‘A’ Gazetted, Non-Ministerial. Pay matrix: Level-10 in the pay matrix (Rs. 56100-177500). Method of recruitment: 67% by promotion failing which by deputation (including short-term contract)/absorption and 33% by deputation (including short-term contract)/absorption. In case of recruitment by promotion/deputation/absorption, grades from which promotion/deputation/absorption to be made: Promotion: Prosecutor with five years regular service in the grade."
   },
   {
     "postId": "post_005_recruitment",

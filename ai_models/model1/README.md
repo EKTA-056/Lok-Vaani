@@ -4,9 +4,11 @@ Enhanced comment generation system with translation and tone analysis for policy
 
 ## Features
 
-- **Authentic Comments**: Uses existing 600+ comment dataset (80% priority)
-- **Translation System**: Hindi/Hinglish → English conversion
-- **Tone Analysis**: 5-category classification (Supportive, Concerned, Suggestive, Sarcastic, Neutral)
+- **Authentic Comments**: Uses curated 588 unique comments dataset (no duplicates)
+- **Smart Rotation System**: Prevents repetitive comment selection with batching
+- **Quality Deduplication**: Automatically removes duplicates while preserving best content
+- **50+ Word Guarantee**: All generated comments meet minimum length requirement  
+- **Source Transparency**: Detailed tracking of which comments were used
 - **Weighted Selection**: Company category-based comment relevance
 - **REST API**: FastAPI with CORS support
 

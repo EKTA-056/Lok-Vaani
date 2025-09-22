@@ -1,0 +1,75 @@
+nohup: ignoring input
+/home/vikash/.pyenv/versions/3.10.12/lib/python3.10/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/vikash/.pyenv/versions/3.10.12/lib/python3.10/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/vikash/.pyenv/versions/3.10.12/lib/python3.10/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/vikash/.pyenv/versions/3.10.12/lib/python3.10/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/vikash/.pyenv/versions/3.10.12/lib/python3.10/site-packages/transformers/models/t5/tokenization_t5.py:240: FutureWarning: This tokenizer was incorrectly instantiated with a model max length of 512 which will be corrected in Transformers v5.
+For now, this behavior is kept to avoid breaking backwards compatibility when padding/encoding with `truncation is True`.
+- Be aware that you SHOULD NOT rely on t5-base automatically truncating your input to 512 when padding/encoding.
+- If you want to encode/pad to sequences longer than 512 you can either instantiate this tokenizer with `model_max_length` or pass `max_length` when encoding/padding.
+- To avoid this warning, please instantiate this tokenizer with `model_max_length` set to your preferred value.
+  warnings.warn(
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO:     Started server process [886727]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+🚀 Starting Lok Vaani AI Comment Generator
+📊 Using T5-base model (220M parameters)
+Loading data...
+Loaded 5 posts, 900 companies
+🔄 Initialized comment rotation system:
+   Batch size: 15 comments per cycle
+   Reset after: 500 requests
+Loading T5 model...
+✅ T5 model loaded!
+
+✅ AI Model Ready!
+✅ Access: http://localhost:8000
+INFO:     127.0.0.1:49844 - "POST /generate/specific HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:48580 - "GET /generate/random HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58778 - "GET /generate/random HTTP/1.1" 404 Not Found
+📅 Daily reset triggered (last reset: None)
+♻️  Comment rotation system reset - all comments available again
+
+🎲 Request #1 - Generating comment for post_003_finance_cos
+⚠️  No valid existing comments found - using FALLBACK generation
+🔄 Attempting fallback comment generation for post post_003_finance_cos
+📝 Using CROSS-POST comment from post_001_mdp: 'इस मसौदे में बड़े फर्मों के लिए अवसर तो हैं, लेकिन छोटे और म...'
+🔄 Generated FALLBACK comment (words: 61)
+   Fallback preview: 'इस मसौदे में बड़े फर्मों के लिए अवसर तो हैं, लेकिन छोटे और मध्यम आकार के व्यवसायों की समस्याओं को पू...'
+   Used 1 source comment(s)
+
+📋 GENERATION SUMMARY:
+   Final comment: 61 words
+   Source: fallback
+   Comments used: 1
+   [1] cross_post_usage: 61 words from post_001_mdp
+INFO:     127.0.0.1:49426 - "GET /generate HTTP/1.1" 200 OK
+
+🎲 Request #2 - Generating comment for post_002_amalgamations
+📊 Dataset Analysis for post post_002_amalgamations:
+   Total comments in dataset: 246
+   Comments with 50+ words: 71
+   Valid shorter comments: 246
+📝 Sample of available comments:
+   [0] (12 words, short): This draft is progressive and simplifies compliance for small and unlisted companies.
+   [1] (25 words, short): The draft provides flexibility for SMEs and unlisted firms in mergers. The borrowing cap and no-defa...
+   [2] (55 words, long): Overall, the draft notification is a positive and practical step. By reducing compliance hurdles for...
+   ... and 243 more comments
+💡 Deduplicated 71 -> 6 unique long comments
+🎯 Selected from batch#0, used 1 comments so far
+✅ Using LONG existing comment (ROTATED): 'Is draft ki intentions theek hain, lekin kuch problems bhi hain. Borrowing limit ₹50 crore kaafi hig...'
+   Original words: 56, Final words: 56
+
+📋 GENERATION SUMMARY:
+   Final comment: 56 words
+   Source: existing_dataset_long_rotated
+   Comments used: 1
+   [1] personalized_long_rotated: 56 words from post_002_amalgamations
+INFO:     127.0.0.1:49432 - "GET /generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54106 - "GET /generate/random HTTP/1.1" 404 Not Found
