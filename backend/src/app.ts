@@ -5,6 +5,7 @@ import userRouter from "./router/user.router";
 import postRouter from "./router/post.router";
 import commentRouter from "./router/comment.router";
 import companyRouter from "./router/company.router";
+import adminRouter from "./router/admin.router";
 import path from "path";
 import { functions } from "./inngest/inngestServer";
 import { inngest } from "./inngest/inngestClient";
@@ -31,6 +32,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/posts", postRouter);
 app.use("/api/v1/comments", commentRouter);
 app.use("/api/v1/companies", companyRouter);
+app.use("/api/v1/admin", adminRouter);
 
 // Serve static files from React build
 const buildPath = path.join(__dirname, '../../frontend/dist');

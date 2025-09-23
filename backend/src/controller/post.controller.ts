@@ -4,14 +4,22 @@ import ApiResponse from '../utility/ApiResponse';
 import { ApiError } from '../utility/ApiError';
 import { prisma } from '../db/index';
 import { logSecurityEvent } from '../utility/auditLogger';
+import { convertPdfToBase64 } from '../utility/uploadPdf';
 
 // Create new post
 export const createPost = asyncHandler(async (req: Request, res: Response) => {
-  const { title, description, standardTitle, standardDescription, postType, issuedBy, issueDate, deadline, language, originalPdfUrl } = req.body;
+  const { title, description, standardTitle, standardDescription, postType, issuedBy, issueDate, deadline, language } = req.body;
 
-  if (!title || !description || !standardTitle || !standardDescription || !postType || !issuedBy || !issueDate) {
+  if (!title || !description || !postType || !issuedBy || !issueDate) {
     throw new ApiError(400, "All fields are required");
   }
+
+  const file = req.file;
+  if (!file) {
+    throw new ApiError(400, 'File is required');
+  }
+
+  const pdfBase64 = convertPdfToBase64(file);
 
   try {
     const post = await prisma.post.create({
@@ -25,18 +33,12 @@ export const createPost = asyncHandler(async (req: Request, res: Response) => {
         issueDate: new Date(issueDate),
         deadline: deadline ? new Date(deadline) : null,
         language: language || "ENGLISH",
-        originalPdfUrl: originalPdfUrl || null
+        pdfBase64 // Store base64 string
       }
     });
 
-    if (!post) {
-      await logSecurityEvent('POST_CREATION_FAILED', "while create post", { title, reason: 'Post creation failed' });
-      throw new ApiError(500, "Failed to create post");
-    }
-
     res.status(201).json(new ApiResponse(201, post, "Post created successfully"));
   } catch (error) {
-    console.error("Error creating post:", error);
     throw new ApiError(500, "Failed to create post");
   }
 });
@@ -82,7 +84,7 @@ export const getPostById = asyncHandler(async (req: Request, res: Response) => {
 export const updatePost = asyncHandler(async (req: Request, res: Response) => {
   // TODO: Implement update post logic
   const { id } = req.params;
-  const { title, description, standardTitle, standardDescription, postType, issuedBy, issueDate, deadline, language, originalPdfUrl } = req.body;
+  const { title, description, standardTitle, standardDescription, postType, issuedBy, issueDate, deadline, language, pdfBase64 } = req.body;
 
   if (!title || !description || !standardTitle || !standardDescription || !postType || !issuedBy || !issueDate) {
     throw new ApiError(400, "All fields are required");
@@ -109,7 +111,7 @@ export const updatePost = asyncHandler(async (req: Request, res: Response) => {
       issueDate: new Date(issueDate),
       deadline: deadline ? new Date(deadline) : null,
       language,
-      originalPdfUrl
+      pdfBase64
     }
   });
 
@@ -170,7 +172,7 @@ export const uploadPostPdf = asyncHandler(async (req: Request, res: Response) =>
 
   const updatedPost = await prisma.post.update({
     where: { id },
-    data: { originalPdfUrl: pdfUrl }
+    data: { pdfBase64: pdfUrl }
   });
 
   if (!updatedPost) {

@@ -12,6 +12,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 import uvicorn
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 class SimpleCommentGenerator:
     def __init__(self, model_size="base"):
@@ -217,7 +219,7 @@ class SimpleCommentGenerator:
         self.total_requests += 1
         
         if post_id:
-            post = next((p for p in self.posts if p['postId'] == post_id), None)
+            post = next((p for p in self.posts if p['post'] == post_id), None)
         else:
             post = random.choice(self.posts) if self.posts else None
         
@@ -235,8 +237,8 @@ class SimpleCommentGenerator:
         category = company.get('category', 'General')
         
         # Priority 1: Use existing comments from dataset
-        if post['postId'] in self.comments and self.comments[post['postId']]:
-            existing_comments = self.comments[post['postId']]
+        if post['post'] in self.comments and self.comments[post['post']]:
+            existing_comments = self.comments[post['post']]
             
             # First try: Look for comments that already have 50+ words
             long_comments = [c for c in existing_comments if 
@@ -254,7 +256,7 @@ class SimpleCommentGenerator:
             
             if long_comments:
                 # Use rotation system for long comments
-                selected_comment_obj, _ = self._select_rotated_comment(post['postId'], "long")
+                selected_comment_obj, _ = self._select_rotated_comment(post['post'], "long")
                 if selected_comment_obj:
                     selected_comment = selected_comment_obj['commentText']
                     comment = self._personalize_existing_comment(selected_comment, company, category)
@@ -265,18 +267,16 @@ class SimpleCommentGenerator:
                         "postId": post['postId'],
                         "companyId": company.get('companyId', 0),
                         "companyName": company['companyName'],
-                        "category": company.get('category', 'General'),
+                        "businessCategoryId": company.get('businessCategoryId', None),
                         "comment": comment,
                         "wordCount": len(comment.split()),
-                        "weightScore": round(category_weight, 2),
                         "postTitle": post['title'],
                         "state": company.get('state', 'Unknown'),
-                        "timestamp": str(random.randint(1640995200, 1672531200)),
                         "source": "existing_dataset_long_rotated"
                     }
             elif all_valid_comments:
                 # Use rotation system for short comments
-                selected_comment_obj, _ = self._select_rotated_comment(post['postId'], "short")
+                selected_comment_obj, _ = self._select_rotated_comment(post['post'], "short")
                 if selected_comment_obj:
                     selected_comment = selected_comment_obj['commentText']
                     comment = self._personalize_existing_comment(selected_comment, company, category)
@@ -289,13 +289,11 @@ class SimpleCommentGenerator:
                     "postId": post['postId'],
                     "companyId": company.get('companyId', 0),
                     "companyName": company['companyName'],
-                    "category": company.get('category', 'General'),
+                    "businessCategoryId": company.get('businessCategoryId', None),
                     "comment": comment,
                     "wordCount": len(comment.split()),
-                    "weightScore": round(category_weight, 2),
                     "postTitle": post['title'],
                     "state": company.get('state', 'Unknown'),
-                    "timestamp": str(random.randint(1640995200, 1672531200)),
                     "source": "existing_dataset_expanded"
                 }
         
@@ -313,13 +311,11 @@ class SimpleCommentGenerator:
             "postId": post['postId'],
             "companyId": company.get('companyId', 0),
             "companyName": company['companyName'],
-            "category": company.get('category', 'General'),
+            "businessCategoryId": company.get('businessCategoryId', None),
             "comment": fallback_comment,
             "wordCount": len(fallback_comment.split()),
-            "weightScore": round(category_weight, 2),
             "postTitle": post['title'],
             "state": company.get('state', 'Unknown'),
-            "timestamp": str(random.randint(1640995200, 1672531200)),
             "source": "fallback"
         }
     
@@ -329,8 +325,8 @@ class SimpleCommentGenerator:
         
         # Try 1: Use comments from the current post (with modifications)
         try:
-            if post['postId'] in self.comments and self.comments[post['postId']]:
-                existing_comments = self.comments[post['postId']]
+            if post['post'] in self.comments and self.comments[post['post']]:
+                existing_comments = self.comments[post['post']]
                 real_comments = [c for c in existing_comments if 
                                c.get('commentText') and 
                                c['commentText'] not in ['actual_comments', 'actual_comment', ''] and
@@ -348,7 +344,7 @@ class SimpleCommentGenerator:
             all_good_comments = []
             
             for post_id, comments_list in self.comments.items():
-                if post_id != post['postId']:  # Different post
+                if post_id != post['post']:  # Different post
                     good_comments = [c for c in comments_list if 
                                    c.get('commentText') and 
                                    c['commentText'] not in ['actual_comments', 'actual_comment', ''] and
@@ -623,7 +619,7 @@ async def generate_specific(request: GenerateRequest):
 @app.get("/posts")
 async def get_posts():
     show_count = min(15, len(generator.posts))  # Show 10-15 posts
-    return {"posts": len(generator.posts), "list": [p['postId'] for p in generator.posts[:show_count]]}
+    return {"posts": len(generator.posts), "list": [p['post'] for p in generator.posts[:show_count]]}
 
 @app.get("/companies")
 async def get_companies():

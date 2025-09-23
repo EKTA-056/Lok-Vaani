@@ -21,7 +21,7 @@ router.put("/profile/:id", authenticate, updateUserProfile);
 router.put("/change-password/:id", authenticate, changePassword);
 
 // Admin routes (require admin role)
-router.get("/all-users", requireAdmin, getAllUsers);
+router.get("/all-users", authenticate, getAllUsers);
 
 // Health check
 router.get('/active', (req, res) => {

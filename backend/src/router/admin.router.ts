@@ -20,7 +20,7 @@ router.get("/dashboard", authenticate, getDashboardAnalytics);
 router.get("/analytics", authenticate, getCommentAnalytics);
 
 // Business Category management
-router.post("/business-categories", authenticate, createBusinessCategory);
+router.post("/business-categories", createBusinessCategory);
 router.put("/business-categories/:id", authenticate, updateBusinessCategory);
 router.delete("/business-categories/:id", authenticate, deleteBusinessCategory);
 router.post("/business-categories/bulk-import", authenticate, bulkImportBusinessCategories);

@@ -72,15 +72,15 @@ model BusinessCategory {
 model Post {
   id             String   @id @default(uuid())
   title          String
-  description    String   
-  standardTitle  String
-  standardDescription String
+  description    String?
+  standardTitle  String?
+  standardDescription String?
   postType       String   // 'PUBLIC_CONSULTATION', 'RECRUITMENT_NOTICE', 'DRAFT_RULES'
   issuedBy       String
   issueDate      DateTime
   deadline       DateTime?
   language       String   // 'ENGLISH', 'BILINGUAL', 'HINDI'
-  originalPdfUrl String?
+  pdfBase64      String?
   status         String   @default("ACTIVE") // 'ACTIVE', 'CLOSED', 'DRAFT'
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -104,16 +104,16 @@ model Comment {
   stakeholderName        String           // Name of company or individual
   
   // AI Processing fields
-  rawText                String           @db.Text
-  standardText           String?          @db.Text // Standardized English translation
-  processedText          String?          @db.Text // Cleaned, summary text
+  rawComment                String           @db.Text
+  standardComment           String?          @db.Text // Standardized English translation
+  processedComment          String?          @db.Text // Cleaned, summary text
   language               String?          // 'en', 'hi', 'hi-en'
-  labeled                String?          // 'POSITIVE', 'NEGATIVE', 'NEUTRAL'
-  tone                   String?          // 'SUGGESTIVE', 'CONCERN', 'SARCASTIC', 'SUPPORTIVE'
+  labeled                String?          // 'POSITIVE', 'NEGATIVE', 'NEUTRAL'          // 'SUGGESTIVE', 'CONCERN', 'SARCASTIC', 'SUPPORTIVE'
   weightageScore         Float?           // Final calculated weightage score
   summary                String?          @db.Text // AI-generated summary
   keywords               String[]         // Array of extracted keywords
-  
+  wordCount              Int?             // Word count of the processed comment
+  sentimentScore         Float?           // Sentiment score from -1 to +1
   // Processing status fields
   status                 String           @default("RAW") // 'RAW', 'PROCESSING', 'ANALYZED', 'FAILED'
   processingError        String?          @db.Text // Error message if processing fails

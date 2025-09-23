@@ -7,10 +7,11 @@ import {
   deletePost,
   uploadPostPdf
 } from '../controller/post.controller';
+import { upload } from '../middleware/multer';
 
 const router = Router();
 
-router.post('/create-post', createPost);
+router.post('/create-post', upload.single('file'), createPost);
 
 router.get('/all-posts', getAllPosts);
 
