@@ -1,0 +1,9 @@
+numpy==1.24.4
+torch
+transformers
+requests
+flask
+deep-translator
+langdetect
+google-cloud-translate
+pandas
