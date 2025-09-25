@@ -7,8 +7,8 @@ import commentRouter from "./router/comment.router";
 import companyRouter from "./router/company.router";
 import adminRouter from "./router/admin.router";
 import path from "path";
-import { functions } from "./inngest/inngestServer";
-import { inngest } from "./inngest/inngestClient";
+import { functions } from "./inngest/server";
+import { inngest } from "./inngest/client";
 import { serve } from "inngest/express";
 const app = express();
 
@@ -43,14 +43,10 @@ app.use("/api/v1/inngest", async (req, res, next) => {
   try {
     await serve({ client: inngest, functions })(req, res, next);
   } catch (err: any) {
-    console.error("❌ Inngest error:", err);
-    res.status(500).json({
-      success: false,
-      message: "Inngest processing error",
-      error: err?.message || err
-    });
+    console.error("❌ Inngest processing error:", err);
   }
 });
+
 app.use((req, res, next) => {
   // Skip API routes
   if (req.path.startsWith('/api')) {

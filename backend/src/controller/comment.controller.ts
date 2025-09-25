@@ -3,7 +3,7 @@ import { asyncHandler } from '../utility/asyncHandler';
 import ApiResponse from '../utility/ApiResponse';
 import { ApiError } from '../utility/ApiError';
 import { prisma } from '../db/index';
-import { inngest } from '../inngest/inngestClient';
+import { inngest } from '../inngest/client';
 import { logSecurityEvent } from '../utility/auditLogger';
 
 // Add new comment (from AI pipeline)
@@ -61,10 +61,10 @@ const getCommentsByPostId = asyncHandler(async (req: Request, res: Response) => 
             }
           }
         },
-        rawText: true,
-        processedText: true,
+        rawComment: true,
+        standardComment: true,
+        processedComment: true,
         labeled: true,
-        tone: true,
         keywords: true,
         status: true,
         createdAt: true
@@ -89,9 +89,9 @@ const getCommentAnalytics = asyncHandler(async (req: Request, res: Response) => 
 
   try {
     const analytics = await prisma.comment.groupBy({
-      by: ['tone'],
+      by: ['labeled'],
       _count: {
-        tone: true
+        labeled: true
       },
       where: { postId }
     });
@@ -131,10 +131,10 @@ const getCommentById = asyncHandler(async (req: Request, res: Response) => {
           }
         }
       },
-      rawText: true,
-      processedText: true,
+      rawComment: true,
+      standardComment: true,
+      processedComment: true,
       labeled: true,
-      tone: true,
       keywords: true,
       status: true,
       createdAt: true
@@ -149,9 +149,35 @@ const getCommentById = asyncHandler(async (req: Request, res: Response) => {
   res.status(200).json(new ApiResponse(200, comment, "Comment fetched successfully"));  
 });
 
+// Get common (repeated) comments by post ID
+const getCommonComments = asyncHandler(async (req: Request, res: Response) => {
+  const { postId } = req.params;
+
+  if (!postId) {
+    throw new ApiError(400, "Post ID is required");
+  }
+
+  try {
+    const groupedComments = await prisma.comment.groupBy({
+      by: ['rawComment'],
+      _count: { rawComment: true },
+      where: { postId }
+    });
+
+    // Only keep comments that are repeated (count > 1)
+    const commonComments = groupedComments.filter(c => c._count.rawComment > 1);
+
+    res.status(200).json(new ApiResponse(200, commonComments, "Common comments fetched successfully"));
+  } catch (error) {
+    console.error("Error fetching common comments:", error);
+    throw new ApiError(500, "Failed to fetch common comments");
+  }
+});
+
 export {
   addComment,
   getCommentsByPostId,
   getCommentAnalytics,
-  getCommentById
+  getCommentById,
+  getCommonComments
 };
