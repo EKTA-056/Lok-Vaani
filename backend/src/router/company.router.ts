@@ -6,17 +6,18 @@ import {
   updateCompany,
   deleteCompany
 } from '../controller/company.controller';
+import { authenticate } from '../middleware/auth';
 
 const router = Router();
 
-router.post('/create-company', createCompany);
+router.post('/create-company', authenticate, createCompany);
 
-router.get('/all-companies', getAllCompanies);
+router.get('/all-companies', authenticate, getAllCompanies);
 
-router.get('/get-company-byId/:id', getCompanyById);
+router.get('/get-company-byId/:id', authenticate, getCompanyById);
 
-router.put('/update-company/:id', updateCompany);
+router.put('/update-company/:id', authenticate, updateCompany);
 
-router.delete('/delete-company/:id', deleteCompany);
+router.delete('/delete-company/:id', authenticate, deleteCompany);
 
 export default router;

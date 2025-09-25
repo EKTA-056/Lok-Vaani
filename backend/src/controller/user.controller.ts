@@ -6,6 +6,7 @@ import { ApiError } from '../utility/ApiError';
 import bcrypt from 'bcrypt';
 import { logAuth, logSecurityEvent } from '../utility/auditLogger';
 import { generateToken } from '../utility/jwt';
+import { AuthRequest } from '../utility/types';
 
 // User Registration
 export const registerUser = asyncHandler(async (req: Request, res: Response) => {
@@ -135,9 +136,9 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
 });
 
 // Get User Profile
-export const getUserProfile = asyncHandler(async (req: Request, res: Response) => {
+export const getUserProfile = asyncHandler(async (req: AuthRequest, res: Response) => {
     try {
-        const { id } = req.params;
+        const id = req.user?.id;
 
         const user = await prisma.user.findUnique({
             where: { id },

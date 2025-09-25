@@ -4,6 +4,7 @@ import { asyncHandler } from '../utility/asyncHandler';
 import ApiResponse from '../utility/ApiResponse';
 import { ApiError } from '../utility/ApiError';
 import { logSecurityEvent } from '../utility/auditLogger';
+import { AuthRequest } from '../utility/types';
 
 // Dashboard Analytics - Get overview statistics for MCA e-consultation
 const getDashboardAnalytics = asyncHandler(async (req: Request, res: Response) => {
@@ -198,10 +199,15 @@ const getCommentAnalytics = asyncHandler(async (req: Request, res: Response) => 
 });
 
 // Business Category Management
-const createBusinessCategory = asyncHandler(async (req: Request, res: Response) => {
+const createBusinessCategory = asyncHandler(async (req: AuthRequest, res: Response) => {
     try {
+        const role = req.user?.role;
+
+        if(role !== 'ADMIN') {
+            throw new ApiError(403, "Forbidden: Admins only");
+        }
+
         const { name, weightageScore = 1.0, categoryType = 'BUSINESS' } = req.body;
-        const userId = 'admin'; // TODO: Get from authenticated user
 
         // Check if category already exists
         const existingCategory = await prisma.businessCategory.findUnique({
@@ -234,8 +240,14 @@ const createBusinessCategory = asyncHandler(async (req: Request, res: Response) 
     }
 });
 
-const updateBusinessCategory = asyncHandler(async (req: Request, res: Response) => {
+const updateBusinessCategory = asyncHandler(async (req: AuthRequest, res: Response) => {
     try {
+        const role = req.user?.role;
+
+        if(role !== 'ADMIN') {
+            throw new ApiError(403, "Forbidden: Admins only");
+        }
+
         const { id } = req.params;
         const { name, weightageScore, categoryType } = req.body;
         const userId = 'admin'; // TODO: Get from authenticated user
@@ -272,10 +284,15 @@ const updateBusinessCategory = asyncHandler(async (req: Request, res: Response) 
     }
 });
 
-const deleteBusinessCategory = asyncHandler(async (req: Request, res: Response) => {
+const deleteBusinessCategory = asyncHandler(async (req: AuthRequest, res: Response) => {
     try {
+        const role = req.user?.role;
+
+        if(role !== 'ADMIN') {
+            throw new ApiError(403, "Forbidden: Admins only");
+        }
+
         const { id } = req.params;
-        const userId = 'admin'; // TODO: Get from authenticated user
 
         // Check if category exists
         const existingCategory = await prisma.businessCategory.findUnique({
@@ -312,11 +329,37 @@ const deleteBusinessCategory = asyncHandler(async (req: Request, res: Response) 
     }
 });
 
-// Bulk Category operations
-const bulkImportBusinessCategories = asyncHandler(async (req: Request, res: Response) => {
+// Get all Categories
+const getAllCategories = asyncHandler(async (req: AuthRequest, res: Response) => {
     try {
+        const role = req.user?.role;
+        
+        if(role !== 'ADMIN') {
+            throw new ApiError(403, "Forbidden: Admins only");
+        }
+
+        const categories = await prisma.businessCategory.findMany({
+            orderBy: { createdAt: 'desc' }
+        });
+
+        return res.status(200).json(
+            new ApiResponse(200, categories, "Business categories retrieved successfully")
+        );
+    } catch (error) {
+        throw new ApiError(500, `Failed to retrieve business categories: ${error}`);    
+    }
+})
+
+// Bulk Category operations
+const bulkImportBusinessCategories = asyncHandler(async (req: AuthRequest, res: Response) => {
+    try {
+        const role = req.user?.role;
+
+        if(role !== 'ADMIN') {
+            throw new ApiError(403, "Forbidden: Admins only");
+        }
+
         const { categories } = req.body; // Array of category objects
-        const userId = 'admin'; // TODO: Get from authenticated user
 
         if (!Array.isArray(categories) || categories.length === 0) {
             throw new ApiError(400, "Invalid categories data");
@@ -529,6 +572,7 @@ export {
     getDashboardAnalytics,
     getCommentAnalytics,
     createBusinessCategory,
+    getAllCategories,
     updateBusinessCategory,
     deleteBusinessCategory,
     bulkImportBusinessCategories,

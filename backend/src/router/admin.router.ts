@@ -9,7 +9,8 @@ import {
     getSystemConfigs,
     updateSystemConfig,
     getProcessingQueueStatus,
-    getAuditLogs
+    getAuditLogs,
+    getAllCategories
 } from '../controller/admin.controller';
 import { authenticate } from "../middleware/auth";
 
@@ -20,9 +21,10 @@ router.get("/dashboard", authenticate, getDashboardAnalytics);
 router.get("/analytics", authenticate, getCommentAnalytics);
 
 // Business Category management
-router.post("/business-categories", createBusinessCategory);
+router.post("/business-categories", authenticate, createBusinessCategory);
 router.put("/business-categories/:id", authenticate, updateBusinessCategory);
 router.delete("/business-categories/:id", authenticate, deleteBusinessCategory);
+router.get("/business-categories", authenticate, getAllCategories);
 router.post("/business-categories/bulk-import", authenticate, bulkImportBusinessCategories);
 
 // System configuration
