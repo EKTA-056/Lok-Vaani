@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { registerAsync, clearError } from '../../store/slices/authSlice';
-// import { validateEmail, validateRequired } from '../../utils/validators';
+import { validateEmail, validateRequired } from '../../utils/validators';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
 import logo from '../../assets/logo.png'; // Adjust the path as necessary
@@ -46,15 +46,15 @@ const Register: React.FC = () => {
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {};
 
-    // const nameError = validateRequired(formData.name, 'Name');
-    // if (nameError) newErrors.name = nameError;
+    const nameError = validateRequired(formData.name, 'Name');
+    if (nameError) newErrors.name = nameError;
 
-    // const emailError = validateRequired(formData.email, 'Email');
-    // if (emailError) {
-    //   newErrors.email = emailError;
-    // } else if (!validateEmail(formData.email)) {
-    //   newErrors.email = 'Please enter a valid email address';
-    // }
+    const emailError = validateRequired(formData.email, 'Email');
+    if (emailError) {
+      newErrors.email = emailError;
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
 
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match';

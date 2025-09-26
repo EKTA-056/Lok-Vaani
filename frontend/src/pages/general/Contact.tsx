@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
-// import { validateEmail, validateRequired } from '../../utils/validators';
+import { validateEmail, validateRequired } from '../../utils/validators';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -25,21 +25,21 @@ const Contact: React.FC = () => {
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {};
 
-    // const nameError = validateRequired(formData.name, 'Name');
-    // if (nameError) newErrors.name = nameError;
+    const nameError = validateRequired(formData.name, 'Name');
+    if (nameError) newErrors.name = nameError;
 
-    // const emailError = validateRequired(formData.email, 'Email');
-    // if (emailError) {
-    //   newErrors.email = emailError;
-    // } else if (!validateEmail(formData.email)) {
-    //   newErrors.email = 'Please enter a valid email address';
-    // }
+    const emailError = validateRequired(formData.email, 'Email');
+    if (emailError) {
+      newErrors.email = emailError;
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
 
-    // const subjectError = validateRequired(formData.subject, 'Subject');
-    // if (subjectError) newErrors.subject = subjectError;
+    const subjectError = validateRequired(formData.subject, 'Subject');
+    if (subjectError) newErrors.subject = subjectError;
 
-    // const messageError = validateRequired(formData.message, 'Message');
-    // if (messageError) newErrors.message = messageError;
+    const messageError = validateRequired(formData.message, 'Message');
+    if (messageError) newErrors.message = messageError;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
