@@ -49,10 +49,10 @@ const getDashboardAnalytics = asyncHandler(async (req: Request, res: Response) =
             
             // Sentiment analysis
             prisma.comment.groupBy({
-                by: ['labeled'],
+                by: ['sentiment'],
                 _count: { id: true },
                 where: {
-                    labeled: { not: null }
+                    sentiment: { not: null }
                 }
             }),
             
@@ -78,7 +78,7 @@ const getDashboardAnalytics = asyncHandler(async (req: Request, res: Response) =
                     return acc;
                 }, {} as Record<string, number>),
                 bySentiment: commentsBySentiment.reduce((acc, item) => {
-                    acc[item.labeled || 'UNLABELED'] = item._count.id;
+                    acc[item.sentiment || 'UNLABELED'] = item._count.id;
                     return acc;
                 }, {} as Record<string, number>)
             },
@@ -134,7 +134,7 @@ const getCommentAnalytics = asyncHandler(async (req: Request, res: Response) => 
             }),
             
             prisma.comment.groupBy({
-                by: ['labeled'],
+                by: ['sentiment'],
                 _count: { id: true },
                 where: whereClause
             }),
@@ -182,9 +182,9 @@ const getCommentAnalytics = asyncHandler(async (req: Request, res: Response) => 
                     acc[date] = { date, count: 0, positive: 0, negative: 0, neutral: 0 };
                 }
                 acc[date].count++;
-                if (comment.labeled === 'POSITIVE') acc[date].positive++;
-                else if (comment.labeled === 'NEGATIVE') acc[date].negative++;
-                else if (comment.labeled === 'NEUTRAL') acc[date].neutral++;
+                if (comment.sentiment === 'POSITIVE') acc[date].positive++;
+                else if (comment.sentiment === 'NEGATIVE') acc[date].negative++;
+                else if (comment.sentiment === 'NEUTRAL') acc[date].neutral++;
                 return acc;
             }, {} as Record<string, any>)
         };

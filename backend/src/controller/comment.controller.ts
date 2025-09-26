@@ -3,38 +3,7 @@ import { asyncHandler } from '../utility/asyncHandler';
 import ApiResponse from '../utility/ApiResponse';
 import { ApiError } from '../utility/ApiError';
 import { prisma } from '../db/index';
-import { inngest } from '../inngest/client';
 import { logSecurityEvent } from '../utility/auditLogger';
-
-// Add new comment (from AI pipeline)
-const addComment = asyncHandler(async (req: Request, res: Response) => {
-  const { postId, companyId, postTitle } = req.body;
-
-  if (!postId || !companyId) {
-    throw new ApiError(400, "PostId and companyId are required");
-  }
-
-  try {
-    // Trigger Inngest workflow for AI processing
-    await inngest.send({
-      name: "app/comment.generated",
-      data: {
-        postId,
-        commentData: {
-          companyId,
-          postTitle
-        }
-      }
-    });
-
-    res.status(201).json(new ApiResponse(201, { 
-      message: "Comment generation workflow started" 
-    }, "Comment processing initiated successfully"));
-  } catch (error) {
-    console.error("Error triggering comment workflow:", error);
-    throw new ApiError(500, "Failed to initiate comment processing");
-  }
-});
 
 // Get comments by post ID
 const getCommentsByPostId = asyncHandler(async (req: Request, res: Response) => {
@@ -63,8 +32,8 @@ const getCommentsByPostId = asyncHandler(async (req: Request, res: Response) => 
         },
         rawComment: true,
         standardComment: true,
-        processedComment: true,
-        labeled: true,
+        summary: true,
+        sentiment: true,
         keywords: true,
         status: true,
         createdAt: true
@@ -78,7 +47,6 @@ const getCommentsByPostId = asyncHandler(async (req: Request, res: Response) => 
   }
 });
 
-
 // Get comment analytics
 const getCommentAnalytics = asyncHandler(async (req: Request, res: Response) => {
   const { postId } = req.params;
@@ -89,9 +57,9 @@ const getCommentAnalytics = asyncHandler(async (req: Request, res: Response) => 
 
   try {
     const analytics = await prisma.comment.groupBy({
-      by: ['labeled'],
+      by: ['sentiment'],
       _count: {
-        labeled: true
+        sentiment: true
       },
       where: { postId }
     });
@@ -133,8 +101,8 @@ const getCommentById = asyncHandler(async (req: Request, res: Response) => {
       },
       rawComment: true,
       standardComment: true,
-      processedComment: true,
-      labeled: true,
+      summary: true,
+      sentiment: true,
       keywords: true,
       status: true,
       createdAt: true
@@ -175,7 +143,6 @@ const getCommonComments = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export {
-  addComment,
   getCommentsByPostId,
   getCommentAnalytics,
   getCommentById,

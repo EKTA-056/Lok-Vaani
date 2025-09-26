@@ -104,11 +104,10 @@ model Comment {
   stakeholderName        String           // Name of company or individual
   
   // AI Processing fields
-  rawComment                String           @db.Text
-  standardComment           String?          @db.Text // Standardized English translation
-  processedComment          String?          @db.Text // Cleaned, summary text
+  rawComment             String           @db.Text
+  standardComment        String?          @db.Text // Standardized English translation
   language               String?          // 'en', 'hi', 'hi-en'
-  labeled                String?          // 'POSITIVE', 'NEGATIVE', 'NEUTRAL'          // 'SUGGESTIVE', 'CONCERN', 'SARCASTIC', 'SUPPORTIVE'
+  sentiment              String?          // 'POSITIVE', 'NEGATIVE', 'NEUTRAL'
   weightageScore         Float?           // Final calculated weightage score
   summary                String?          @db.Text // AI-generated summary
   keywords               String[]         // Array of extracted keywords
