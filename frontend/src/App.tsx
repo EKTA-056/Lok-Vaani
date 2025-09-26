@@ -9,17 +9,17 @@ import { getCurrentUserAsync } from './store/slices/authSlice';
 // Public Pages
 import About from './pages/general/About';
 import Contact from './pages/general/Contact';
-import Help from './pages/general/Help';
+// import Help from './pages/general/Help';
 
 // Auth Pages
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 
 // Private Pages
-import Dashboard from './pages/dashboard/Dashboard';
+// import Dashboard from './pages/dashboard/Dashboard';
 import AdminDashboard from './pages/dashboard/adminDashboard/AdminDashboard';
-import UserReports from './pages/dashboard/userDashboard/UserReports';
-import SearchHistory from './pages/dashboard/userDashboard/SearchHistory';
+// import UserReports from './pages/dashboard/userDashboard/UserReports';
+// import SearchHistory from './pages/dashboard/userDashboard/SearchHistory';
 import HomePage from './pages/home/HomePage';
 import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
@@ -58,13 +58,10 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/help" element={<Help />} />
+            
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/user-reports" element={<UserReports />} />
-            <Route path="/search-history" element={<SearchHistory />} />
             <Route path="/active" element={<div>frontend active</div>} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

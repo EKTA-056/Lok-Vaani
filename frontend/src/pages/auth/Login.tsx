@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { loginAsync, clearError } from '../../store/slices/authSlice';
-import { validateEmail, validateRequired } from '../../utils/validators';
+// import { validateEmail, validateRequired } from '../../utils/validators';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
 import logo from '../../assets/logo.png'; 
@@ -40,16 +40,17 @@ const Login: React.FC = () => {
 
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {};
-    const emailError = validateRequired(formData.email, 'Email');
-    if (emailError) {
-      newErrors.email = emailError;
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    const passwordError = validateRequired(formData.password, 'Password');
-    if (passwordError) {
-      newErrors.password = passwordError;
-    }
+    // const emailError = validateRequired(formData.email, 'Email');
+    // if (emailError) {
+    //   newErrors.email = emailError;
+    // } 
+    // else if (!validateEmail(formData.email)) {
+    //   newErrors.email = 'Please enter a valid email address';
+    // }
+    // const passwordError = validateRequired(formData.password, 'Password');
+    // if (passwordError) {
+    //   newErrors.password = passwordError;
+    // }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
