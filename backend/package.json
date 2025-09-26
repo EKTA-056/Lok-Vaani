@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    
+    "inngest-dev": "npx inngest-cli@latest dev",
     "build": "tsc --project tsconfig.build.json",
     "start": "dist/index.js",
     "prisma:migrate": "prisma migrate dev",

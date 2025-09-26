@@ -45,7 +45,7 @@ connectDB()
     // Start the server
     server.listen(PORT, () => {
       console.log(`✅ Server is running on http://localhost:${PORT}`);
-      console.log(`✅ Inngest endpoint: http://localhost:${PORT}/api/v1/inngest`);
+      // console.log(`✅ Inngest endpoint: http://localhost:${PORT}/api/v1/inngest`);
     });
 
     // Error handling for server-level errors

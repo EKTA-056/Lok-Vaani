@@ -7,7 +7,7 @@ import axios from "axios";
 // 1. Fetch from Model 1 every 15 seconds and save as RAW
 export const commentFetchScheduler = inngest.createFunction(
   { id: "comment-fetch-scheduler" },
-  { cron: "*/15 * * * * *" }, // Every 15 seconds
+  { cron:  "*/1 * * * *"}, // Every 1 minute
   async ({ step }) => {
     let response;
     let attempts = 0;
@@ -15,7 +15,7 @@ export const commentFetchScheduler = inngest.createFunction(
 
     while (attempts < maxAttempts) {
       response = await step.run(`fetch-from-model1-attempt-${attempts + 1}`, async () => {
-        return await axios.post(`${process.env.MODEL_1_API_URL}/generate`, { timeout: 15000 });
+        return await axios.post(`${process.env.MODEL1_API_URL}/generate`, { timeout: 15000 });
       });
 
       if (response?.data?.success) {
@@ -54,7 +54,7 @@ export const commentFetchScheduler = inngest.createFunction(
 // 2. Process RAW comments: send to Model 2, update DB as ANALYZED
 export const processRawComments = inngest.createFunction(
   { id: "process-raw-comments" },
-  { cron: "*/30 * * * * *" },
+  { cron:  "*/2 * * * *" },
   async ({ step }) => {
     // STEP 1: Find a comment eligible for processing
     const comment = await step.run("find-raw-comment", async () => {
@@ -66,7 +66,7 @@ export const processRawComments = inngest.createFunction(
       });
     });
     if (!comment) return new ApiResponse(200, "No eligible comments", "Skipped");
-
+    
     // STEP 2: Try sending to Model 2 up to 3 times
     let model2Response;
     let attempts = comment.processingAttempts;
@@ -74,8 +74,8 @@ export const processRawComments = inngest.createFunction(
 
     while (attempts < maxAttempts) {
       model2Response = await step.run(`call-model2-attempt-${attempts + 1}`, async () => {
-        return await axios.post(`${process.env.MODEL_2_API_URL}`, {
-          text: comment.rawComment
+        return await axios.post(`${process.env.MODEL2_API_URL}/analyze`, {
+          comment: comment.rawComment
         }, { timeout: 20000 });
       });
 
@@ -108,10 +108,11 @@ export const processRawComments = inngest.createFunction(
     await prisma.comment.update({
       where: { id: comment.id },
       data: {
-        standardComment: model2Response?.data?.standardComment,
-        language: model2Response?.data?.language,
+        standardComment: model2Response?.data?.translated,
+        language: model2Response?.data?.language_type,
+        sentiment: model2Response?.data?.sentiment,
         sentimentScore: model2Response?.data?.sentimentScore,
-        processedComment: model2Response?.data?.processedComment,
+        summary: model2Response?.data?.summary,
         status: "ANALYZED",
         processedAt: new Date(),
         processingError: null
@@ -125,7 +126,7 @@ export const processRawComments = inngest.createFunction(
 // Health check function to monitor system status
 export const systemHealthCheck = inngest.createFunction(
   { id: "system-health-check" },
-  { cron: "0 */5 * * * *" }, // Every 5 minutes
+  { cron:  "*/5 * * * *" }, // Every 5 minutes
   async ({ step }) => {
     await step.run("check-system-health", async () => {
       try {

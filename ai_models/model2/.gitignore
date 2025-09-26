@@ -1,0 +1,7 @@
+__pycache__/
+
+venv/
+
+.dockerignore
+
+google_key.json

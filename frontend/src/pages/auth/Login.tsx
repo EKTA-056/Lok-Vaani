@@ -43,7 +43,8 @@ const Login: React.FC = () => {
     const emailError = validateRequired(formData.email, 'Email');
     if (emailError) {
       newErrors.email = emailError;
-    } else if (!validateEmail(formData.email)) {
+    } 
+    else if (!validateEmail(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
     const passwordError = validateRequired(formData.password, 'Password');
