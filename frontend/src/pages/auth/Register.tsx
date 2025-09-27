@@ -19,7 +19,7 @@ const Register: React.FC = () => {
     confirmPassword: '',
     phone: '',
     region: '',
-    role: 'USER' as 'USER' | 'ADMIN',
+    role: 'ANALYST' as 'ANALYST' | 'ADMIN',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -72,8 +72,6 @@ const Register: React.FC = () => {
         name: formData.name,
         email: formData.email,
         password: formData.password,
-        phone: formData.phone || undefined,
-        region: formData.region || undefined,
         role: formData.role,
       })).unwrap();
       navigate('/dashboard');
@@ -133,68 +131,10 @@ const Register: React.FC = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input
-              label="Phone Number"
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              error={errors.phone}
-              placeholder="+91 98765 43210"
-            />
-
-            <div>
-              <label htmlFor="region" className="block text-sm font-medium text-gray-700 mb-1">
-                Region/State
-              </label>
-              <select
-                id="region"
-                name="region"
-                value={formData.region}
-                onChange={handleInputChange}
-                className="block w-full px-3 py-2.5 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm transition-colors"
-              >
-                <option value="">Select Region</option>
-                <option value="andhra-pradesh">Andhra Pradesh</option>
-                <option value="arunachal-pradesh">Arunachal Pradesh</option>
-                <option value="assam">Assam</option>
-                <option value="bihar">Bihar</option>
-                <option value="chhattisgarh">Chhattisgarh</option>
-                <option value="goa">Goa</option>
-                <option value="gujarat">Gujarat</option>
-                <option value="haryana">Haryana</option>
-                <option value="himachal-pradesh">Himachal Pradesh</option>
-                <option value="jharkhand">Jharkhand</option>
-                <option value="karnataka">Karnataka</option>
-                <option value="kerala">Kerala</option>
-                <option value="madhya-pradesh">Madhya Pradesh</option>
-                <option value="maharashtra">Maharashtra</option>
-                <option value="manipur">Manipur</option>
-                <option value="meghalaya">Meghalaya</option>
-                <option value="mizoram">Mizoram</option>
-                <option value="nagaland">Nagaland</option>
-                <option value="odisha">Odisha</option>
-                <option value="punjab">Punjab</option>
-                <option value="rajasthan">Rajasthan</option>
-                <option value="sikkim">Sikkim</option>
-                <option value="tamil-nadu">Tamil Nadu</option>
-                <option value="telangana">Telangana</option>
-                <option value="tripura">Tripura</option>
-                <option value="uttar-pradesh">Uttar Pradesh</option>
-                <option value="uttarakhand">Uttarakhand</option>
-                <option value="west-bengal">West Bengal</option>
-                <option value="delhi">Delhi</option>
-                <option value="chandigarh">Chandigarh</option>
-                <option value="puducherry">Puducherry</option>
-              </select>
-            </div>
-          </div>
-
           {/* Role Select */}
           <div>
             <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">
-              User Role
+              ANALYST
             </label>
             <select
               id="role"
@@ -203,7 +143,7 @@ const Register: React.FC = () => {
               onChange={handleInputChange}
               className="block w-full px-3 py-2.5 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm transition-colors"
             >
-              <option value="USER">User</option>
+              <option value="ANALYST">ANALYST</option>
               {/* <option value="ADMIN">System Administrator</option> */}
             </select>
             <p className="mt-1 text-xs text-gray-500">

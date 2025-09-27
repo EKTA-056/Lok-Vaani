@@ -81,7 +81,8 @@ export const registerUser = asyncHandler(async (req: Request, res: Response) => 
 export const loginUser = asyncHandler(async (req: Request, res: Response) => {
     try {
         const { email, password } = req.body;
-
+        console.log("Login attempt for email:", email, password);
+        
         if (!email || !password) {
             throw new ApiError(400, "Email and password are required");
         }

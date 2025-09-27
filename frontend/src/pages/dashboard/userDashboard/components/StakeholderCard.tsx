@@ -2,64 +2,101 @@ import React from 'react';
 import ProgressBar from './ProgressBar';
 import { getStakeholderPercentages } from './dashboardData';
 import type { StakeholderData } from './dashboardData';
+// import { useSocketProgress } from '@/hooks/useSocketProgress'; // Uncomment when socket is ready
 
 interface StakeholderCardProps {
   title: string;
   data: StakeholderData;
   type: 'normal' | 'industrialist';
+  enableRealtime?: boolean;
 }
 
-const StakeholderCard: React.FC<StakeholderCardProps> = ({ title, data, type }) => {
+const StakeholderCard: React.FC<StakeholderCardProps> = ({ 
+  title, 
+  data, 
+  enableRealtime = false 
+}) => {
   const percentages = getStakeholderPercentages(data);
 
-  const getCardConfig = () => {
-    if (type === 'normal') {
-      return {
-        gradient: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
-        borderColor: 'border-indigo-200',
-        titleColor: 'text-indigo-700',
-        subtitleColor: 'text-indigo-600'
-      };
-    } else {
-      return {
-        gradient: 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50',
-        borderColor: 'border-teal-200',
-        titleColor: 'text-teal-700',
-        subtitleColor: 'text-teal-600'
-      };
-    }
-  };
+  // Socket integration (ready for when you implement backend socket)
+  // const {
+  //   isConnected,
+  //   data: socketData,
+  //   percentages: socketPercentages,
+  //   error
+  // } = useSocketProgress({
+  //   endpoint: 'http://localhost:3001',
+  //   eventName: `${type}-sentiment-update`,
+  //   initialData: {
+  //     positive: data.stats.positive,
+  //     negative: data.stats.negative,
+  //     neutral: data.stats.neutral,
+  //     total: data.totalComments
+  //   }
+  // });
 
-  const config = getCardConfig();
+  // Use socket data if available and realtime is enabled
+  // const displayData = enableRealtime && socketData ? socketData : data.stats;
+  // const displayPercentages = enableRealtime && socketPercentages ? socketPercentages : percentages;
+
+  const handleProgressUpdate = (sentiment: 'positive' | 'negative' | 'neutral') => 
+    (newPercentage: number, newCount: number) => {
+      // This callback will be useful for socket integration
+      console.log(`${sentiment} updated:`, { newPercentage, newCount });
+    };
 
   return (
-    <div className={`${config.gradient} rounded-2xl border ${config.borderColor} shadow-sm p-8 hover:shadow-md transition-all duration-300 backdrop-blur-sm`}>
+    <div className={`w-full bg-white rounded-xl p-6 shadow-md transition-all duration-300 relative flex-1`}>
+      {/* Realtime indicator */}
+      {enableRealtime && (
+        <div className="absolute top-4 right-4">
+          <div className="flex items-center space-x-1">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span className="text-xs text-gray-500">Live</span>
+          </div>
+        </div>
+      )}
+
       {/* Title and Total */}
-      <div className="text-center mb-8">
-        <h3 className={`text-xl font-bold ${config.titleColor} mb-3`}>{title}</h3>
-        <p className={`text-sm ${config.subtitleColor} font-medium`}>
-          Total: <span className="font-bold">{data.totalComments.toLocaleString()} Comments</span>
-        </p>
+      <div className="text-center mb-6">
+        <h3 className="text-lg font-semibold text-gray-700 mb-4">{title}</h3>
+        <div className="text-3xl font-bold text-[#0846AA] mb-2">
+          {data.totalComments.toLocaleString()}
+        </div>
+        <p className="text-[#65758B] text-base">Total Comments</p>
       </div>
 
-      {/* Progress Bars */}
-      <div className="space-y-4">
+      {/* Progress Bars with enhanced features */}
+      <div className="space-y-3">
         <ProgressBar
           type="positive"
           percentage={parseFloat(percentages.positive)}
           count={data.stats.positive}
+          animate={true}
+          onUpdate={enableRealtime ? handleProgressUpdate('positive') : undefined}
         />
         <ProgressBar
           type="negative"
           percentage={parseFloat(percentages.negative)}
           count={data.stats.negative}
+          animate={true}
+          onUpdate={enableRealtime ? handleProgressUpdate('negative') : undefined}
         />
         <ProgressBar
           type="neutral"
           percentage={parseFloat(percentages.neutral)}
           count={data.stats.neutral}
+          animate={true}
+          onUpdate={enableRealtime ? handleProgressUpdate('neutral') : undefined}
         />
       </div>
+
+      {/* Socket connection status (for debugging) */}
+      {/* enableRealtime && error && (
+        <div className="mt-4 text-xs text-red-500">
+          Socket Error: {error}
+        </div>
+      ) */}
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { useAuth } from './context/AuthContext';
 import { useAppDispatch } from './hooks/redux';
 import { getCurrentUserAsync } from './store/slices/authSlice';
 
@@ -24,6 +23,8 @@ import UserDashboard from './pages/dashboard/userDashboard/UserDashboard';
 import HomePage from './pages/home/HomePage';
 import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
+import { useAuth } from './context/useAuth';
+import { getCommentsByPostIdAsync, getCommentsCountAsync, getCategoryCommentsCountAsync, getCommentsWeightageAsync } from './store/slices/commentSlice';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -34,6 +35,12 @@ function App() {
     if (token && !isAuthenticated) {
       dispatch(getCurrentUserAsync());
     }
+    // Fetch dashboard comment data globally on app load
+    const DEFAULT_POST_ID = '2c10f48b-4ccc-4b9f-a91e-5cb2a97e9965';
+    dispatch(getCommentsCountAsync(DEFAULT_POST_ID));
+    dispatch(getCategoryCommentsCountAsync(DEFAULT_POST_ID));
+    dispatch(getCommentsWeightageAsync(DEFAULT_POST_ID));
+    dispatch(getCommentsByPostIdAsync(DEFAULT_POST_ID));
   }, [dispatch, isAuthenticated]);
 
   return (
