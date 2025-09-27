@@ -35,7 +35,7 @@ export const useSocketProgress = ({
   endpoint,
   eventName,
   initialData,
-  autoConnect = false
+  autoConnect = true // Enable auto-connect by default for global connection
 }: UseSocketProgressProps): UseSocketProgressReturn => {
   const [isConnected, setIsConnected] = useState(false);
   const [data, setData] = useState<SocketProgressData | null>(initialData);
@@ -81,7 +81,7 @@ export const useSocketProgress = ({
         }
       });
 
-      socketRef.current.on('disconnect', (reason) => {
+      socketRef.current.on('disconnect', (reason: string) => {
         if (isMountedRef.current) {
           console.log('🔌 [useSocketProgress] Socket disconnected:', reason);
           setIsConnected(false);
@@ -89,7 +89,7 @@ export const useSocketProgress = ({
         }
       });
 
-      socketRef.current.on('connect_error', (err) => {
+      socketRef.current.on('connect_error', (err: Error) => {
         if (isMountedRef.current) {
           console.error('❌ [useSocketProgress] Socket connection error:', err.message);
           setError(`Connection failed: ${err.message}`);

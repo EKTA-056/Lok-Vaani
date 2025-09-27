@@ -1,6 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
 import { useAppSelector } from '../../../hooks/redux';
-import { useSocketProgress } from '../../../hooks/useSocketProgress';
 import SentimentBreakdown from './components/SentimentBreakdown';
 import SentimentAnalysis from './components/SentimentAnalysis';
 import SentimentByWeightage from './components/SentimentByWeightage';
@@ -8,80 +6,12 @@ import WordCloud from './components/WordCloud';
 import CommentHeading from './components/CommentHeading';
 
 const UserDashboard = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-
   // Get Redux state
   const { 
     commentCounts, 
     loading, 
     error 
   } = useAppSelector(state => state.comment);
-
-  // Memoize initial data to prevent object recreation on every render
-  const initialSocketData = useMemo(() => ({
-    positive: commentCounts?.positive || 0,
-    negative: commentCounts?.negative || 0,
-    neutral: commentCounts?.neutral || 0,
-    total: commentCounts?.total || 0
-  }), [commentCounts?.positive, commentCounts?.negative, commentCounts?.neutral, commentCounts?.total]);
-
-  // Socket connection for real-time updates
-  const {
-    isConnected: socketConnected,
-    data: socketData,
-    error: socketError,
-    refreshData,
-    connect: connectSocket
-  } = useSocketProgress({
-    endpoint: 'http://localhost:4000',
-    eventName: 'sentiment-update',
-    initialData: initialSocketData,
-    autoConnect: false // Disable auto-connect to prevent loops
-  });
-
-  // Connect socket manually only once after data is loaded
-  useEffect(() => {
-    console.log('🚀 [UserDashboard] Connecting socket...');
-    connectSocket();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Empty dependency - run only once
-
-  // ...existing code...
-
-  // Real-time clock
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const formatDate = (date: Date) => {
-    return date.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
-
-  const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', {
-      hour12: true,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-  };
-
-  // Use socket data if available, otherwise fallback to Redux data
-  const displayData = socketData || {
-    positive: commentCounts?.positive || 0,
-    negative: commentCounts?.negative || 0,
-    neutral: commentCounts?.neutral || 0,
-    total: commentCounts?.total || 0
-  };
 
   // Show loading state
   if (loading && !commentCounts) {
@@ -122,53 +52,8 @@ const UserDashboard = () => {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">LokVaani Analytics</h1>
-            <p className="text-sm text-gray-500 mb-4">Real-time Stakeholder Sentiment Intelligence Platform</p>
+            <p className="text-sm text-gray-500 mb-4">Stakeholder Sentiment Intelligence Platform</p>
             
-            {/* Status & Time */}
-            <div className="flex justify-center items-center space-x-8 mt-4">
-              <div className="flex items-center space-x-2">
-                <div className={`w-2 h-2 rounded-full ${
-                  socketConnected ? 'bg-green-400 animate-pulse' : 'bg-yellow-400'
-                }`}></div>
-                <span className="text-sm font-medium text-gray-600">
-                  {socketConnected ? 
-                    (loading ? 'Live + Updating...' : 'Live Data') : 
-                    (loading ? 'Updating Data...' : 'Cached Data')
-                  }
-                </span>
-              </div>
-              <div className="text-center">
-                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-                  {formatDate(currentTime)}
-                </div>
-                <div className="text-base font-bold text-[#0846AA] font-mono">
-                  {formatTime(currentTime)}
-                </div>
-              </div>
-              {/* Data Summary */}
-              <div className="text-center">
-                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-                  Total Comments
-                </div>
-                <div className="text-base font-bold text-[#0846AA]">
-                  {displayData.total}
-                </div>
-              </div>
-              {/* Socket Status */}
-              {socketError && (
-                <div className="text-center">
-                  <div className="text-xs font-medium text-red-500 uppercase tracking-wide">
-                    Socket Error
-                  </div>
-                  <button
-                    onClick={refreshData}
-                    className="text-xs text-blue-600 hover:text-blue-800 underline"
-                  >
-                    Retry Connection
-                  </button>
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </div>

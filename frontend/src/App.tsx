@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { useAppDispatch } from './hooks/redux';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
 import { getCurrentUserAsync } from './store/slices/authSlice';
+import { useSocketProgress } from './hooks/useSocketProgress';
 
 
 // Public Pages
@@ -29,6 +30,22 @@ import { getCommentsByPostIdAsync, getCommentsCountAsync, getCategoryCommentsCou
 function App() {
   const dispatch = useAppDispatch();
   const { isAuthenticated } = useAuth();
+  
+  // Get comment data for socket initialization
+  const { commentCounts } = useAppSelector(state => state.comment);
+
+  // Initialize global socket connection
+  const { isConnected, error: socketError } = useSocketProgress({
+    endpoint: 'http://localhost:4000',
+    eventName: 'sentiment-update',
+    initialData: {
+      positive: commentCounts?.positive || 0,
+      negative: commentCounts?.negative || 0,
+      neutral: commentCounts?.neutral || 0,
+      total: commentCounts?.total || 0
+    },
+    autoConnect: true // Auto-connect globally
+  });
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -42,6 +59,16 @@ function App() {
     dispatch(getCommentsWeightageAsync(DEFAULT_POST_ID));
     dispatch(getCommentsByPostIdAsync(DEFAULT_POST_ID));
   }, [dispatch, isAuthenticated]);
+
+  // Log socket connection status
+  useEffect(() => {
+    if (isConnected) {
+      console.log('🌐 [App] Global socket connection established');
+    }
+    if (socketError) {
+      console.error('🚨 [App] Global socket error:', socketError);
+    }
+  }, [isConnected, socketError]);
 
   return (
     <>
