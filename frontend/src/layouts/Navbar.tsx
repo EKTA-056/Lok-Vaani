@@ -3,16 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { logoutAsync } from '../store/slices/authSlice';
 import {
-  HomeIcon,
-  ClockIcon,
-  DocumentMagnifyingGlassIcon,
-  Cog6ToothIcon,
+  ChartBarIcon,
   UserCircleIcon,
   ArrowRightOnRectangleIcon,
-  ArrowRightEndOnRectangleIcon,
   ChevronDownIcon,
-} from '@heroicons/react/24/solid';
-import logo from '../assets/logo.png';
+} from '@heroicons/react/24/outline';
+import LokVaaniLogo from '../assets/logo.png';
 
 const Navbar: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -43,177 +39,113 @@ const Navbar: React.FC = () => {
 
 
   const navigationItems = useMemo(() => [
-    { name: 'Home', href: '/', icon: HomeIcon, public: true },
+    { name: 'Home', href: '/', public: true },
+    { name: 'Drafts', href: '/drafts', public: true },
     { name: 'About', href: '/about', public: true },
-    { name: 'Contact', href: '/contact', public: true },
     ...(isAuthenticated ? [
-      ...(user?.role === 'ADMIN' ? [{ name: 'Admin Dashboard', href: '/admin', icon: Cog6ToothIcon, public: false }] : [{ name: 'User Dashboard', href: '/dashboard', icon: Cog6ToothIcon, public: false }]),
+      { name: 'Dashboard', href: user?.role === 'ADMIN' ? '/admin' : '/dashboard', public: false },
     ] : [])
   ], [isAuthenticated, user?.role]);
 
   const isActivePath = useCallback((path: string) => location.pathname === path, [location.pathname]);
 
-  // Memoize styles to prevent recreating objects
-  const navbarStyle = useMemo(() => ({
-    height: '72px',
-  }), []);
-
   return (
-    <nav className="bg-[#00295d] border-b border-black fixed top-0 left-0 right-0 z-50" style={navbarStyle}>
-      <div className="w-full mx-auto px-4 flex justify-between items-center h-full">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img
-            src={logo}
-            alt="DAsort"
-            className="h-18 w-36 p-2"
-          />
-        </Link>
+    <>
+      {/* Secondary Top Header */}
+      <div className="bg-slate-100 border-b border-slate-200 text-slate-600 text-sm py-2 fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 text-center font-medium">
+          Ministry of Corporate Affairs | E-Consultation Analysis Platform
+        </div>
+      </div>
 
-        {/* Center Navigation */}
-        <div className="flex items-center space-x-6">
-          {navigationItems.map((item) => {
-            const Icon = item.icon;
-            return (
+      {/* Main Header */}
+      <header className="bg-white border-b border-slate-200 fixed top-8 left-0 right-0 z-40 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img 
+              src={LokVaaniLogo}
+              alt="LokVaani" 
+              className="h-28 w-auto"
+            />
+          </Link>
+
+          {/* Navigation Links */}
+          <nav className="flex items-center space-x-8">
+            {navigationItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`flex items-center px-4 py-3 text-base font-medium transition-colors duration-150 ${
+                className={`text-base font-medium transition-all duration-200 font-sans ${
                   isActivePath(item.href)
-                    ? 'border-b-2 border-white text-white'
-                    : 'text-white'
+                    ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                    : 'text-slate-700 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 hover:pb-1'
                 }`}
               >
-                {Icon && <Icon className="h-5 w-5 mr-2" />}
                 {item.name}
               </Link>
-            );
-          })}
-        </div>
+            ))}
+          </nav>
 
-        {/* Right Side - Auth Section */}
-        <div className="flex items-center space-x-4">
-          {isAuthenticated ? (
-            <>
-              {/* User Dropdown */}
+          {/* Right Side - Auth Section */}
+          <div className="flex items-center">
+            {isAuthenticated ? (
               <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
-                  className="flex items-center space-x-3 text-white hover:bg-[#003b85] px-4 py-2 rounded-lg transition-all duration-200 group"
+                  className="flex items-center space-x-2 px-3 py-2 text-slate-700 hover:text-blue-600 transition-colors duration-200 font-sans"
                 >
-                  <div className="flex items-center space-x-2">
-                    <UserCircleIcon className="h-8 w-8 text-gray-300 group-hover:text-white transition-colors" />
-                    <div className="text-left">
-                      <div className="text-sm font-medium">{user?.name}</div>
-                      <div className="text-xs text-gray-300">{user?.email}</div>
-                    </div>
-                  </div>
-                  <ChevronDownIcon className={`h-4 w-4 text-gray-300 transition-all duration-200 ${isUserDropdownOpen ? 'rotate-180 text-white' : 'group-hover:text-white'}`} />
+                  <UserCircleIcon className="h-6 w-6" />
+                  <span className="text-sm font-medium">{user?.name}</span>
+                  <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${isUserDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {isUserDropdownOpen && (
-                  <div className="absolute right-0 mt-3 w-64 bg-white rounded-xl shadow-xl border border-gray-200 z-50 overflow-hidden">
+                  <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-slate-200 z-50 overflow-hidden">
                     {/* User Info Header */}
-                    <div className="px-4 py-3 bg-gray-50 border-b border-gray-200">
-                      <div className="flex items-center space-x-3">
-                        <UserCircleIcon className="h-10 w-10 text-gray-400" />
-                        <div>
-                          <div className="text-sm font-semibold text-gray-900">{user?.name}</div>
-                          <div className="text-xs text-gray-500">{user?.email}</div>
-                          <div className="text-xs text-blue-600 font-medium">{user?.role}</div>
-                        </div>
-                      </div>
+                    <div className="px-4 py-3 bg-slate-50 border-b border-slate-200">
+                      <div className="text-sm font-semibold text-slate-900">{user?.name}</div>
+                      <div className="text-xs text-slate-500">{user?.email}</div>
+                      <div className="text-xs text-blue-600 font-medium">{user?.role}</div>
                     </div>
 
                     {/* Menu Items */}
-                    <div className="py-2">
-                      {user?.role === 'ADMIN' ? (
-                        <Link
-                          to="/admin"
-                          className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 group"
-                          onClick={() => setIsUserDropdownOpen(false)}
-                        >
-                          <div className="flex items-center justify-center w-8 h-8 bg-purple-100 rounded-lg mr-3 group-hover:bg-purple-200 transition-colors">
-                            <Cog6ToothIcon className="h-4 w-4 text-purple-600" />
-                          </div>
-                          <div>
-                            <div className="font-medium">Admin Panel</div>
-                            <div className="text-xs text-gray-500">System administration</div>
-                          </div>
-                        </Link>
-                      ) : (
-                        <>
-                          <Link
-                            to="/user-reports"
-                            className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 group"
-                            onClick={() => setIsUserDropdownOpen(false)}
-                          >
-                            <div className="flex items-center justify-center w-8 h-8 bg-blue-100 rounded-lg mr-3 group-hover:bg-blue-200 transition-colors">
-                              <DocumentMagnifyingGlassIcon className="h-4 w-4 text-blue-600" />
-                            </div>
-                            <div>
-                              <div className="font-medium">Reports</div>
-                              <div className="text-xs text-gray-500">View analytics & reports</div>
-                            </div>
-                          </Link>
-                          
-                          <Link
-                            to="/search-history"
-                            className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 group"
-                            onClick={() => setIsUserDropdownOpen(false)}
-                          >
-                            <div className="flex items-center justify-center w-8 h-8 bg-blue-100 rounded-lg mr-3 group-hover:bg-blue-200 transition-colors">
-                              <ClockIcon className="h-4 w-4 text-blue-600" />
-                            </div>
-                            <div>
-                              <div className="font-medium">Search History</div>
-                              <div className="text-xs text-gray-500">View past searches</div>
-                            </div>
-                          </Link>
-                        </>
-                      )}
-                    </div>
-
-                    {/* Logout Section */}
-                    <div className="border-t border-gray-200">
+                    <div className="py-1">
+                      <Link
+                        to={user?.role === 'ADMIN' ? '/admin' : '/dashboard'}
+                        className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
+                        onClick={() => setIsUserDropdownOpen(false)}
+                      >
+                        <ChartBarIcon className="h-4 w-4 mr-3 text-blue-600" />
+                        Dashboard
+                      </Link>
+                      
                       <button
                         onClick={() => {
                           setIsUserDropdownOpen(false);
                           handleLogout();
                         }}
-                        className="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-red-50 hover:text-red-700 transition-all duration-150 group"
+                        className="flex items-center w-full px-4 py-2 text-sm text-slate-700 hover:bg-red-50 hover:text-red-700 transition-colors duration-150"
                       >
-                        <div className="flex items-center justify-center w-8 h-8 bg-red-100 rounded-lg mr-3 group-hover:bg-red-200 transition-colors">
-                          <ArrowRightOnRectangleIcon className="h-4 w-4 text-red-600" />
-                        </div>
-                        <div>
-                          <div className="font-medium">Sign Out</div>
-                          <div className="text-xs text-gray-500">Logout from account</div>
-                        </div>
+                        <ArrowRightOnRectangleIcon className="h-4 w-4 mr-3 text-red-600" />
+                        Sign Out
                       </button>
                     </div>
                   </div>
                 )}
               </div>
-            </>
-          ) : (
-            <>
-              {/* Creative Login/Signup Buttons */}
+            ) : (
               <Link to="/login">
-                <button className="group relative flex items-center space-x-3 px-5 py-3 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg overflow-hidden">
-                    <ArrowRightEndOnRectangleIcon className="h-5 w-5 text-white" />
-                  <div className="text-left">
-                    <div className="text-sm font-bold tracking-wide">Sign In</div>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 font-sans">
+                  Login
                 </button>
               </Link>
-            </>
-          )}
+            )}
+          </div>
         </div>
-      </div>
-    </nav>
+      </header>
+    </>
   );
 };
 
