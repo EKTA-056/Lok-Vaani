@@ -8,7 +8,6 @@ import { useSocketProgress } from './hooks/useSocketProgress';
 
 // Public Pages
 import About from './pages/general/About';
-import Contact from './pages/general/Contact';
 // import Help from './pages/general/Help';
 
 // Auth Pages
@@ -19,6 +18,7 @@ import Register from './pages/auth/Register';
 // import Dashboard from './pages/dashboard/Dashboard';
 import AdminDashboard from './pages/dashboard/adminDashboard/AdminDashboard';
 import UserDashboard from './pages/dashboard/userDashboard/UserDashboard';
+import DraftPage from './pages/general/drafts';
 // import UserReports from './pages/dashboard/userDashboard/UserReports';
 // import SearchHistory from './pages/dashboard/userDashboard/SearchHistory';
 import HomePage from './pages/home/HomePage';
@@ -88,11 +88,11 @@ function App() {
 
       <div className="min-h-screen bg-gray-50">
         <Navbar />
-        <main className="pt-[72px]">
+        <main className="pt-[88px]">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/drafts" element={<DraftPage />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<UserDashboard />} />
             {/* <Route path="/dashboard" element={isAuthenticated ? <UserDashboard /> : <Navigate to="/login" />} /> */}
             <Route path="/login" element={<Login />} />
