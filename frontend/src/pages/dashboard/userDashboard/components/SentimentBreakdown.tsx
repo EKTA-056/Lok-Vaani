@@ -1,28 +1,50 @@
 import React from 'react';
+import { useAppSelector } from '../../../../hooks/redux';
 import StakeholderCard from './StakeholderCard';
-import { dashboardData } from './dashboardData';
+import { Header } from '@/components/common/Header';
+import type { StakeholderData } from './dashboardData';
 
 const SentimentBreakdown: React.FC = () => {
+  const { categoryCommentCounts } = useAppSelector(state => state.comment);
+
+  // Transform API data to component format
+  const normalUsersData: StakeholderData = {
+    totalComments: categoryCommentCounts 
+      ? categoryCommentCounts.user.positive + categoryCommentCounts.user.negative + categoryCommentCounts.user.neutral
+      : 0,
+    stats: {
+      positive: categoryCommentCounts?.user.positive || 0,
+      negative: categoryCommentCounts?.user.negative || 0,
+      neutral: categoryCommentCounts?.user.neutral || 0
+    }
+  };
+
+  const industrialistsData: StakeholderData = {
+    totalComments: categoryCommentCounts 
+      ? categoryCommentCounts.business.positive + categoryCommentCounts.business.negative + categoryCommentCounts.business.neutral
+      : 0,
+    stats: {
+      positive: categoryCommentCounts?.business.positive || 0,
+      negative: categoryCommentCounts?.business.negative || 0,
+      neutral: categoryCommentCounts?.business.neutral || 0
+    }
+  };
+
   return (
-    <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+    <div className="rounded-xl shadow-md p-8 border border-gray-100 transition-shadow duration-300">
       {/* Section Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-3 font-sans">
-          Sentiment Breakdown by Stakeholder Type
-        </h2>
-        <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-      </div>
+      <Header text={"Sentiment Breakdown by Stakeholder Type"} />
 
       {/* Stakeholder Cards Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="w-full flex flex-col md:flex-row gap-16 justify-center items-stretch">
         <StakeholderCard
           title="Comments from Normal Users"
-          data={dashboardData.stakeholders.normalUsers}
+          data={normalUsersData}
           type="normal"
         />
         <StakeholderCard
           title="Comments from Industrialists/Businessmen"
-          data={dashboardData.stakeholders.industrialists}
+          data={industrialistsData}
           type="industrialist"
         />
       </div>

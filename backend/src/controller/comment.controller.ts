@@ -34,6 +34,7 @@ const getCommentsByPostId = asyncHandler(async (req: Request, res: Response) => 
         standardComment: true,
         summary: true,
         sentiment: true,
+        language: true,
         keywords: true,
         status: true,
         createdAt: true
@@ -72,6 +73,259 @@ const getCommentAnalytics = asyncHandler(async (req: Request, res: Response) => 
   } catch (error) {
     console.error("Error fetching comment analytics:", error);
     throw new ApiError(500, "Failed to fetch comment analytics");
+  }
+});
+
+// Get Total no of comments in Total, Positive, Negative, Neutral categories
+const getCommentCounts = asyncHandler(async (req: Request, res: Response) => {
+  const { postId } = req.params;
+
+  if (!postId) {
+    throw new ApiError(400, "Post ID is required");
+  }
+
+  try {
+    const totalComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED' }
+    });
+
+    const positiveComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', sentiment: 'Positive' }
+    });
+
+    const negativeComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', sentiment: 'Negative' }
+    });
+
+    const neutralComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', sentiment: 'Neutral' }
+    });
+
+    res.status(200).json(new ApiResponse(200, {
+      total: totalComments,
+      positive: positiveComments,
+      negative: negativeComments,
+      neutral: neutralComments
+    }, "Comment counts fetched successfully"));
+  } catch (error) {
+    console.error("Error fetching comment counts:", error);
+    throw new ApiError(500, "Failed to fetch comment counts");
+  }
+});
+
+// Get Total no of comments in Total, Positive, Negative, Neutral categories
+const getCategorizedCommentCounts = asyncHandler(async (req: Request, res: Response) => {
+  const { postId } = req.params;
+
+  if (!postId) {
+    throw new ApiError(400, "Post ID is required");
+  }
+
+  try {
+    // Bussiness
+    const businessPositiveComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', businessCategory: {
+        categoryType: 'BUSINESS'
+      }  , sentiment: 'Positive' }
+    });
+
+    const businessNegativeComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', businessCategory: {
+        categoryType: 'BUSINESS'
+      }  , sentiment: 'Negative' }
+    });
+
+    const businessNeutralComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', businessCategory: {
+        categoryType: 'BUSINESS'
+      }  , sentiment: 'Neutral' }
+    });
+
+    // User
+    const userPositiveComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', businessCategory: {
+        categoryType: 'USER'
+      }  , sentiment: 'Positive' }
+    });
+
+    const userNegativeComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', businessCategory: {
+        categoryType: 'USER'
+      }  ,  sentiment: 'Negative' }
+    });
+
+    const userNeutralComments = await prisma.comment.count({
+      where: { postId, status: 'ANALYZED', businessCategory: {
+        categoryType: 'USER'
+      }  , sentiment: 'Neutral' }
+    });
+
+    res.status(200).json(new ApiResponse(200, {
+      user: {
+        positive: userPositiveComments,
+        negative: userNegativeComments,
+        neutral: userNeutralComments
+      },
+      business: {
+        positive: businessPositiveComments,
+        negative: businessNegativeComments,
+        neutral: businessNeutralComments
+      },
+    }, "Category Comment counts fetched successfully"));
+  } catch (error) {
+    console.error("Error fetching comment counts:", error);
+    throw new ApiError(500, "Failed to fetch comment counts");
+  }
+});
+
+// Get Positive , Negative, Netural percentage according all waitage of comments 
+const getCommentsWeightage = asyncHandler(async (req: Request, res: Response) => {
+  const { postId } = req.params;
+
+  if (!postId) {
+    throw new ApiError(400, "Post ID is required");
+  }
+
+  try {
+    // Get all analyzed comments with their weightage scores
+    const comments = await prisma.comment.findMany({
+      where: { 
+        postId, 
+        status: 'ANALYZED',
+        sentiment: {
+          in: ['Positive', 'Negative', 'Neutral']
+        }
+      },
+      select: {
+        id: true,
+        sentiment: true,
+        company: {
+          select: {
+            businessCategory: {
+              select: {
+                weightageScore: true,
+                name: true,
+                categoryType: true
+              }
+            }
+          }
+        }
+      }
+    });
+
+    if (comments.length === 0) {
+      return res.status(200).json(new ApiResponse(200, {
+        totalWeightedComments: 0,
+        weightedPercentages: {
+          positive: 0,
+          negative: 0,
+          neutral: 0
+        },
+        categoryBreakdown: {
+          user: { positive: 0, negative: 0, neutral: 0, totalWeight: 0 },
+          business: { positive: 0, negative: 0, neutral: 0, totalWeight: 0 }
+        }
+      }, "No analyzed comments found"));
+    }
+
+    // Calculate weighted scores for each sentiment
+    let positiveWeight = 0;
+    let negativeWeight = 0;
+    let neutralWeight = 0;
+    let totalWeight = 0;
+
+    // Category-wise breakdown
+    const userWeights = { positive: 0, negative: 0, neutral: 0, total: 0 };
+    const businessWeights = { positive: 0, negative: 0, neutral: 0, total: 0 };
+
+    comments.forEach(comment => {
+      const weightageScore = comment.company?.businessCategory?.weightageScore || 1;
+      const categoryType = comment.company?.businessCategory?.categoryType;
+      
+      totalWeight += weightageScore;
+
+      // Calculate overall weighted sentiment
+      switch (comment.sentiment) {
+        case 'Positive':
+          positiveWeight += weightageScore;
+          break;
+        case 'Negative':
+          negativeWeight += weightageScore;
+          break;
+        case 'Neutral':
+          neutralWeight += weightageScore;
+          break;
+      }
+
+      // Calculate category-wise weighted sentiment
+      if (categoryType === 'USER') {
+        userWeights.total += weightageScore;
+        switch (comment.sentiment) {
+          case 'Positive':
+            userWeights.positive += weightageScore;
+            break;
+          case 'Negative':
+            userWeights.negative += weightageScore;
+            break;
+          case 'Neutral':
+            userWeights.neutral += weightageScore;
+            break;
+        }
+      } else if (categoryType === 'BUSINESS') {
+        businessWeights.total += weightageScore;
+        switch (comment.sentiment) {
+          case 'Positive':
+            businessWeights.positive += weightageScore;
+            break;
+          case 'Negative':
+            businessWeights.negative += weightageScore;
+            break;
+          case 'Neutral':
+            businessWeights.neutral += weightageScore;
+            break;
+        }
+      }
+    });
+
+    // Calculate weighted percentages
+    const weightedPercentages = {
+      positive: totalWeight > 0 ? Math.round((positiveWeight / totalWeight) * 100 * 100) / 100 : 0,
+      negative: totalWeight > 0 ? Math.round((negativeWeight / totalWeight) * 100 * 100) / 100 : 0,
+      neutral: totalWeight > 0 ? Math.round((neutralWeight / totalWeight) * 100 * 100) / 100 : 0
+    };
+
+    // Calculate category-wise percentages
+    const categoryBreakdown = {
+      user: {
+        positive: userWeights.total > 0 ? Math.round((userWeights.positive / userWeights.total) * 100 * 100) / 100 : 0,
+        negative: userWeights.total > 0 ? Math.round((userWeights.negative / userWeights.total) * 100 * 100) / 100 : 0,
+        neutral: userWeights.total > 0 ? Math.round((userWeights.neutral / userWeights.total) * 100 * 100) / 100 : 0,
+        totalWeight: Math.round(userWeights.total * 100) / 100
+      },
+      business: {
+        positive: businessWeights.total > 0 ? Math.round((businessWeights.positive / businessWeights.total) * 100 * 100) / 100 : 0,
+        negative: businessWeights.total > 0 ? Math.round((businessWeights.negative / businessWeights.total) * 100 * 100) / 100 : 0,
+        neutral: businessWeights.total > 0 ? Math.round((businessWeights.neutral / businessWeights.total) * 100 * 100) / 100 : 0,
+        totalWeight: Math.round(businessWeights.total * 100) / 100
+      }
+    };
+
+    const responseData = {
+      totalAnalyzedComments: comments.length,
+      totalWeightedScore: Math.round(totalWeight * 100) / 100,
+      weightedPercentages,
+      categoryBreakdown,
+      rawWeights: {
+        positive: Math.round(positiveWeight * 100) / 100,
+        negative: Math.round(negativeWeight * 100) / 100,
+        neutral: Math.round(neutralWeight * 100) / 100
+      }
+    };
+
+    res.status(200).json(new ApiResponse(200, responseData, "Comments weightage analysis fetched successfully"));
+  } catch (error) {
+    console.error("Error fetching comments weightage:", error);
+    throw new ApiError(500, "Failed to fetch comments weightage analysis");
   }
 });
 
@@ -146,5 +400,8 @@ export {
   getCommentsByPostId,
   getCommentAnalytics,
   getCommentById,
-  getCommonComments
+  getCommonComments,
+  getCommentCounts,
+  getCategorizedCommentCounts,
+  getCommentsWeightage
 };
