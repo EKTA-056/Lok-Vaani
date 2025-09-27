@@ -18,6 +18,7 @@ import Register from './pages/auth/Register';
 // Private Pages
 // import Dashboard from './pages/dashboard/Dashboard';
 import AdminDashboard from './pages/dashboard/adminDashboard/AdminDashboard';
+import UserDashboard from './pages/dashboard/userDashboard/UserDashboard';
 // import UserReports from './pages/dashboard/userDashboard/UserReports';
 // import SearchHistory from './pages/dashboard/userDashboard/SearchHistory';
 import HomePage from './pages/home/HomePage';
@@ -58,7 +59,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            
+            <Route path="/dashboard" element={<UserDashboard />} />
+            {/* <Route path="/dashboard" element={isAuthenticated ? <UserDashboard /> : <Navigate to="/login" />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/admin" element={<AdminDashboard />} />
