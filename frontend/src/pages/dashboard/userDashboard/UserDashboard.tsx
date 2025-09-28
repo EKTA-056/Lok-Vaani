@@ -1,41 +1,79 @@
-import { useAppSelector } from '../../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
+import { useParams } from 'react-router-dom';
 import SentimentBreakdown from './components/SentimentBreakdown';
 import SentimentAnalysis from './components/SentimentAnalysis';
 import SentimentByWeightage from './components/SentimentByWeightage';
 import WordCloud from './components/WordCloud';
 import CommentHeading from './components/CommentHeading';
 import { AlertsSection, CommentSummary, dashboardData, GradientButton, OverallSummaryInsights } from './components';
+import { useEffect, useCallback } from 'react';
+// import { useAuth } from '@/context/useAuth';
+import { getCategoryCommentsCountAsync, getCommentsByPostIdAsync, getCommentsCountAsync, getCommentsWeightageAsync } from '@/store/slices/commentSlice';
 
-const UserDashboard = () => {
-  // Get Redux state
+const CommentAnalysis = () => {
+  const dispatch = useAppDispatch();
+  const { draftId } = useParams<{ draftId: string }>();
+  
+  // Get Redux state first
   const { 
-    commentCounts, 
     loading, 
     error, 
     comments
   } = useAppSelector(state => state.comment);
 
-  // Show loading state
-  if (loading && !commentCounts) {
+  // Use draftId as postId, with proper validation
+  const postId = draftId;
+  
+  // Create stable fetch function
+  const fetchData = useCallback(() => {
+    if (postId) {
+      dispatch(getCommentsCountAsync(postId));
+      dispatch(getCategoryCommentsCountAsync(postId));
+      dispatch(getCommentsWeightageAsync(postId));
+      dispatch(getCommentsByPostIdAsync(postId));
+    }
+  }, [dispatch, postId]);
+  
+  // Fetch data immediately when component mounts or postId changes
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  // Show loading for invalid postId
+  if (!postId) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#f7fafd] to-[#eaf1fb] font-sans flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Invalid Draft ID</h2>
+          <p className="text-gray-600 mb-4">The draft you're looking for could not be found.</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading state - always show loading when data is being fetched
+  if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f7fafd] to-[#eaf1fb] font-sans flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0846AA] mx-auto mb-4"></div>
           <p className="text-gray-600 text-lg">Loading Dashboard Data...</p>
-          <p className="text-gray-500 text-sm mt-2">Fetching real-time sentiment analytics</p>
+          <p className="text-gray-500 text-sm mt-2">Fetching analytics for draft: {postId}</p>
         </div>
       </div>
     );
   }
 
   // Show error state
-  if (error && !commentCounts) {
+  if (error) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#f7fafd] to-[#eaf1fb] font-sans flex items-center justify-center">
         <div className="text-center max-w-md mx-auto">
           <div className="text-red-500 text-6xl mb-4">⚠️</div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Dashboard Error</h2>
           <p className="text-gray-600 mb-4">{error}</p>
+          <p className="text-gray-500 text-sm mb-4">Draft ID: {postId}</p>
           <button 
             onClick={() => window.location.reload()}
             className="px-6 py-2 bg-[#0846AA] text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -49,6 +87,8 @@ const UserDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f7fafd] to-[#eaf1fb] font-sans">
+      {/* Example: Show the postId from URL */}
+      <div className="max-w-7xl mx-auto px-6 py-2 text-right text-xs text-gray-400">Post ID: {draftId}</div>
       {/* Executive Header */}
       <div className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-8">
@@ -151,7 +191,7 @@ const UserDashboard = () => {
   );
 };
 
-export default UserDashboard;
+export default CommentAnalysis;
 
 
 

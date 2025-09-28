@@ -17,7 +17,6 @@ import Register from './pages/auth/Register';
 // Private Pages
 // import Dashboard from './pages/dashboard/Dashboard';
 import AdminDashboard from './pages/dashboard/adminDashboard/AdminDashboard';
-import UserDashboard from './pages/dashboard/userDashboard/UserDashboard';
 import DraftPage from './pages/general/drafts';
 // import UserReports from './pages/dashboard/userDashboard/UserReports';
 // import SearchHistory from './pages/dashboard/userDashboard/SearchHistory';
@@ -25,13 +24,14 @@ import HomePage from './pages/home/HomePage';
 import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
 import { useAuth } from './context/useAuth';
-import { getCommentsByPostIdAsync, getCommentsCountAsync, getCategoryCommentsCountAsync, getCommentsWeightageAsync } from './store/slices/commentSlice';
 import CommentList from './pages/dashboard/userDashboard/CommentList';
+import { getPostsAsync } from './store/slices/postSlice';
+import CommentAnalysis from './pages/dashboard/userDashboard/UserDashboard';
 
 function App() {
   const dispatch = useAppDispatch();
   const { isAuthenticated } = useAuth();
-  
+
   // Get comment data for socket initialization
   const { commentCounts } = useAppSelector(state => state.comment);
 
@@ -53,12 +53,7 @@ function App() {
     if (token && !isAuthenticated) {
       dispatch(getCurrentUserAsync());
     }
-    // Fetch dashboard comment data globally on app load
-    const DEFAULT_POST_ID = '2c10f48b-4ccc-4b9f-a91e-5cb2a97e9965';
-    dispatch(getCommentsCountAsync(DEFAULT_POST_ID));
-    dispatch(getCategoryCommentsCountAsync(DEFAULT_POST_ID));
-    dispatch(getCommentsWeightageAsync(DEFAULT_POST_ID));
-    dispatch(getCommentsByPostIdAsync(DEFAULT_POST_ID));
+    dispatch(getPostsAsync());
   }, [dispatch, isAuthenticated]);
 
   // Log socket connection status
@@ -94,9 +89,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/drafts" element={<DraftPage />} />
             <Route path="/about" element={<About />} />
-            <Route path="/dashboard" element={<UserDashboard />} />
-            <Route path="/dashboard/comments-list" element={<CommentList />} />
-            {/* <Route path="/dashboard" element={isAuthenticated ? <UserDashboard /> : <Navigate to="/login" />} /> */}
+            <Route path="/drafts/comment-analysis/:draftId" element={<CommentAnalysis />} />
+            <Route path="/drafts/comments-list" element={<CommentList />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/admin" element={<AdminDashboard />} />

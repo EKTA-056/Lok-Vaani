@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   ChevronDownIcon,
   DocumentTextIcon,
-  ChartBarIcon,
   ClockIcon,
-  UsersIcon,
   XMarkIcon,
   CheckCircleIcon,
   XCircleIcon,
   ArrowDownTrayIcon
 } from '@heroicons/react/24/outline';
+
+import { useAppSelector } from '@/hooks/redux';
 
 interface Draft {
   id: string;
@@ -22,89 +23,34 @@ interface Draft {
   commentsCount: number;
   participants: number;
   analysisScore: number;
+  pdfBase64?: string;
 }
 
-const mockDrafts: Draft[] = [
-  {
-    id: '1',
-    title: 'Amendment to Companies Act 2013 - Corporate Governance Norms',
-    description: 'Proposed amendments to strengthen corporate governance framework and enhance transparency in corporate reporting and board composition requirements for listed companies.',
-    postedDate: '2025-09-15',
-    closingDate: '2025-10-15',
-    category: 'Corporate Law',
-    status: 'Open',
-    commentsCount: 847,
-    participants: 1245,
-    analysisScore: 78
-  },
-  {
-    id: '2',
-    title: 'Draft National Policy on Digital Governance',
-    description: 'Comprehensive policy framework for digital transformation of government services, citizen engagement platforms, and data governance standards.',
-    postedDate: '2025-09-10',
-    closingDate: '2025-10-20',
-    category: 'Digital Governance',
-    status: 'Open',
-    commentsCount: 1243,
-    participants: 2156,
-    analysisScore: 85
-  },
-  {
-    id: '3',
-    title: 'Environmental Compliance Framework for Corporations',
-    description: 'New environmental disclosure requirements and sustainability reporting standards for listed companies and large enterprises.',
-    postedDate: '2025-08-20',
-    closingDate: '2025-09-20',
-    category: 'Environment',
-    status: 'Closed',
-    commentsCount: 2315,
-    participants: 1567,
-    analysisScore: 92
-  },
-  {
-    id: '4',
-    title: 'Startup Registration and Compliance Simplification',
-    description: 'Streamlined registration process and reduced compliance burden for startup companies, MSMEs, and emerging technology ventures.',
-    postedDate: '2025-09-25',
-    closingDate: '2025-10-25',
-    category: 'Business Policy',
-    status: 'Upcoming',
-    commentsCount: 0,
-    participants: 0,
-    analysisScore: 0
-  },
-  {
-    id: '5',
-    title: 'Digital Payment and Financial Inclusion Policy',
-    description: 'Policy framework to promote digital payments, financial inclusion, and fintech innovation while ensuring consumer protection.',
-    postedDate: '2025-09-05',
-    closingDate: '2025-10-05',
-    category: 'Financial Policy',
-    status: 'Open',
-    commentsCount: 1456,
-    participants: 2341,
-    analysisScore: 88
-  },
-  {
-    id: '6',
-    title: 'Cybersecurity Framework for Government Systems',
-    description: 'Comprehensive cybersecurity guidelines and standards for government digital infrastructure and citizen data protection.',
-    postedDate: '2025-08-30',
-    closingDate: '2025-09-30',
-    category: 'Digital Governance',
-    status: 'Closed',
-    commentsCount: 956,
-    participants: 1876,
-    analysisScore: 79
-  }
-];
+// Map API post to Draft shape
+const mapPostToDraft = (post: any): Draft => ({
+  id: post.id,
+  title: post.title,
+  description: post.description,
+  postedDate: post.issueDate || post.createdAt || '',
+  closingDate: post.deadline || post.updatedAt || '',
+  category: post.postType || 'Other',
+  status: post.status === 'Open' || post.status === 'Closed' || post.status === 'Upcoming' ? post.status : 'Open',
+  commentsCount: post._count?.comments || 0,
+  participants: post._count?.summaries || 0,
+  analysisScore: 0, // Update if you have a field
+  pdfBase64: post.pdfBase64 || undefined,
+});
 
 const Drafts: React.FC = () => {
+
+  const { posts, loading } = useAppSelector(state => state.post);
+  const drafts: Draft[] = useMemo(() => posts.map(mapPostToDraft), [posts]);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedStatus, setSelectedStatus] = useState('All');
   const [sortBy, setSortBy] = useState('Newest');
-  const [filteredDrafts, setFilteredDrafts] = useState<Draft[]>(mockDrafts);
+  const [filteredDrafts, setFilteredDrafts] = useState<Draft[]>([]);
 
   // Helper functions
   const getDaysRemaining = (closingDate: string) => {
@@ -167,12 +113,11 @@ const Drafts: React.FC = () => {
 
   // Filter and sort logic
   useEffect(() => {
-    let filtered = mockDrafts.filter(draft => {
+    const filtered = drafts.filter(draft => {
       const matchesSearch = draft.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           draft.description.toLowerCase().includes(searchTerm.toLowerCase());
+        draft.description.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === 'All' || draft.category === selectedCategory;
       const matchesStatus = selectedStatus === 'All' || draft.status === selectedStatus;
-      
       return matchesSearch && matchesCategory && matchesStatus;
     });
 
@@ -193,28 +138,32 @@ const Drafts: React.FC = () => {
     });
 
     setFilteredDrafts(sorted);
-  }, [searchTerm, selectedCategory, selectedStatus, sortBy]);
+  }, [drafts, searchTerm, selectedCategory, selectedStatus, sortBy]);
 
-  // Get unique categories for filter dropdown
-  const categories = ['All', ...Array.from(new Set(mockDrafts.map(draft => draft.category)))];
+  // Get unique categories for filter dropdown - memoized to prevent recreation
+  const categories = useMemo(() => ['All', ...Array.from(new Set(drafts.map(draft => draft.category)))], [drafts]);
   const statuses = ['All', 'Open', 'Closed', 'Upcoming'];
 
-  // Active filters
-  const activeFilters = [
+  // Active filters - memoized to prevent recreation
+  const activeFilters = useMemo(() => [
     selectedCategory !== 'All' && selectedCategory,
     selectedStatus !== 'All' && selectedStatus,
     searchTerm && `Search: "${searchTerm}"`
-  ].filter(Boolean);
+  ].filter(Boolean), [selectedCategory, selectedStatus, searchTerm]);
+
+  const navigate = useNavigate();
+  const handleDraftClick = (draftId: string) => {
+    // Navigate to the draft details page using path param
+    navigate(`/drafts/comment-analysis/${draftId}`);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
         {/* Page Header */}
         <div className="mb-8 sm:mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-              <DocumentTextIcon className="h-6 w-6 text-white" />
-            </div>
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Policy Drafts
@@ -352,7 +301,7 @@ const Drafts: React.FC = () => {
           <div>
             <p className="text-gray-600">
               Showing <span className="font-semibold text-gray-900">{filteredDrafts.length}</span> of{' '}
-              <span className="font-semibold text-gray-900">{mockDrafts.length}</span> drafts
+              <span className="font-semibold text-gray-900">{drafts.length}</span> drafts
             </p>
             {activeFilters.length > 0 && (
               <p className="text-sm text-blue-600 mt-1">
@@ -377,22 +326,31 @@ const Drafts: React.FC = () => {
         {/* Draft Cards List */}
         <div className="space-y-4 mb-12">
           {filteredDrafts.length === 0 ? (
-            <div className="text-center py-20">
-              <div className="mx-auto w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-                <DocumentTextIcon className="h-12 w-12 text-gray-400" />
+            <>{loading && (
+              <div className="flex justify-center items-center py-20">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mr-4"></div>
+                <span className="text-blue-600 text-lg font-semibold">Loading drafts...</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No drafts found</h3>
-              <p className="text-gray-600 max-w-md mx-auto">Try adjusting your search terms or filter criteria to find relevant draft policies.</p>
-            </div>
+            )}
+            {!loading && (
+             <div className="text-center py-20">
+                <div className="mx-auto w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+                  <DocumentTextIcon className="h-12 w-12 text-gray-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No drafts found</h3>
+                <p className="text-gray-600 max-w-md mx-auto">Try adjusting your search terms or filter criteria to find relevant draft policies.</p>
+              </div>
+            )}
+            </>
           ) : (
             filteredDrafts.map((draft) => (
               <div
                 key={draft.id}
-                className="bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200 group cursor-pointer"
+                className="bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200 group"
               >
                 <div className="p-6">
                   <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-                    
+
                     {/* Left Section - Main Content */}
                     <div className="flex-1 min-w-0">
                       {/* Status and Category Header */}
@@ -414,7 +372,9 @@ const Drafts: React.FC = () => {
 
                       {/* Title and Description */}
                       <div className="mb-4">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2 leading-tight group-hover:text-blue-700 transition-colors">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2 leading-tight group-hover:text-blue-700 transition-colors cursor-pointer"
+                          onClick={() => handleDraftClick(draft.id)}
+                        >
                           {draft.title}
                         </h3>
                         <p className="text-gray-600 leading-relaxed line-clamp-2">
@@ -436,25 +396,14 @@ const Drafts: React.FC = () => {
                           <span className="font-medium">{draft.commentsCount.toLocaleString()}</span>
                           <span>comments</span>
                         </div>
-                        <div className="flex items-center gap-1.5">
-                          <UsersIcon className="h-4 w-4 text-gray-400" />
-                          <span className="font-medium">{draft.participants.toLocaleString()}</span>
-                          <span>participants</span>
-                        </div>
-                        {draft.analysisScore > 0 && (
-                          <div className="flex items-center gap-1.5">
-                            <ChartBarIcon className="h-4 w-4 text-blue-500" />
-                            <span className="font-medium text-blue-600">{draft.analysisScore}%</span>
-                            <span>analyzed</span>
-                          </div>
-                        )}
+
                       </div>
                     </div>
 
                     {/* Right Section - Status & Actions */}
                     <div className="flex-shrink-0 flex lg:flex-col gap-3 lg:items-end">
                       {/* Progress Bar for Open Drafts */}
-                      {draft.status === 'Open' && (
+                      {/* {draft.status === 'Open' && (
                         <div className="hidden lg:block">
                           <div className="w-32 bg-gray-200 rounded-full h-1.5 mb-2">
                             <div
@@ -465,19 +414,37 @@ const Drafts: React.FC = () => {
                             ></div>
                           </div>
                         </div>
-                      )}
+                      )} */}
                       
                       {/* Action Buttons */}
                       <div className="flex gap-2">
-                        <button 
-                          className="w-10 h-10 inline-flex items-center justify-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200"
-                          title="View Analysis"
-                        >
-                          <ChartBarIcon className="h-5 w-5" />
-                        </button>
-                        <button 
+                        <button
                           className="w-10 h-10 inline-flex items-center justify-center border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
                           title="Download Draft"
+                          onClick={() => {
+                            if (!draft.pdfBase64) {
+                              alert('No PDF available for this draft.');
+                              return;
+                            }
+                            // Decode base64 and trigger download
+                            const byteCharacters = atob(draft.pdfBase64);
+                            const byteNumbers = new Array(byteCharacters.length);
+                            for (let i = 0; i < byteCharacters.length; i++) {
+                              byteNumbers[i] = byteCharacters.charCodeAt(i);
+                            }
+                            const byteArray = new Uint8Array(byteNumbers);
+                            const blob = new Blob([byteArray], { type: 'application/pdf' });
+                            const url = URL.createObjectURL(blob);
+                            const link = document.createElement('a');
+                            link.href = url;
+                            link.download = `${draft.title || 'draft'}.pdf`;
+                            document.body.appendChild(link);
+                            link.click();
+                            setTimeout(() => {
+                              document.body.removeChild(link);
+                              URL.revokeObjectURL(url);
+                            }, 100);
+                          }}
                         >
                           <ArrowDownTrayIcon className="h-5 w-5" />
                         </button>
@@ -491,14 +458,14 @@ const Drafts: React.FC = () => {
         </div>
 
         {/* Load More Button */}
-        {filteredDrafts.length > 0 && filteredDrafts.length < mockDrafts.length && (
+        {filteredDrafts.length > 0 && filteredDrafts.length < drafts.length && (
           <div className="text-center pt-8">
             <button className="inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200 font-medium shadow-sm hover:shadow-md group">
               <span>Load More Drafts</span>
               <ChevronDownIcon className="h-4 w-4 group-hover:animate-bounce" />
             </button>
             <p className="text-sm text-gray-500 mt-3">
-              Showing {filteredDrafts.length} of {mockDrafts.length} total drafts
+              Showing {filteredDrafts.length} of {drafts.length} total drafts
             </p>
           </div>
         )}
