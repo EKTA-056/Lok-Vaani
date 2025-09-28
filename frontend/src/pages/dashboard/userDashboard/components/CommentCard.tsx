@@ -1,153 +1,133 @@
-import React, { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import type { CommentData } from './dashboardData';
+import React from 'react';
+import { ThumbsUp, ChevronDown, ThumbsDown, Equal } from 'lucide-react';
+import type { CommentProps } from '@/types';
 
-interface CommentCardProps {
-  comment: CommentData;
-}
 
-const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
 
-  const getSentimentColor = (sentiment: string) => {
-    switch (sentiment) {
-      case 'positive':
-        return 'text-green-600 bg-green-50 border-green-200';
-      case 'negative':
-        return 'text-red-600 bg-red-50 border-red-200';
-      case 'neutral':
-        return 'text-yellow-600 bg-yellow-50 border-yellow-200';
+const CommentCard: React.FC<CommentProps> = ({
+  raw_comment,
+  categoryType,
+  bussiness_category,
+  sentiment,
+  language,
+  summary,
+  company,
+  updatedAt
+}) => {
+
+  const getCategoryColor = (category: string) => {
+    switch ((category || '').toUpperCase()) {
+      case 'USER':
+        return 'bg-purple-100 text-purple-700 border-purple-200';
+      case 'BUSINESS':
       default:
-        return 'text-gray-600 bg-gray-50 border-gray-200';
+        return 'bg-blue-100 text-blue-700 border-blue-200';
     }
   };
 
-  const getSentimentBadgeColor = (sentiment: string) => {
-    switch (sentiment) {
-      case 'positive':
-        return 'bg-green-100 text-green-800';
-      case 'negative':
-        return 'bg-red-100 text-red-800';
-      case 'neutral':
-        return 'bg-yellow-100 text-yellow-800';
+  const [expanded, setExpanded] = React.useState(false);
+  const handleToggle = () => setExpanded((prev) => !prev);
+
+  // Language color coding
+  const getLanguageColor = (lang: string) => {
+    switch ((lang || '').toLowerCase()) {
+      case 'hindi':
+        return 'bg-orange-100 text-orange-700 border-orange-200';
+      case 'english':
+        return 'bg-blue-100 text-blue-700 border-blue-200';
+      case 'hinenglish':
+        return 'bg-teal-100 text-teal-700 border-teal-200';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-gray-100 text-gray-700 border-gray-200';
     }
   };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  };
+  // Safely parse updatedAt for date and time
+  let datePart = updatedAt;
+  let timePart = '';
+  if (updatedAt && updatedAt.includes('T')) {
+    const [date, time] = updatedAt.split('T');
+    datePart = date;
+    if (time) {
+      timePart = time.split('.')[0];
+    }
+  }
+
+  // Choose icon and color for sentiment using switch
+  let SentimentIcon = ThumbsUp;
+  let iconBg = 'bg-green-100';
+  let iconColor = 'text-green-600';
+  switch (sentiment) {
+    case 'Negative':
+      SentimentIcon = ThumbsDown;
+      iconBg = 'bg-red-100';
+      iconColor = 'text-red-600';
+      break;
+    case 'Neutral':
+      SentimentIcon = Equal;
+      iconBg = 'bg-gray-100';
+      iconColor = 'text-gray-600';
+      break;
+    case 'Positive':
+    default:
+      SentimentIcon = ThumbsUp;
+      iconBg = 'bg-green-100';
+      iconColor = 'text-green-600';
+      break;
+  }
 
   return (
-    <div className={`border rounded-lg p-4 transition-all duration-200 hover:shadow-md ${getSentimentColor(comment.sentiment)}`}>
-      {/* Header with sentiment badge and expand button */}
-      <div className="flex justify-between items-start mb-3">
-        <div className="flex items-center gap-2">
-          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getSentimentBadgeColor(comment.sentiment)}`}>
-            {comment.sentiment.charAt(0).toUpperCase() + comment.sentiment.slice(1)}
-          </span>
-          <span className="text-xs text-gray-500">
-            Confidence: {(comment.confidence * 100).toFixed(0)}%
-          </span>
-        </div>
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors duration-200"
-        >
-          {isExpanded ? 'Collapse' : 'Expand'}
-          {isExpanded ? (
-            <ChevronUpIcon className="h-4 w-4" />
-          ) : (
-            <ChevronDownIcon className="h-4 w-4" />
-          )}
-        </button>
-      </div>
-
-      {/* Summary */}
-      <div className="mb-3">
-        <h3 className="text-sm font-medium text-gray-900 mb-2">Summary</h3>
-        <p className="text-sm text-gray-700 leading-relaxed">{comment.summary}</p>
-      </div>
-
-      {/* Metadata grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3 text-sm">
-        <div>
-          <span className="font-medium text-gray-600">Company:</span>
-          <p className="text-gray-800 mt-1">{comment.company}</p>
-        </div>
-        <div>
-          <span className="font-medium text-gray-600">Category:</span>
-          <p className="text-gray-800 mt-1">{comment.category}</p>
-        </div>
-        <div>
-          <span className="font-medium text-gray-600">Language:</span>
-          <p className="text-gray-800 mt-1">{comment.language}</p>
-        </div>
-        <div>
-          <span className="font-medium text-gray-600">Date:</span>
-          <p className="text-gray-800 mt-1">{formatDate(comment.date)}</p>
-        </div>
-      </div>
-
-      {/* Stakeholder type and tags */}
-      <div className="flex flex-wrap items-center gap-2 mb-3">
-        <span className="text-xs font-medium text-gray-600">Stakeholder:</span>
-        <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
-          {comment.stakeholderType}
-        </span>
-        {comment.tags.length > 0 && (
-          <>
-            <span className="text-xs font-medium text-gray-600 ml-2">Tags:</span>
-            {comment.tags.map((tag, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </>
-        )}
-      </div>
-
-      {/* Expandable full content */}
-      {isExpanded && (
-        <div className="mt-4 pt-4 border-t border-gray-200 space-y-4">
-          <div>
-            <h4 className="text-sm font-medium text-gray-900 mb-2">
-              Full Content {comment.language !== 'English' && `(${comment.language})`}
-            </h4>
-            <div className="bg-white rounded-md p-3 border border-gray-200">
-              <p className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">
-                {comment.fullContent}
-              </p>
+    <div className="max-w-7xl mx-auto p-4">
+      <div className="bg-white border border-gray-100 rounded-xl px-6 py-5 shadow-md hover:shadow-lg transition-shadow duration-200">
+        <div className="flex flex-row items-center gap-4 w-full">
+          {/* Icon */}
+          <div className="flex flex-col items-center pt-1">
+            <div className={`w-10 h-10 ${iconBg} rounded-full flex items-center justify-center shadow-sm`}>
+              <SentimentIcon className={`w-5 h-5 ${iconColor}`} />
             </div>
           </div>
-          
-          {/* English Translation for non-English comments */}
-          {comment.englishTranslation && comment.language !== 'English' && (
-            <div>
-              <h4 className="text-sm font-medium text-gray-900 mb-2 flex items-center gap-2">
-                English Translation
-                <span className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-full">
-                  Auto-translated
-                </span>
-              </h4>
-              <div className="bg-blue-50 rounded-md p-3 border border-blue-200">
-                <p className="text-sm text-blue-900 leading-relaxed whitespace-pre-wrap">
-                  {comment.englishTranslation}
-                </p>
+
+          {/* Main content */}
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-row items-center justify-between gap-2 mb-1">
+              <div className="flex flex-row gap-2 items-center">
+                <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border ${getLanguageColor(language || '')}`}>{language}</span>
+                <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(categoryType || '')}`}>{categoryType}</span>
+              </div>
+              <div className="flex flex-row items-center gap-2">
+                <span className="text-sm font-semibold text-blue-700">{datePart}</span>
+                {timePart && <><span className="text-sm font-semibold text-blue-400">|</span><span className="text-sm font-semibold text-blue-700">{timePart}</span></>}
+                <button
+                  className={`ml-2 p-1 rounded-full border border-blue-200 bg-blue-50 hover:bg-blue-100 transition-colors duration-150 shadow-sm flex items-center justify-center ${expanded ? 'ring-2 ring-blue-300' : ''}`}
+                  onClick={handleToggle}
+                  aria-label={expanded ? 'Collapse' : 'Expand'}
+                >
+                  <ChevronDown className={`w-4 h-4 text-blue-600 transform transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`} />
+                </button>
               </div>
             </div>
-          )}
+            <div className="mb-2">
+              <p
+                className={`text-gray-900 text-base font-medium leading-relaxed transition-all duration-200 ${expanded ? '' : 'line-clamp-2'}`}
+                style={!expanded ? { display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' } : {}}
+              >
+                {raw_comment}
+              </p>
+              {expanded && summary && (
+                <div className="mt-3 px-4 py-2 bg-blue-50 border-l-4 border-blue-400 rounded-md">
+                  <span className="block text-blue-900 text-sm font-semibold mb-1">Summary</span>
+                  <span className="text-blue-900 text-sm leading-relaxed">{summary}</span>
+                </div>
+              )}
+            </div>
+            <div className="flex flex-row items-center gap-2 mt-1">
+              <span className="text-gray-500 text-sm font-medium truncate">{company}</span>
+              <span className="text-gray-300">|</span>
+              <span className="text-gray-500 text-sm font-medium truncate">{bussiness_category}</span>
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

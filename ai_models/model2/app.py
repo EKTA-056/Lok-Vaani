@@ -1,7 +1,10 @@
 import os
+import json
+import torch
 from flask import Flask, render_template, request
 import pandas as pd
-from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import pipeline as hf_pipeline
 from deep_translator import GoogleTranslator
 from langdetect import detect
 from google.cloud import translate_v2 as translate
@@ -11,12 +14,131 @@ from flask import Flask, render_template, request, jsonify
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "google_key.json"
 translate_client = translate.Client()
 
-sentiment_model = pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment")
-label_mapping = {
-    "LABEL_0": "Negative",
-    "LABEL_1": "Neutral",
-    "LABEL_2": "Positive"
-}
+# Load draft context from JSON file for summarization
+def load_draft_context():
+    """Load the compact draft context for efficient processing"""
+    try:
+        with open('draft_context.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        # Fallback minimal context if file not found
+        return {
+            "subject": "Indian Multi-Disciplinary Partnership (MDP) firms",
+            "ministry": "Ministry of Corporate Affairs",
+            "key_focus": ["regulatory changes", "global competitiveness", "professional services"]
+        }
+
+# Load context at startup
+DRAFT_CONTEXT = load_draft_context()
+
+# Initialize summarization model
+print("Loading TinyLlama model for summarization...")
+try:
+    # Suppress TensorFlow warnings for cleaner output
+    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+    os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
+    
+    # Set device - use GPU if available
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Using device: {device}")
+    
+    # Load model with optimizations
+    tokenizer = AutoTokenizer.from_pretrained(
+        "TinyLlama/TinyLlama-1.1B-Chat-v1.0", 
+        cache_dir="./model_cache"
+    )
+    
+    model = AutoModelForCausalLM.from_pretrained(
+        "TinyLlama/TinyLlama-1.1B-Chat-v1.0", 
+        device_map="auto",
+        dtype=torch.float16 if device == "cuda" else torch.float32,
+        cache_dir="./model_cache",
+        low_cpu_mem_usage=True
+    )
+    
+    # Create optimized pipeline
+    summarizer = hf_pipeline(
+        "text-generation",
+        model=model,
+        tokenizer=tokenizer
+    )
+    
+    print("TinyLlama model loaded successfully!")
+except Exception as e:
+    print(f"Warning: Could not load summarization model: {e}")
+    summarizer = None
+
+def generate_summary(text):
+    """Generate summary for translated comment using TinyLlama model"""
+    if summarizer is None:
+        return "Summary unavailable - model not loaded"
+    
+    try:
+        # Calculate adaptive summary length based on comment length
+        comment_length = len(text.strip().split())
+        if comment_length <= 50:
+            max_tokens = 30  # Short summary for short comments
+        elif comment_length <= 150:
+            max_tokens = 60  # Medium summary for medium comments
+        elif comment_length <= 300:
+            max_tokens = 100  # Longer summary for longer comments
+        else:
+            max_tokens = 150  # Maximum summary for very long comments
+        
+        # Use compact context for efficient processing
+        context_summary = {
+            "topic": DRAFT_CONTEXT.get("consultation_details", {}).get("subject", "MDP firms establishment"),
+            "focus": DRAFT_CONTEXT.get("focus_areas", ["auditing", "consulting", "legal"]),
+            "key_issues": DRAFT_CONTEXT.get("key_asymmetries", {}).get("indian_firm_limitations", [])[:3]
+        }
+        
+        # Optimized prompt for faster processing
+        prompt = f"""MCA eConsultation Analysis - Topic: {context_summary['topic']}
+
+Key Issues: {', '.join(context_summary['key_issues'])}
+Focus Areas: {', '.join(context_summary['focus'])}
+
+Stakeholder Comment: {text.strip()}
+
+Analyze this comment and provide a concise summary focusing on:
+- Main concerns raised
+- Specific suggestions or recommendations  
+- Regulatory changes mentioned
+- Overall sentiment (supportive/critical/neutral)
+
+Summary:"""
+        
+        # Generate with optimized parameters (fixed temperature=0.7, adaptive length)
+        summary = summarizer(
+            prompt, 
+            max_new_tokens=max_tokens,
+            temperature=0.7,  # Fixed temperature for consistent results
+            return_full_text=False,
+            do_sample=True,
+            pad_token_id=tokenizer.eos_token_id if tokenizer.pad_token_id is None else tokenizer.pad_token_id,
+            num_return_sequences=1,
+            clean_up_tokenization_spaces=True
+        )
+        
+        return summary[0]['generated_text'].strip()
+    
+    except Exception as e:
+        print(f"Summary generation error: {e}")
+        return "Summary generation failed"
+
+# Initialize sentiment analysis model  
+try:
+    sentiment_model = hf_pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment")
+    label_mapping = {
+        "LABEL_0": "Negative",
+        "LABEL_1": "Neutral", 
+        "LABEL_2": "Positive"
+    }
+    print("Sentiment analysis model loaded successfully!")
+except Exception as e:
+    print(f"Warning: Could not load sentiment model: {e}")
+    sentiment_model = None
+    label_mapping = {}
 
 def translate_text(text):
     if not text or text.strip() == "":
@@ -41,8 +163,6 @@ def translate_text(text):
             found_hindi_words.append(word)
     
     print(f"Translation Debug: lang={lang}, hindi_word_count={hindi_word_count}, text_length={len(text.split())}")
-    if found_hindi_words:
-        print(f"Found Hindi words: {found_hindi_words}")
  
     # Determine language type
     if lang == "en" and hindi_word_count == 0:
@@ -162,9 +282,17 @@ def analyze():
         language_type = translated_result[1]
         
         # Perform sentiment analysis on translated text
-        result = sentiment_model(translated_comment[:512])[0]
-        sentiment = label_mapping[result['label']]
-        score = result['score']
+        if sentiment_model is not None:
+            result = sentiment_model(translated_comment[:512])[0]
+            sentiment = label_mapping[result['label']]
+            score = result['score']
+        else:
+            sentiment = "Unknown"
+            score = 0.0
+        
+        # Generate summary using translated comment
+        print(f"Generating summary for translated comment ({len(translated_comment.split())} words)...")
+        summary = generate_summary(translated_comment)
 
         return jsonify({
             "success": True,
@@ -174,7 +302,7 @@ def analyze():
             "language_type": language_type,
             "sentiment": sentiment,
             "sentimentScore": round(score, 4),
-            "summary": "",  # Placeholder for future summary feature
+            "summary": summary,  # Generated summary placed here
             "score": round(score, 4)
         })
     

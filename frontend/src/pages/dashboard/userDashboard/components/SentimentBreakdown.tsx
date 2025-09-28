@@ -31,7 +31,7 @@ const SentimentBreakdown: React.FC = () => {
   };
 
   return (
-    <div className="rounded-xl shadow-md p-8 border border-gray-100 transition-shadow duration-300">
+    <div className="rounded-xl border border-gray-100 transition-shadow duration-300">
       {/* Section Header */}
       <Header text={"Sentiment Breakdown by Stakeholder Type"} />
 

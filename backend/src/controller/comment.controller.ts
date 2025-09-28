@@ -16,28 +16,30 @@ const getCommentsByPostId = asyncHandler(async (req: Request, res: Response) => 
   try {
     const comments = await prisma.comment.findMany({
       where: { postId },
-      orderBy: { createdAt: 'desc' },
+      orderBy: { updatedAt: 'desc' },
       select: {
         id: true,
         company: {
           select: {
             name: true,
+            state: true,
             businessCategory: {
               select: {
                 name: true,
-                weightageScore: true
+                weightageScore: true,
+                categoryType: true
               }
             }
           }
         },
         rawComment: true,
-        standardComment: true,
         summary: true,
         sentiment: true,
         language: true,
         keywords: true,
         status: true,
-        createdAt: true
+        createdAt: true,
+        updatedAt: true,
       }
     });
 

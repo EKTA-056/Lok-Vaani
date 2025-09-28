@@ -1,179 +1,81 @@
-import React, { useState, useMemo } from 'react';
+import React, {useMemo } from 'react';
 import CommentCard from './CommentCard';
-import type { CommentData } from './dashboardData';
+import type { CommentProps } from '@/types';
+import type { Comment } from '@/services/commentService';
+import Button from '@/components/common/Button';
+import { MoveRight } from 'lucide-react';
 
-interface CommentSummaryProps {
-  comments: CommentData[];
-}
-
-const CommentSummary: React.FC<CommentSummaryProps> = ({ comments }) => {
-  const [visibleCount, setVisibleCount] = useState(5);
-  const [sentimentFilter, setSentimentFilter] = useState<string>('all');
-  const [stakeholderFilter, setStakeholderFilter] = useState<string>('all');
-
-  // Filter comments based on selected filters
-  const filteredComments = useMemo(() => {
-    return comments.filter(comment => {
-      const sentimentMatch = sentimentFilter === 'all' || comment.sentiment === sentimentFilter;
-      const stakeholderMatch = stakeholderFilter === 'all' || comment.stakeholderType === stakeholderFilter;
-      return sentimentMatch && stakeholderMatch;
-    });
-  }, [comments, sentimentFilter, stakeholderFilter]);
-
-  // Get visible comments
-  const visibleComments = filteredComments.slice(0, visibleCount);
-  const hasMoreComments = visibleCount < filteredComments.length;
-
-  // Reset visible count when filters change
-  React.useEffect(() => {
-    setVisibleCount(5);
-  }, [sentimentFilter, stakeholderFilter]);
-
-  const showMoreComments = () => {
-    setVisibleCount(prev => Math.min(prev + 5, filteredComments.length));
-  };
-
-  const showLessComments = () => {
-    setVisibleCount(5);
-  };
-
-  const getFilterButtonClass = (isActive: boolean) => {
-    return `px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 ${
-      isActive
-        ? 'bg-blue-600 text-white'
-        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-    }`;
-  };
+const CommentSummary: React.FC<{ comments: Comment[] }> = ({ comments }) => {
+  // Only show the latest 5 comments, sorted by date descending
+  // Map backend Comment to CommentProps for UI components
+  const mappedComments = (comments || []).map((c: Comment): CommentProps => ({
+    id: c.id,
+    raw_comment: c.rawComment,
+    language: c.language === null ? undefined : c.language,
+    categoryType: c.company?.businessCategory?.name ?? '',
+    bussiness_category: c.company?.businessCategory?.name ?? '',
+    sentiment: c.sentiment,
+    date: c.createdAt,
+    state: c.status,
+    summary: c.summary === null ? undefined : c.summary,
+    company: c.company?.name ?? '',
+    createdAt: c.createdAt,
+    updatedAt: c.createdAt,
+  }));
+  const latestComments = useMemo(() => {
+    return [...mappedComments]
+      .sort((a, b) => new Date(b.date || '').getTime() - new Date(a.date || '').getTime())
+      .slice(0, 5);
+  }, [mappedComments]);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-white items-center rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2 font-sans">
-            Comment Summary
+            Latest Comments
           </h2>
           <p className="text-sm text-gray-600 font-sans">
-            Detailed analysis of individual comments with expandable content
+            Only the 5 most recent comments are shown below.
           </p>
         </div>
-        
-        {/* Summary stats */}
         <div className="mt-4 sm:mt-0 flex items-center gap-4 text-sm text-gray-600">
-          <span>Total: {filteredComments.length}</span>
-          <span>•</span>
-          <span>
-            Showing: {Math.min(visibleCount, filteredComments.length)}
-          </span>
-        </div>
-      </div>
-
-      {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
-        {/* Sentiment Filter */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-          <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
-            Sentiment:
-          </span>
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSentimentFilter('all')}
-              className={getFilterButtonClass(sentimentFilter === 'all')}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setSentimentFilter('positive')}
-              className={getFilterButtonClass(sentimentFilter === 'positive')}
-            >
-              Positive
-            </button>
-            <button
-              onClick={() => setSentimentFilter('negative')}
-              className={getFilterButtonClass(sentimentFilter === 'negative')}
-            >
-              Negative
-            </button>
-            <button
-              onClick={() => setSentimentFilter('neutral')}
-              className={getFilterButtonClass(sentimentFilter === 'neutral')}
-            >
-              Neutral
-            </button>
-          </div>
-        </div>
-
-        {/* Stakeholder Filter */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-          <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
-            Stakeholder:
-          </span>
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setStakeholderFilter('all')}
-              className={getFilterButtonClass(stakeholderFilter === 'all')}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setStakeholderFilter('Normal User')}
-              className={getFilterButtonClass(stakeholderFilter === 'Normal User')}
-            >
-              Normal Users
-            </button>
-            <button
-              onClick={() => setStakeholderFilter('Industrialist/Businessmen')}
-              className={getFilterButtonClass(stakeholderFilter === 'Industrialist/Businessmen')}
-            >
-              Industrialists
-            </button>
-          </div>
+          <span>Total: {comments.length}</span>
         </div>
       </div>
 
       {/* Comments List */}
       <div className="space-y-4 mb-6">
-        {visibleComments.length > 0 ? (
-          visibleComments.map((comment) => (
-            <CommentCard key={comment.id} comment={comment} />
+        {latestComments.length > 0 ? (
+          latestComments.map((comment) => (
+            <CommentCard
+              key={comment.id}
+              raw_comment={comment.raw_comment}
+              language={comment.language}
+              categoryType={comment.categoryType}
+              bussiness_category={comment.bussiness_category}
+              sentiment={comment.sentiment}
+              date={comment.date}
+              summary={comment.summary}
+              company={comment.company}
+              createdAt={comment.createdAt}
+            />
           ))
         ) : (
           <div className="text-center py-8 text-gray-500">
             <p className="text-lg font-medium mb-2">No comments found</p>
-            <p className="text-sm">Try adjusting your filters to see more results.</p>
           </div>
         )}
       </div>
 
-      {/* Show More/Less Buttons */}
-      {filteredComments.length > 0 && (
-        <div className="flex items-center justify-center gap-4 mb-6">
-          {hasMoreComments && (
-            <button
-              onClick={showMoreComments}
-              className="px-8 py-3 rounded-lg text-white font-semibold text-lg shadow-lg 
-        transition-all duration-300 hover:shadow-xl hover:scale-105
-        disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100" style={{ background: 'linear-gradient(90deg, #4f46e5, #3b82f6)' }}
-            >
-              Show More Comments
-              <span className="text-sm opacity-75">
-                (+{Math.min(5, filteredComments.length - visibleCount)})
-              </span>
-            </button>
-          )}
-          
-          {visibleCount > 5 && (
-            <button
-              onClick={showLessComments}
-              className="px-6 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition-colors duration-200"
-            >
-              Show Less
-            </button>
-          )}
-        </div>
-      )}
-
-
+      <div className="flex justify-center">
+        <Button variant="secondary" className="w-1/5 max-w-xs">
+          <a href='/dashboard/comments-list' className="flex items-center justify-center gap-2">
+            View All Comments <MoveRight className='ml-2' />
+          </a>
+        </Button>
+      </div>
     </div>
   );
 };

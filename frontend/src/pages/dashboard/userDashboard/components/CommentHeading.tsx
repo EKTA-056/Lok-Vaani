@@ -12,7 +12,7 @@ export default function CommentHeading() {
   return (
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-4">
           <h1 className="text-[28px] font-semibold text-gray-500 mb-4 tracking-widest">
             TOTAL COMMENTS ANALYZED
           </h1>

@@ -4,13 +4,15 @@ import SentimentAnalysis from './components/SentimentAnalysis';
 import SentimentByWeightage from './components/SentimentByWeightage';
 import WordCloud from './components/WordCloud';
 import CommentHeading from './components/CommentHeading';
+import { AlertsSection, CommentSummary, dashboardData, GradientButton, OverallSummaryInsights } from './components';
 
 const UserDashboard = () => {
   // Get Redux state
   const { 
     commentCounts, 
     loading, 
-    error 
+    error, 
+    comments
   } = useAppSelector(state => state.comment);
 
   // Show loading state
@@ -64,7 +66,7 @@ const UserDashboard = () => {
           <CommentHeading />
 
           {/* Visual Separator */}
-          <div className="my-12">
+          <div className="my-6">
             <div className="flex items-center">
               <div className="flex-1 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent"></div>
               <div className="px-4">
@@ -77,7 +79,7 @@ const UserDashboard = () => {
           {/* Summary of Feedback Section */}
           <section className="mb-14">
 
-            <div className="grid grid-cols-1 gap-10">
+            <div className="grid grid-cols-1">
               {/* Sentiment Breakdown Section */}
               <SentimentBreakdown />
 
@@ -89,6 +91,58 @@ const UserDashboard = () => {
 
               {/* Word Cloud Section */}
               <WordCloud />
+
+
+           {/* Visual Separator */}
+           <div className="my-12">
+             <div className="flex items-center">
+               <div className="flex-1 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+               <div className="px-6">
+                 <div className="flex space-x-1">
+                   <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
+                   <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                   <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
+                 </div>
+               </div>
+               <div className="flex-1 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+             </div>
+           </div>
+
+           {/* Actionable Insights Section */}
+           <div className="mb-8">
+             <div className="text-center mb-8">
+               <h2 className="text-3xl font-bold text-gray-900 mb-3 font-sans bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                 Actionable Insights
+               </h2>
+               <p className="text-gray-600 font-sans max-w-2xl mx-auto">
+                 Critical alerts, comprehensive summaries, and strategic recommendations for informed decision-making
+               </p>
+               <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mt-3 rounded-full"></div>
+             </div>
+
+
+             <div className='mt-8'>
+               {/* Comment Summary Section */}
+               <CommentSummary comments={comments} />
+             </div>
+            
+             <div className='mt-8'>
+                 {/* Alerts Section */}
+                 <AlertsSection alerts={dashboardData.alerts} />
+             </div>
+          
+             <div className='mt-8'>
+                 {/* Overall Summary and Insights Section */}
+                 <OverallSummaryInsights data={dashboardData.insights} />
+             </div>
+           </div>
+
+           {/* Additional Actions Section */}
+           <div className="text-center">
+             <GradientButton>
+               View Detailed Analysis
+             </GradientButton>
+           </div>
             </div>
           </section>
         </div>
