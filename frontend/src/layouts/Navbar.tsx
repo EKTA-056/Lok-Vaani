@@ -51,15 +51,8 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Secondary Top Header */}
-      <div className="bg-slate-100 border-b border-slate-200 text-slate-600 text-sm py-2 fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 text-center font-medium">
-          Ministry of Corporate Affairs | E-Consultation Analysis Platform
-        </div>
-      </div>
-
       {/* Main Header */}
-      <header className="bg-white border-b border-slate-200 fixed top-8 left-0 right-0 z-40 shadow-sm">
+      <header className="max-w-7xl mx-auto bg-white border-b border-slate-200 fixed top-4 left-0 right-0 z-40 shadow-sm rounded-lg">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">

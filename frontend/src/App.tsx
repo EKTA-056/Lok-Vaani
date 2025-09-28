@@ -24,9 +24,9 @@ import HomePage from './pages/home/HomePage';
 import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
 import { useAuth } from './context/useAuth';
-import CommentList from './pages/dashboard/userDashboard/CommentList';
+import CommentList from './pages/dashboard/commentDashboard/CommentList';
 import { getPostsAsync } from './store/slices/postSlice';
-import CommentAnalysis from './pages/dashboard/userDashboard/UserDashboard';
+import CommentAnalysis from './pages/dashboard/commentDashboard/CommentAnalysis';
 
 function App() {
   const dispatch = useAppDispatch();
