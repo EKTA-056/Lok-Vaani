@@ -3,7 +3,7 @@ import React from 'react';
 
 const WordCloud: React.FC = () => {
   return (
-    <div className="rounded-xl shadow-md p-8 border border-gray-100 transition-shadow duration-300">
+    <div className="rounded-xl p-8 border border-gray-100 transition-shadow duration-300">
       {/* Section Header */}
       <Header text={"WordCloud"} />
 

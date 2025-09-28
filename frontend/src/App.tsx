@@ -26,6 +26,7 @@ import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
 import { useAuth } from './context/useAuth';
 import { getCommentsByPostIdAsync, getCommentsCountAsync, getCategoryCommentsCountAsync, getCommentsWeightageAsync } from './store/slices/commentSlice';
+import CommentList from './pages/dashboard/userDashboard/CommentList';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -94,6 +95,7 @@ function App() {
             <Route path="/drafts" element={<DraftPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/dashboard/comments-list" element={<CommentList />} />
             {/* <Route path="/dashboard" element={isAuthenticated ? <UserDashboard /> : <Navigate to="/login" />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
@@ -101,7 +103,7 @@ function App() {
             <Route path="/active" element={<div>frontend active</div>} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        </main>
+        </main> 
         <Footer />
       </div>
     </>

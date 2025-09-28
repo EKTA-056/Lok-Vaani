@@ -5,10 +5,10 @@ import { Header } from '@/components/common/Header';
 
 const SentimentByWeightage: React.FC = () => {
   return (
-    <div className=" rounded-xl shadow-md p-8 border border-gray-100 transition-shadow duration-300">
+    <div className=" rounded-xl pt-8 border border-gray-100 transition-shadow duration-300">
       {/* Section Header */}
       <Header text={"Sentiment Analysis according to Weightage"} />
-\
+
       {/* Chart Container - Full Width */}
       <div className="w-full">
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 hover:shadow-md transition-all duration-300">

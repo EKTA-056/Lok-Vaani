@@ -10,7 +10,6 @@ export { default as OverallSentimentDistribution } from './OverallSentimentDistr
 export { default as SentimentAnalysis } from './SentimentAnalysis';
 export { default as SentimentByWeightage } from './SentimentByWeightage';
 export { default as WordCloud } from './WordCloud';
-export { default as CommentCard } from './CommentCard';
 export { default as CommentSummary } from './CommentSummary';
 export { default as AlertCard } from './AlertCard';
 export { default as AlertsSection } from './AlertsSection';

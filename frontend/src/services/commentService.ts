@@ -75,7 +75,7 @@ const DEFAULT_POST_ID = '2c10f48b-4ccc-4b9f-a91e-5cb2a97e9965';
 
 export const commentService = {
   async getCommentsByPostId(postId: string = DEFAULT_POST_ID): Promise<Comment[]> {
-    const response = await api.get(`/comments/comment-by-postId/${postId}`);
+    const response = await api.get(`/comments/comment-by-post/${postId}`);
     return response.data.data;
   },
 

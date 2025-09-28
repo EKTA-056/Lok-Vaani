@@ -6,7 +6,7 @@ import { Header } from '@/components/common/Header';
 
 const SentimentAnalysis: React.FC = () => {
   return (
-    <div className="rounded-xl shadow-md p-8 border border-gray-100 transition-shadow duration-300">
+    <div className="rounded-xl pt-8 border border-gray-100 transition-shadow duration-300">
       {/* Section Header */}
       <Header text={"Sentiment Analysis & Trends"} />
 

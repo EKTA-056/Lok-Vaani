@@ -14,15 +14,6 @@ export interface AuthContextType {
   loading: boolean;
 }
 
-export interface JobCode {
-  id: string;
-  code: string;
-  title: string;
-  description: string;
-  hierarchy: string[];
-  confidenceScore?: number;
-}
-
 export interface Dataset {
   id: string;
   name: string;
@@ -39,11 +30,6 @@ export interface KPIData {
   jobCodesMatched: number;
 }
 
-export interface SearchResult {
-  jobCode: JobCode;
-  confidenceScore: number;
-  matchType: 'exact' | 'semantic' | 'partial';
-}
 
 export interface CleaningResult {
   totalRecords: number;
@@ -51,4 +37,19 @@ export interface CleaningResult {
   anomaliesRemoved: number;
   duplicatesRemoved: number;
   processingTime: number;
+}
+
+export interface CommentProps {
+    id?: string;
+    raw_comment?: string;
+    language?: string;
+    categoryType?: string;
+    bussiness_category?: string;
+    sentiment?: 'Positive' | 'Negative' | 'Neutral';
+    date?: string;
+    state?: string;
+    summary?: string;
+    company?: string;
+    updatedAt?: string;
+    createdAt?: string;
 }

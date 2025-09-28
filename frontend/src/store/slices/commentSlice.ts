@@ -25,11 +25,6 @@ export const getCommentsByPostIdAsync = createAsyncThunk(
   async (postId: string, { rejectWithValue }) => {
     try {
       const comments = await commentService.getCommentsByPostId(postId);
-      console.log('✅ [CommentSlice] Comments fetched successfully:', {
-        count: comments.length,
-        firstComment: comments[0]?.id,
-        sentiments: comments.map(c => c.sentiment)
-      });
       return comments;
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to fetch comments';
@@ -43,7 +38,7 @@ export const getCommentsCountAsync = createAsyncThunk(
   async (postId: string, { rejectWithValue }) => {
     try {
       const counts = await commentService.getCommentsCount(postId);
-      console.log('✅ [CommentSlice] Comment counts fetched successfully:', counts);
+      // console.log('✅ [CommentSlice] Comment counts fetched successfully:', counts);
       return counts;
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to fetch comment counts';
@@ -57,7 +52,7 @@ export const getCategoryCommentsCountAsync = createAsyncThunk(
   async (postId: string, { rejectWithValue }) => {
     try {
       const categoryCounts = await commentService.getCategoryCommentsCount(postId);
-      console.log('✅ [CommentSlice] Category comment counts fetched successfully:', categoryCounts);
+      // console.log('✅ [CommentSlice] Category comment counts fetched successfully:', categoryCounts);
       return categoryCounts;
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to fetch category comment counts';
@@ -71,12 +66,12 @@ export const getCommentsWeightageAsync = createAsyncThunk(
   async (postId: string, { rejectWithValue }) => {
     try {
       const weightage = await commentService.getCommentsWeightage(postId);
-      console.log('✅ [CommentSlice] Comments weightage fetched successfully:', {
-        totalAnalyzedComments: weightage.totalAnalyzedComments,
-        totalWeightedScore: weightage.totalWeightedScore,
-        weightedPercentages: weightage.weightedPercentages,
-        categoryBreakdown: weightage.categoryBreakdown
-      });
+      // console.log('✅ [CommentSlice] Comments weightage fetched successfully:', {
+      //   totalAnalyzedComments: weightage.totalAnalyzedComments,
+      //   totalWeightedScore: weightage.totalWeightedScore,
+      //   weightedPercentages: weightage.weightedPercentages,
+      //   categoryBreakdown: weightage.categoryBreakdown
+      // });
       return weightage;
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to fetch comments weightage';
