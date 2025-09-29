@@ -53,3 +53,24 @@ export interface CommentProps {
     updatedAt?: string;
     createdAt?: string;
 }
+
+export interface Post {
+  id: string;
+  title: string;
+  description: string;
+  standardTitle: string | null;
+  standardDescription: string | null;
+  postType: string | null;
+  issuedBy: string | null;
+  issueDate: string | null;
+  deadline: string | null;
+  language: string | null;
+  pdfBase64: string | null;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  _count: {
+    comments: number;
+    summaries: number;
+  };
+}

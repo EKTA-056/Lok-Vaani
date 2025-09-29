@@ -8,7 +8,7 @@ const OverallSentimentDistribution: React.FC = () => {
       {/* Chart Header */}
       <div className="mb-8 text-center">
         <h3 className="text-xl font-semibold text-slate-800 mb-2">
-          Overall Sentiment Distribution
+          Overall Sentiment Distribution by Weightage
         </h3>
         <p className="text-sm text-slate-600">
           Breakdown of all analyzed comments

@@ -71,7 +71,7 @@ const CommentSummary: React.FC<{ comments: Comment[] }> = ({ comments }) => {
 
       <div className="flex justify-center">
         <Button variant="secondary" className="w-1/5 max-w-xs">
-          <a href='/dashboard/comments-list' className="flex items-center justify-center gap-2">
+          <a href='/drafts/comments-list' className="flex items-center justify-center gap-2">
             View All Comments <MoveRight className='ml-2' />
           </a>
         </Button>
