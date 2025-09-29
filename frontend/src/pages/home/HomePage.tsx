@@ -1,4 +1,5 @@
 'use client'
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -12,9 +13,9 @@ import {
 } from '@heroicons/react/24/outline';const HomePage: React.FC = () => {
 
   const features = [
-    {
-      title: "Multilingual Support",
-      description: "Analyze comments in multiple languages with interactive language selection and translation features.",
+ {
+      title: "Multilingual Support",
+      description: "Analyze comments in multiple languages with interactive language selection and translation features.",
       category: "Analytics",
       Icon: LanguageIcon,
       iconColor: "text-blue-600",
