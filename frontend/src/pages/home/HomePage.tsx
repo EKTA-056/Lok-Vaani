@@ -10,31 +10,6 @@ import {
   DocumentTextIcon,
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';const HomePage: React.FC = () => {
-  // Animation variants for fade-in effects
-  const fadeInUp = {
-    hidden: { 
-      opacity: 0, 
-      y: 60 
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
-      }
-    }
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
 
   const features = [
     {
