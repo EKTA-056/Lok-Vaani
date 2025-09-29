@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 
 interface UserPayload {
     id: string;
@@ -16,8 +16,8 @@ export const generateToken = (user: UserPayload): string => {
         role: user.role
     };
     
-    const options = {
-        expiresIn: JWT_EXPIRES_IN
+    const options: SignOptions = {
+        expiresIn: JWT_EXPIRES_IN as SignOptions['expiresIn']
     };
     
     return jwt.sign(payload, JWT_SECRET, options);
