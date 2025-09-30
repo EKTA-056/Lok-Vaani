@@ -15,7 +15,7 @@ const getCommentsByPostId = asyncHandler(async (req: Request, res: Response) => 
 
   try {
     const comments = await prisma.comment.findMany({
-      where: { postId },
+      where: { postId, status: 'ANALYZED' },
       orderBy: { updatedAt: 'desc' },
       select: {
         id: true,
@@ -47,34 +47,6 @@ const getCommentsByPostId = asyncHandler(async (req: Request, res: Response) => 
   } catch (error) {
     console.error("Error fetching comments:", error);
     throw new ApiError(500, "Failed to fetch comments");
-  }
-});
-
-// Get comment analytics
-const getCommentAnalytics = asyncHandler(async (req: Request, res: Response) => {
-  const { postId } = req.params;
-
-  if (!postId) {
-    throw new ApiError(400, "Post ID is required");
-  }
-
-  try {
-    const analytics = await prisma.comment.groupBy({
-      by: ['sentiment'],
-      _count: {
-        sentiment: true
-      },
-      where: { postId }
-    });
-
-    if (analytics.length === 0) {
-      return res.status(200).json(new ApiResponse(200, {}, "No comments found"));
-    }
-
-    res.status(200).json(new ApiResponse(200, analytics, "Comment analytics fetched successfully"));
-  } catch (error) {
-    console.error("Error fetching comment analytics:", error);
-    throw new ApiError(500, "Failed to fetch comment analytics");
   }
 });
 
@@ -400,7 +372,6 @@ const getCommonComments = asyncHandler(async (req: Request, res: Response) => {
 
 export {
   getCommentsByPostId,
-  getCommentAnalytics,
   getCommentById,
   getCommonComments,
   getCommentCounts,

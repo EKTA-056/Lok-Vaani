@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { LineChart } from '@mui/x-charts/LineChart';
-import type { TrendData } from './dashboardData';
+import type { TrendData } from '@/types';
 
 interface SentimentLineChartProps {
   data: TrendData[];
@@ -14,7 +14,7 @@ const SentimentLineChart: React.FC<SentimentLineChartProps> = ({ data }) => {
   const negativeData = data.map(item => item.negative);
   const neutralData = data.map(item => item.neutral);
 
-  const margin = { right: 24, left: 40, top: 20, bottom: 40 };
+  const margin = { right: 24, left: 0, top: 20, bottom: 40 };
 
   return (
     <Box sx={{ 

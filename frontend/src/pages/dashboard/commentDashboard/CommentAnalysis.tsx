@@ -2,13 +2,34 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { useParams } from 'react-router-dom';
 import SentimentBreakdown from './components/SentimentBreakdown';
 import SentimentAnalysis from './components/SentimentAnalysis';
-import SentimentByWeightage from './components/SentimentByWeightage';
 import WordCloud from './components/WordCloud';
 import CommentHeading from './components/CommentHeading';
-import { AlertsSection, CommentSummary, dashboardData, GradientButton, OverallSummaryInsights } from './components';
 import { useEffect, useCallback } from 'react';
 // import { useAuth } from '@/context/useAuth';
 import { getCategoryCommentsCountAsync, getCommentsByPostIdAsync, getCommentsCountAsync, getCommentsWeightageAsync } from '@/store/slices/commentSlice';
+import SummariesByCategory from './components/SummariesByCategory';
+import { useCommentSocketUpdates } from '@/hooks/useCommentSocketUpdates';
+import { AlertsSection, CommentSummary } from './components';
+
+// Dummy data for alerts
+const dashboardData = {
+  alerts: [
+    {
+      id: '1',
+      title: 'High Negative Sentiment Detected',
+      description: 'Recent comments show increased negative sentiment. Immediate attention required.',
+      count: 23,
+      alertType: 'warning' as const
+    },
+    {
+      id: '2',
+      title: 'Processing Queue Status',
+      description: 'Some comments are pending analysis due to high volume.',
+      count: 8,
+      alertType: 'info' as const
+    }
+  ]
+};
 
 const CommentAnalysis = () => {
   const dispatch = useAppDispatch();
@@ -18,11 +39,46 @@ const CommentAnalysis = () => {
   const { 
     loading, 
     error, 
-    comments
+    comments,
+    commentCounts,
+    categoryCommentCounts
   } = useAppSelector(state => state.comment);
-
+  
   // Use draftId as postId, with proper validation
   const postId = draftId;
+  
+  console.log('🔍 [CommentAnalysis] Redux State Debug:', {
+    commentCounts,
+    categoryCommentCounts,
+    commentsLength: comments?.length || 0,
+    postId,
+    loading,
+    error
+  });
+
+  // Initialize comprehensive socket connection for real-time updates
+  const { isConnected, connections, errors, refreshAll } = useCommentSocketUpdates({
+    initialData: {
+      positive: commentCounts?.positive || 0,
+      negative: commentCounts?.negative || 0,
+      neutral: commentCounts?.neutral || 0,
+      total: commentCounts?.total || 0
+    },
+    autoConnect: true
+  });
+
+  // Log socket connection status
+  useEffect(() => {
+    console.log('🌐 [CommentAnalysis] Socket connections:', connections);
+    
+    const errorList = Object.entries(errors)
+      .filter(([, error]) => error)
+      .map(([type, error]) => `${type}: ${error}`);
+    
+    if (errorList.length > 0) {
+      console.error('🚨 [CommentAnalysis] Socket errors:', errorList);
+    }
+  }, [connections, errors]);
   
   // Create stable fetch function
   const fetchData = useCallback(() => {
@@ -91,7 +147,28 @@ const CommentAnalysis = () => {
       <div className="bg-white  border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">LokVaani Analytics</h1>
+            <div className="flex items-center justify-center gap-4 mb-2">
+              <h1 className="text-4xl font-bold text-gray-900">LokVaani Analytics</h1>
+              {/* Socket Status Indicator */}
+              <div className="flex items-center gap-2">
+                <div className={`w-3 h-3 rounded-full ${
+                  isConnected ? 'bg-green-400 animate-pulse' : 'bg-red-400'
+                }`}></div>
+                <span className={`text-sm font-medium ${
+                  isConnected ? 'text-green-600' : 'text-red-600'
+                }`}>
+                  {isConnected ? 'Live' : 'Offline'}
+                </span>
+                {isConnected && (
+                  <button
+                    onClick={refreshAll}
+                    className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-600 rounded hover:bg-blue-200 transition-colors"
+                  >
+                    Refresh
+                  </button>
+                )}
+              </div>
+            </div>
             <p className="text-sm text-gray-500 mb-4">Stakeholder Sentiment Intelligence Platform</p>
             
           </div>
@@ -124,15 +201,12 @@ const CommentAnalysis = () => {
               {/* Sentiment Analysis & Trends Section */}
               <SentimentAnalysis />
 
-              {/* Sentiment Analysis by Weightage Section */}
-              <SentimentByWeightage />
-
               {/* Word Cloud Section */}
               <WordCloud />
 
 
            {/* Visual Separator */}
-           <div className="my-12">
+           <div className="my-2">
              <div className="flex items-center">
                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
                <div className="px-6">
@@ -148,16 +222,6 @@ const CommentAnalysis = () => {
 
            {/* Actionable Insights Section */}
            <div className="mb-8">
-             <div className="text-center mb-8">
-               <h2 className="text-3xl font-bold text-gray-900 mb-3 font-sans bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                 Actionable Insights
-               </h2>
-               <p className="text-gray-600 font-sans max-w-2xl mx-auto">
-                 Critical alerts, comprehensive summaries, and strategic recommendations for informed decision-making
-               </p>
-               <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mt-3 rounded-full"></div>
-             </div>
-
 
              <div className='mt-8'>
                {/* Comment Summary Section */}
@@ -171,15 +235,8 @@ const CommentAnalysis = () => {
           
              <div className='mt-8'>
                  {/* Overall Summary and Insights Section */}
-                 <OverallSummaryInsights data={dashboardData.insights} />
+                 <SummariesByCategory />
              </div>
-           </div>
-
-           {/* Additional Actions Section */}
-           <div className="text-center">
-             <GradientButton>
-               View Detailed Analysis
-             </GradientButton>
            </div>
             </div>
           </section>

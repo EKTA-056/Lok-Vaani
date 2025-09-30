@@ -1,12 +1,13 @@
-
-
 import React, { useState, useMemo } from 'react';
 import CommentCard from './components/CommentCard';
-import { useAppSelector } from '@/hooks/redux';
 import { Search, Filter, Languages, Heart, Users, Calendar, RotateCcw, MessageSquare } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { useAppSelector } from '../../../hooks/redux';
+import { useCommentSocketUpdates } from '../../../hooks/useCommentSocketUpdates';
+import { type Comment } from '../../../services/commentService';
 
 // Define the type for a comment object (should match CommentCard props)
-type CommentType = {
+export type CommentType = {
   id: string;
   raw_comment: string;
   language: string;
@@ -31,36 +32,60 @@ function getUnique<T>(arr: T[], key: keyof T): string[] {
   }).filter(Boolean)));
 }
 
+interface CommentListProps {
+  comments?: CommentType[];
+}
 
+const CommentList: React.FC<CommentListProps> = ({ comments: propComments }) => {
+  // Use props first, then fallback to navigation state, then Redux state
+  const location = useLocation();
+  const { comments: reduxComments, commentCounts } = useAppSelector(state => state.comment);
 
-const CommentList: React.FC = () => {
-  // Try to get the correct property for comments array from redux state
-  // Try common names: comments, commentList, comment, items, data
-  const commentsFromRedux: any[] = useAppSelector(state => state.comment.comments || []);
+  // Initialize socket updates for real-time data
+  const { isConnected, connections } = useCommentSocketUpdates({
+    initialData: {
+      positive: commentCounts?.positive || 0,
+      negative: commentCounts?.negative || 0,
+      neutral: commentCounts?.neutral || 0,
+      total: commentCounts?.total || 0
+    },
+    autoConnect: true
+  });
 
-  // Map backend comments to UI shape, ensure id is string
-  const allComments: CommentType[] = useMemo(() => (commentsFromRedux || []).map((c: any): CommentType => ({
-    id: String(c.id ?? ''),
-    raw_comment: c.rawComment ?? c.raw_comment ?? '',
-    language: typeof c.language === 'string' ? c.language : '',
-    categoryType: c.categoryType ?? c.company?.businessCategory?.categoryType ?? c.company?.businessCategory?.name ?? '',
-    bussiness_category: c.bussiness_category ?? c.company?.businessCategory?.name ?? '',
-    sentiment: c.sentiment ?? '',
-    date: c.date ?? c.createdAt ?? c.updatedAt,
-    state: c.state ?? c.status,
-    summary: c.summary,
-    company: typeof c.company === 'string' ? c.company : (c.company?.name ?? ''),
+  // Map backend Comment to CommentType
+  const mapCommentToCommentType = (c: Comment): CommentType => ({
+    id: c.id,
+    raw_comment: c.rawComment,
+    language: c.language === null ? '' : c.language,
+    categoryType: c.company?.businessCategory?.name ?? '',
+    bussiness_category: c.company?.businessCategory?.name ?? '',
+    sentiment: c.sentiment,
+    date: c.createdAt,
+    state: c.status,
+    summary: c.summary === null ? undefined : c.summary,
+    company: c.company?.name ?? '',
     createdAt: c.createdAt,
-    updatedAt: c.updatedAt,
-  })), [commentsFromRedux]);
+    updatedAt: c.createdAt,
+  });
+  
+  const allComments: CommentType[] = useMemo(() => {
+    const navigationComments = location.state?.comments || [];
+    
+    // Priority: props > navigation state > Redux state (with mapping)
+    if (propComments && propComments.length > 0) {
+      return propComments;
+    } else if (navigationComments.length > 0) {
+      return navigationComments;
+    } else if (reduxComments && reduxComments.length > 0) {
+      return reduxComments.map(mapCommentToCommentType);
+    }
+    return [];
+  }, [propComments, location.state, reduxComments]);
 
   // Filter options
-  // Only allow these language and sentiment options
   const languages = ['Hindi', 'English', 'HinEnglish'];
   const sentiments = ['Positive', 'Negative', 'Neutral'];
   const categories = useMemo(() => getUnique(allComments, 'categoryType'), [allComments]);
-  // Remove company filter, so don't compute companies
-  // Stakeholder types (businessCategories) - use fixed list
   const businessCategories = [
     'Corporate Debtor',
     'Personal Guarantor to a Corporate Debtor',
@@ -81,12 +106,10 @@ const CommentList: React.FC = () => {
   const [language, setLanguage] = useState('');
   const [sentiment, setSentiment] = useState('');
   const [category, setCategory] = useState('');
-  // Remove company filter
   const [businessCategory, setBusinessCategory] = useState('');
   const [search, setSearch] = useState('');
   const [dateFrom, setDateFrom] = useState('');
   const [dateTo, setDateTo] = useState('');
-
 
   // Reset filter handler
   const handleResetFilters = () => {
@@ -119,20 +142,34 @@ const CommentList: React.FC = () => {
     );
   }), [allComments, language, sentiment, category, businessCategory, search, dateFrom, dateTo]);
 
-
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <div className="max-w-7xl mx-auto px-4 py-6">
         {/* Modern Header */}
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-2">
-
             <div>
               <h1 className="text-3xl font-bold text-black">
                 All Comments
               </h1>
               <p className="text-gray-600 text-sm mt-1">Filter and explore all feedback comments</p>
+            </div>
+            
+            {/* Socket Status Indicator */}
+            <div className="flex items-center gap-2 ml-auto">
+              <div className={`w-2 h-2 rounded-full ${
+                isConnected ? 'bg-green-400 animate-pulse' : 'bg-red-400'
+              }`}></div>
+              <span className={`text-sm font-medium ${
+                isConnected ? 'text-green-600' : 'text-red-600'
+              }`}>
+                {isConnected ? 'Live Updates' : 'Offline'}
+              </span>
+              {connections && (
+                <span className="text-xs text-gray-500 ml-2">
+                  ({Object.values(connections).filter(Boolean).length}/3 connected)
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -297,3 +334,7 @@ const CommentList: React.FC = () => {
 };
 
 export default CommentList;
+
+// Usage example in parent:
+// import CommentList, { CommentType } from './CommentList';
+// <CommentList comments={mappedComments} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import AlertCard from './AlertCard';
-import type { AlertData } from './dashboardData';
+import type { AlertData } from '@/types';
 
 interface AlertsSectionProps {
   alerts: AlertData[];

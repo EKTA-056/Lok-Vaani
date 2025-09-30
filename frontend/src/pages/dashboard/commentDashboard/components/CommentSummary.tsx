@@ -1,11 +1,14 @@
-import React, {useMemo } from 'react';
+import React, { useMemo } from 'react';
 import CommentCard from './CommentCard';
 import type { CommentProps } from '@/types';
 import type { Comment } from '@/services/commentService';
 import Button from '@/components/common/Button';
 import { MoveRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const CommentSummary: React.FC<{ comments: Comment[] }> = ({ comments }) => {
+  const navigate = useNavigate();
+  
   // Only show the latest 5 comments, sorted by date descending
   // Map backend Comment to CommentProps for UI components
   const mappedComments = (comments || []).map((c: Comment): CommentProps => ({
@@ -22,6 +25,7 @@ const CommentSummary: React.FC<{ comments: Comment[] }> = ({ comments }) => {
     createdAt: c.createdAt,
     updatedAt: c.createdAt,
   }));
+
   const latestComments = useMemo(() => {
     return [...mappedComments]
       .sort((a, b) => new Date(b.date || '').getTime() - new Date(a.date || '').getTime())
@@ -59,7 +63,7 @@ const CommentSummary: React.FC<{ comments: Comment[] }> = ({ comments }) => {
               date={comment.date}
               summary={comment.summary}
               company={comment.company}
-              createdAt={comment.createdAt}
+              updatedAt={comment.updatedAt}
             />
           ))
         ) : (
@@ -70,10 +74,21 @@ const CommentSummary: React.FC<{ comments: Comment[] }> = ({ comments }) => {
       </div>
 
       <div className="flex justify-center">
-        <Button variant="secondary" className="w-1/5 max-w-xs">
-          <a href='/drafts/comments-list' className="flex items-center justify-center gap-2">
+        <Button
+          variant="secondary"
+          className="w-1/5 max-w-xs"
+          onClick={() => {
+            // Navigate with comments data as state
+            navigate('/drafts/comments-list', { 
+              state: { 
+                comments: mappedComments 
+              } 
+            });
+          }}
+        >
+          <span className="flex items-center justify-center gap-2">
             View All Comments <MoveRight className='ml-2' />
-          </a>
+          </span>
         </Button>
       </div>
     </div>

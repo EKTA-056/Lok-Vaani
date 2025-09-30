@@ -27,6 +27,7 @@ import { useAuth } from './context/useAuth';
 import CommentList from './pages/dashboard/commentDashboard/CommentList';
 import { getPostsAsync } from './store/slices/postSlice';
 import CommentAnalysis from './pages/dashboard/commentDashboard/CommentAnalysis';
+import { socketUrl } from './utils/baseApi';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -34,11 +35,12 @@ function App() {
 
   // Get comment data for socket initialization
   const { commentCounts } = useAppSelector(state => state.comment);
-
+  console.log('ISAuthenticated:', isAuthenticated);
+  
   // Initialize global socket connection
   const { isConnected, error: socketError } = useSocketProgress({
-    endpoint: 'http://localhost:4000',
-    eventName: 'sentiment-update',
+    endpoint: `${socketUrl}`,
+    eventName: 'total-count-update',
     initialData: {
       positive: commentCounts?.positive || 0,
       negative: commentCounts?.negative || 0,
@@ -87,10 +89,10 @@ function App() {
         <main className="pt-[88px]">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/drafts" element={<DraftPage />} />
+            <Route path="/drafts" element={isAuthenticated ? <DraftPage /> : <Login />} />
             <Route path="/about" element={<About />} />
-            <Route path="/drafts/comment-analysis/:draftId" element={<CommentAnalysis />} />
-            <Route path="/drafts/comments-list" element={<CommentList />} />
+            <Route path="/drafts/comment-analysis/:draftId" element={isAuthenticated ? <CommentAnalysis /> : <Login />} />
+            <Route path="/drafts/comments-list" element={isAuthenticated ? <CommentList /> : <Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/admin" element={<AdminDashboard />} />

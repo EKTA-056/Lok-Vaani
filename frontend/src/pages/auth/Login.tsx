@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { loginAsync, clearError } from '../../store/slices/authSlice';
+import { loginAsync, clearError, getCurrentUserAsync } from '../../store/slices/authSlice';
 import { validateEmail, validateRequired } from '../../utils/validators';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
@@ -61,7 +61,8 @@ const Login: React.FC = () => {
     try {
       const data = await dispatch(loginAsync(formData)).unwrap();
       console.log('Login successful:', data);
-      navigate('/dashboard');
+      dispatch(getCurrentUserAsync());
+      navigate('/draft');
     } catch {
       setErrors({ general: 'Invalid email or password' });
     }

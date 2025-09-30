@@ -94,6 +94,63 @@ const commentSlice = createSlice({
       state.commentsWeightage = null;
       state.error = null;
     },
+    updateSocketCommentCounts: (state, action) => {
+      // Update comment counts from socket data
+      const socketData = action.payload;
+      state.commentCounts = {
+        positive: socketData.positive,
+        negative: socketData.negative,
+        neutral: socketData.neutral,
+        total: socketData.total
+      };
+    },
+    updateSocketCategoryData: (state, action) => {
+      // Update category data for normal/business users
+      const { type, data } = action.payload; // type: 'normal' | 'industrialist'
+      if (!state.categoryCommentCounts) {
+        state.categoryCommentCounts = {
+          user: { positive: 0, negative: 0, neutral: 0 },
+          business: { positive: 0, negative: 0, neutral: 0 }
+        };
+      }
+      if (type === 'normal') {
+        state.categoryCommentCounts.user = {
+          positive: data.positive,
+          negative: data.negative,
+          neutral: data.neutral
+        };
+      } else if (type === 'industrialist') {
+        state.categoryCommentCounts.business = {
+          positive: data.positive,
+          negative: data.negative,
+          neutral: data.neutral
+        };
+      }
+    },
+    updateSocketWeightage: (state, action) => {
+      // Update weightage data from socket weighted-total-count-update event
+      const socketData = action.payload;
+      if (socketData.weightedPercentages) {
+        state.commentsWeightage = {
+          totalAnalyzedComments: socketData.totalAnalyzedComments,
+          totalWeightedScore: socketData.totalWeightedScore,
+          weightedPercentages: {
+            positive: socketData.weightedPercentages.positive,
+            negative: socketData.weightedPercentages.negative,
+            neutral: socketData.weightedPercentages.neutral
+          },
+          categoryBreakdown: socketData.categoryBreakdown || state.commentsWeightage?.categoryBreakdown || {
+            user: { positive: 0, negative: 0, neutral: 0, totalWeight: 0 },
+            business: { positive: 0, negative: 0, neutral: 0, totalWeight: 0 }
+          },
+          rawWeights: socketData.rawWeights || state.commentsWeightage?.rawWeights || {
+            positive: 0,
+            negative: 0,
+            neutral: 0
+          }
+        };
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -156,5 +213,5 @@ const commentSlice = createSlice({
   },
 });
 
-export const { clearError, resetCommentState } = commentSlice.actions;
+export const { clearError, resetCommentState, updateSocketCommentCounts, updateSocketCategoryData, updateSocketWeightage } = commentSlice.actions;
 export default commentSlice.reducer;
