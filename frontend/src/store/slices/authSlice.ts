@@ -3,6 +3,14 @@ import { toast } from 'react-toastify';
 import type { User } from '../../types';
 import { authService } from '../../services/authService';
 
+interface ApiError {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+}
+
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
@@ -12,7 +20,7 @@ interface AuthState {
 
 const initialState: AuthState = {
   user: null,
-  isAuthenticated: !!localStorage.getItem('token'),
+  isAuthenticated: false, // Don't set this based on localStorage alone
   loading: false,
   error: null,
 };
@@ -20,14 +28,17 @@ const initialState: AuthState = {
 // Async thunks
 export const loginAsync = createAsyncThunk(
   'auth/login',
-  async ({ email, password }: { email: string; password: string }, { rejectWithValue }) => {
+  async ({ email, password }: { email: string; password: string }, { rejectWithValue, dispatch }) => {
     try {
       const response = await authService.login(email, password);
       localStorage.setItem('token', response.token);
+      // Dispatch getCurrentUserAsync to update the Redux state
+      await dispatch(getCurrentUserAsync());
       toast.success('Login successful!');
       return response.user;
-    } catch (error: any) {
-      const message = error.response?.data?.message || 'Login failed';
+    } catch (error: unknown) {
+      const apiError = error as ApiError;
+      const message = apiError.response?.data?.message || 'Login failed';
       toast.error(message);
       return rejectWithValue(message);
     }
@@ -36,14 +47,17 @@ export const loginAsync = createAsyncThunk(
 
 export const registerAsync = createAsyncThunk(
   'auth/register',
-  async (userData: { email: string; password: string; name: string; role: 'ANALYST' | 'ADMIN' }, { rejectWithValue }) => {
+  async (userData: { email: string; password: string; name: string; role: 'ANALYST' | 'ADMIN' }, { rejectWithValue, dispatch }) => {
     try {
       const response = await authService.register(userData);
       localStorage.setItem('token', response.token);
+      // Dispatch getCurrentUserAsync to update the Redux state
+      await dispatch(getCurrentUserAsync());
       toast.success('Registration successful!');
       return response.user;
-    } catch (error: any) {
-      const message = error.response?.data?.message || 'Registration failed';
+    } catch (error: unknown) {
+      const apiError = error as ApiError;
+      const message = apiError.response?.data?.message || 'Registration failed';
       toast.error(message);
       return rejectWithValue(message);
     }
@@ -56,7 +70,7 @@ export const getCurrentUserAsync = createAsyncThunk(
     try {
       const user = await authService.getCurrentUser();
       return user;
-    } catch (error: any) {
+    } catch {
       localStorage.removeItem('token');
       return rejectWithValue('Session expired');
     }

@@ -74,7 +74,7 @@ export const useSocketProgress = ({
 
       socketRef.current.on('connect', () => {
         if (isMountedRef.current) {
-          console.log('✅ [useSocketProgress] Socket connected successfully to:', endpoint);
+          console.log('✅ [useSocketProgress] Socket connected successfully');
           setIsConnected(true);
           setError(null);
           isConnectingRef.current = false;
@@ -101,7 +101,7 @@ export const useSocketProgress = ({
       // Event listeners for data updates - only listen to the specific event
       const handleDataUpdate = (socketData: SocketProgressData) => {
         if (isMountedRef.current) {
-          console.log(`📊 [useSocketProgress] Received data from ${eventName}:`, socketData);
+          // console.log(`📊 [useSocketProgress] Received data from ${eventName}:`, socketData);
           setData(socketData);
           setPercentages(calculatePercentages(socketData));
         }

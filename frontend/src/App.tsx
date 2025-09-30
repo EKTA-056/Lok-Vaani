@@ -23,7 +23,6 @@ import DraftPage from './pages/general/drafts';
 import HomePage from './pages/home/HomePage';
 import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
-import { useAuth } from './context/useAuth';
 import CommentList from './pages/dashboard/commentDashboard/CommentList';
 import { getPostsAsync } from './store/slices/postSlice';
 import CommentAnalysis from './pages/dashboard/commentDashboard/CommentAnalysis';
@@ -31,11 +30,10 @@ import { socketUrl } from './utils/baseApi';
 
 function App() {
   const dispatch = useAppDispatch();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAppSelector(state => state.auth);
 
   // Get comment data for socket initialization
   const { commentCounts } = useAppSelector(state => state.comment);
-  console.log('ISAuthenticated:', isAuthenticated);
   
   // Initialize global socket connection
   const { isConnected, error: socketError } = useSocketProgress({
@@ -52,11 +50,11 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token && !isAuthenticated) {
+    if (token) {
       dispatch(getCurrentUserAsync());
     }
     dispatch(getPostsAsync());
-  }, [dispatch, isAuthenticated]);
+  }, [dispatch]);
 
   // Log socket connection status
   useEffect(() => {

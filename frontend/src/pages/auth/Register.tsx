@@ -88,9 +88,6 @@ const Register: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col items-center">
           <img src={logo} alt="Logo" className="h-18 w-36" />
-          <h2 className="mt-4 text-2xl font-bold text-gray-800 tracking-wide">
-            NCO Classification Portal
-          </h2>
           <p className="mt-1 text-md font-bold text-gray-500">
             Create your account to get started
           </p>

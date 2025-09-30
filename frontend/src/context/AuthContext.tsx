@@ -3,7 +3,6 @@ import type { ReactNode } from 'react';
 import type { User, AuthContextType } from '../types';
 import { authService } from '../services/authService';
 import { AuthContext } from './AuthContextProvider';
-console.log('AuthContext initialized', AuthContext);
 
 interface AuthProviderProps {
   children: ReactNode;

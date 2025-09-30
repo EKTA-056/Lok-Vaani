@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
             <img 
               src={LokVaaniLogo}
               alt="LokVaani" 
-              className="h-28 w-auto"
+              className="h-12 w-auto"
             />
           </Link>
 
@@ -106,7 +106,7 @@ const Navbar: React.FC = () => {
                     {/* Menu Items */}
                     <div className="py-1">
                       <Link
-                        to={user?.role === 'ADMIN' ? '/admin' : '/dashboard'}
+                        to={user?.role === 'ADMIN' ? '/admin' : '/drafts'}
                         className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
                         onClick={() => setIsUserDropdownOpen(false)}
                       >
