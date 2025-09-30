@@ -74,3 +74,85 @@ export interface Post {
     summaries: number;
   };
 }
+
+export interface CommentStats {
+  positive: number;
+  negative: number;
+  neutral: number;
+}
+
+export interface StakeholderData {
+  totalComments: number;
+  stats: CommentStats;
+}
+
+export interface TrendData {
+  week: string;
+  positive: number;
+  negative: number;
+  neutral: number;
+}
+
+export interface WeightageData {
+  category: string;
+  positive: number;
+  negative: number;
+  neutral: number;
+}
+
+export interface CommentData {
+  id: string;
+  raw_comment?: string;
+  language?: string;
+  categoryType?: string;
+  bussiness_category?: string;
+  sentiment?: 'Positive' | 'Negative' | 'Neutral';
+  date?: string;
+  state?: string;
+  summary?: string;
+  company?: string;
+  createdAt?: string;
+}
+
+export interface AlertData {
+  id: string;
+  title: string;
+  description: string;
+  count: number;
+  alertType: 'warning' | 'error' | 'info';
+}
+
+export interface SummaryInsightsData {
+  positiveHighlights: string;
+  keyConcerns: string;
+  neutralObservations: string;
+}
+
+export interface PolicyInsightsData {
+  highPriorityActions: string[];
+  mediumPriority: string[];
+  strategicConsiderations: string[];
+  topIssuesRaised: string[];
+  topSuggestions: string[];
+}
+
+export interface OverallInsightsData {
+  summary: SummaryInsightsData;
+  policyInsights: PolicyInsightsData;
+}
+
+export interface DashboardData {
+  totalComments: number;
+  commentsProcessed: string;
+  stats: CommentStats;
+  stakeholders: {
+    normalUsers: StakeholderData;
+    industrialists: StakeholderData;
+  };
+  trendData: TrendData[];
+  weightageData: WeightageData[];
+  comments: CommentData[];
+  alerts: AlertData[];
+  insights: OverallInsightsData;
+}
+

@@ -74,7 +74,7 @@ export const useSocketProgress = ({
 
       socketRef.current.on('connect', () => {
         if (isMountedRef.current) {
-          console.log('✅ [useSocketProgress] Socket connected successfully');
+          console.log('✅ [useSocketProgress] Socket connected successfully to:', endpoint);
           setIsConnected(true);
           setError(null);
           isConnectingRef.current = false;
@@ -98,18 +98,22 @@ export const useSocketProgress = ({
         }
       });
 
-      // Event listeners for data updates
+      // Event listeners for data updates - only listen to the specific event
       const handleDataUpdate = (socketData: SocketProgressData) => {
         if (isMountedRef.current) {
+          console.log(`📊 [useSocketProgress] Received data from ${eventName}:`, socketData);
           setData(socketData);
           setPercentages(calculatePercentages(socketData));
         }
       };
 
+      // Only listen to the specific event name requested
       socketRef.current.on(eventName, handleDataUpdate);
-      socketRef.current.on('comment-counts-update', handleDataUpdate);
-      socketRef.current.on('normal-sentiment-update', handleDataUpdate);
-      socketRef.current.on('industrialist-sentiment-update', handleDataUpdate);
+      
+      // Also listen to comment-counts-update for backwards compatibility, but only for total-count-update
+      if (eventName === 'total-count-update') {
+        socketRef.current.on('comment-counts-update', handleDataUpdate);
+      }
 
     } catch (err) {
       if (isMountedRef.current) {

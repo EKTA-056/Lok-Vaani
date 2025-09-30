@@ -1,21 +1,83 @@
-import { useAppSelector } from '../../../../hooks/redux';
-
+import { useAppSelector, useAppDispatch } from '../../../../hooks/redux';
+import { updateSocketCommentCounts } from '../../../../store/slices/commentSlice';
+import { useSocketProgress } from '../../../../hooks/useSocketProgress';
+import { useEffect, useState } from 'react';
+import { socketUrl } from '../../../../utils/baseApi';
 export default function CommentHeading() {
   const { commentCounts } = useAppSelector(state => state.comment);
+  const dispatch = useAppDispatch();
+  const [liveData, setLiveData] = useState({
+    total: 0,
+    positive: 0,
+    negative: 0,
+    neutral: 0
+  });
   
-  // Use real data or fallback to default values
-  const totalComments = commentCounts?.total || 0;
-  const positiveComments = commentCounts?.positive || 0;
-  const negativeComments = commentCounts?.negative || 0;
-  const neutralComments = commentCounts?.neutral || 0;
+  // Initialize socket for real-time updates
+  const { isConnected, data: socketData } = useSocketProgress({
+    endpoint: `${socketUrl}`,
+    eventName: 'total-count-update',
+    initialData: {
+      positive: commentCounts?.positive || 0,
+      negative: commentCounts?.negative || 0,
+      neutral: commentCounts?.neutral || 0,
+      total: commentCounts?.total || 0
+    },
+    autoConnect: true
+  }); 
+
+  // Update Redux store when socket data changes
+  useEffect(() => {
+    if (socketData && isConnected) {
+      dispatch(updateSocketCommentCounts(socketData));
+    }
+  }, [socketData, isConnected, dispatch]);
+
+  // Update live data when socket data changes or Redux state changes
+  useEffect(() => {
+    if (socketData && isConnected) {
+      setLiveData({
+        total: socketData.total,
+        positive: socketData.positive,
+        negative: socketData.negative,
+        neutral: socketData.neutral
+      });
+    } else if (commentCounts) {
+      setLiveData({
+        total: commentCounts.total || 0,
+        positive: commentCounts.positive || 0,
+        negative: commentCounts.negative || 0,
+        neutral: commentCounts.neutral || 0
+      });
+    }
+  }, [socketData, isConnected, commentCounts]);
+  
+  // Use live data for display
+  const totalComments = liveData.total;
+  const positiveComments = liveData.positive;
+  const negativeComments = liveData.negative;
+  const neutralComments = liveData.neutral;
 
   return (
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-4">
-          <h1 className="text-[28px] font-semibold text-gray-500 mb-4 tracking-widest">
-            TOTAL COMMENTS ANALYZED
-          </h1>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <h1 className="text-[28px] font-semibold text-gray-500 tracking-widest">
+              TOTAL COMMENTS ANALYZED
+            </h1>
+            {/* Socket Status Indicator */}
+            <div className="flex items-center gap-2">
+              <div className={`w-3 h-3 rounded-full ${
+                isConnected ? 'bg-green-400 animate-pulse' : 'bg-red-400'
+              }`}></div>
+              <span className={`text-sm font-medium ${
+                isConnected ? 'text-green-600' : 'text-red-600'
+              }`}>
+                {isConnected ? 'Live' : 'Offline'}
+              </span>
+            </div>
+          </div>
           <div className="text-6xl font-bold text-[#0846AA] mb-2">
             {totalComments.toLocaleString()}
           </div>

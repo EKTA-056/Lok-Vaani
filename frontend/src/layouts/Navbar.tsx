@@ -40,10 +40,10 @@ const Navbar: React.FC = () => {
 
   const navigationItems = useMemo(() => [
     { name: 'Home', href: '/', public: true },
-    { name: 'Drafts', href: '/drafts', public: true },
+    // { name: 'Drafts', href: '/drafts', public: true },
     { name: 'About', href: '/about', public: true },
     ...(isAuthenticated ? [
-      { name: 'Dashboard', href: user?.role === 'ADMIN' ? '/admin' : '/dashboard', public: false },
+      { name: 'Dashboard', href: user?.role === 'ADMIN' ? '/admin' : '/drafts', public: false },
     ] : [])
   ], [isAuthenticated, user?.role]);
 

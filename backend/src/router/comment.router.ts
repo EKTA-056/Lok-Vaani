@@ -2,7 +2,6 @@ import { Router } from 'express';
 import {
   getCommentsByPostId,
   getCommentById,
-  getCommentAnalytics,
   getCommentCounts,
   getCategorizedCommentCounts,
   getCommentsWeightage
@@ -20,8 +19,5 @@ router.get('/category-comment-counts/:postId', getCategorizedCommentCounts);
 router.get('/comment-weightage/:postId', getCommentsWeightage);
 // Get comment by ID
 router.get('/get-comment-by-id/:id', getCommentById);
-
-// Get comment analytics
-router.get('/analytics/:postId', getCommentAnalytics);
 
 export default router;

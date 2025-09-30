@@ -29,7 +29,7 @@ class SocketService {
 
       // Handle refresh sentiment data request
       socket.on("refresh-sentiment-data", async (data: { eventName?: string }) => {
-        await this.emitLatestSentimentData(data.eventName || "sentiment-update");
+        await this.emitLatestSentimentData(data.eventName || "total-count-update");
       });
 
       // Handle disconnect
@@ -38,17 +38,17 @@ class SocketService {
       });
 
       // Send initial data when client connects
-      this.emitLatestSentimentData("sentiment-update");
+      this.emitLatestSentimentData("total-count-update");
     });
   }
 
   /**
    * Fetch latest sentiment data from database and emit to all connected clients
    */
-  public async emitLatestSentimentData(eventName: string = "sentiment-update"): Promise<void> {
+  public async emitLatestSentimentData(eventName: string = "total-count-update"): Promise<void> {
     try {
       
-      // Get comment counts by sentiment
+      // Get comment counts by sentiment - matching API structure
       const commentCounts = await prismaClient.comment.groupBy({
         by: ['sentiment'],
         _count: {
@@ -56,8 +56,9 @@ class SocketService {
         },
         where: {
           sentiment: {
-            not: null
-          }
+            in: ['Positive', 'Negative', 'Neutral']
+          },
+          status: 'ANALYZED'
         }
       });
 
@@ -75,13 +76,13 @@ class SocketService {
         
         if (sentiment) {
           switch (sentiment) {
-            case 'POSITIVE':
+            case 'Positive':
               sentimentData.positive = countValue;
               break;
-            case 'NEGATIVE':
+            case 'Negative':
               sentimentData.negative = countValue;
               break;
-            case 'NEUTRAL':
+            case 'Neutral':
               sentimentData.neutral = countValue;
               break;
           }
@@ -92,6 +93,12 @@ class SocketService {
       // Emit to all connected clients
       this.io.emit(eventName, sentimentData);
       this.io.emit("comment-counts-update", sentimentData);
+
+      // console.log({
+      //   eventName: "total-count-update",
+      //   data: sentimentData,
+      //   connectedClients: this.io.engine.clientsCount
+      // });
 
       return;
     } catch (error) {
@@ -104,13 +111,14 @@ class SocketService {
    */
   public async emitNormalSentimentUpdate(): Promise<void> {
     try {
-      // Get comments from normal users (USER categoryType)
+      // Get comments from normal users (USER categoryType) - matching API structure
       const userComments = await prismaClient.comment.groupBy({
         by: ['sentiment'],
         where: {
           sentiment: {
-            not: null
+            in: ['Positive', 'Negative', 'Neutral']
           },
+          status: 'ANALYZED',
           businessCategory: {
             categoryType: 'USER'
           }
@@ -133,21 +141,27 @@ class SocketService {
         
         if (sentiment) {
           switch (sentiment) {
-            case 'POSITIVE':
-              sentimentData.positive = countValue;
+            case 'Positive':
+              sentimentData.positive += countValue;
               break;
-            case 'NEGATIVE':
-              sentimentData.negative = countValue;
+            case 'Negative':
+              sentimentData.negative += countValue;
               break;
-            case 'NEUTRAL':
-              sentimentData.neutral = countValue;
+            case 'Neutral':
+              sentimentData.neutral += countValue;
               break;
           }
           sentimentData.total += countValue;
         }
       });
 
-      this.io.emit("normal-sentiment-update", sentimentData);
+      this.io.emit("normal-count-update", sentimentData);
+      
+      // console.log({
+      //   eventName: "normal-count-update",
+      //   data: sentimentData,
+      //   connectedClients: this.io.engine.clientsCount
+      // });
 
     } catch (error) {
       console.error(`❌ [SocketService] Error in normal sentiment update:`, error);
@@ -160,13 +174,24 @@ class SocketService {
   public async emitIndustrialistSentimentUpdate(): Promise<void> {
     try {
       
-      // Get comments from business users (BUSINESS categoryType)
+      // Get total count of comments from business users - matching API structure
+      const totalBusinessComments = await prismaClient.comment.count({
+        where: {
+          status: 'ANALYZED',
+          businessCategory: {
+            categoryType: 'BUSINESS'
+          }
+        }
+      });
+
+      // Get comments from business users (BUSINESS categoryType) with sentiment
       const businessComments = await prismaClient.comment.groupBy({
         by: ['sentiment'],
         where: {
           sentiment: {
-            not: null
+            in: ['Positive', 'Negative', 'Neutral']
           },
+          status: 'ANALYZED',
           businessCategory: {
             categoryType: 'BUSINESS'
           }
@@ -180,7 +205,7 @@ class SocketService {
         positive: 0,
         negative: 0,
         neutral: 0,
-        total: 0
+        total: totalBusinessComments
       };
 
       businessComments.forEach((count) => {
@@ -189,24 +214,29 @@ class SocketService {
         
         if (sentiment) {
           switch (sentiment) {
-            case 'POSITIVE':
-              sentimentData.positive = countValue;
+            case 'Positive':
+              sentimentData.positive += countValue;
               break;
-            case 'NEGATIVE':
-              sentimentData.negative = countValue;
+            case 'Negative':
+              sentimentData.negative += countValue;
               break;
-            case 'NEUTRAL':
-              sentimentData.neutral = countValue;
+            case 'Neutral':
+              sentimentData.neutral += countValue;
               break;
           }
-          sentimentData.total += countValue;
         }
       });
 
-      this.io.emit("industrialist-sentiment-update", sentimentData);
+      this.io.emit("industrialist-count-update", sentimentData);
+      
+      // console.log({
+      //   eventName: "industrialist-count-update",
+      //   data: sentimentData,
+      //   connectedClients: this.io.engine.clientsCount
+      // });
 
     } catch (error) {
-      console.error(`❌ [SocketService] Error in industrialist sentiment update:`, error);
+      console.error(`❌ [SocketService] Error in industrialist sentiment update:`, error instanceof Error ? error.message : String(error));
     }
   }
 
@@ -215,78 +245,176 @@ class SocketService {
    */
   public async emitWeightedSentimentUpdate(): Promise<void> {
     try {
-      
-      // Get all comments with their associated business categories
-      const comments: CommentWithRelations[] = await prismaClient.comment.findMany({
-        include: {
-          post: true,
-          company: true,
-          businessCategory: true
-        },
-        where: {
+      // Get all analyzed comments with their weightage scores - matching API structure
+      const comments = await prismaClient.comment.findMany({
+        where: { 
+          status: 'ANALYZED',
           sentiment: {
-            not: null
+            in: ['Positive', 'Negative', 'Neutral']
+          }
+        },
+        select: {
+          id: true,
+          sentiment: true,
+          company: {
+            select: {
+              businessCategory: {
+                select: {
+                  weightageScore: true,
+                  name: true,
+                  categoryType: true
+                }
+              }
+            }
           }
         }
       });
 
-      const weightedData = {
-        totalAnalyzedComments: comments.length,
-        totalWeightedScore: 0,
-        weightedPercentages: {
-          positive: 0,
-          negative: 0,
-          neutral: 0
-        }
-      };
+      if (comments.length === 0) {
+        const emptyData = {
+          totalAnalyzedComments: 0,
+          totalWeightedScore: 0,
+          weightedPercentages: {
+            positive: 0,
+            negative: 0,
+            neutral: 0
+          },
+          categoryBreakdown: {
+            user: { positive: 0, negative: 0, neutral: 0, totalWeight: 0 },
+            business: { positive: 0, negative: 0, neutral: 0, totalWeight: 0 }
+          },
+          rawWeights: {
+            positive: 0,
+            negative: 0,
+            neutral: 0
+          }
+        };
+        this.io.emit("weighted-total-count-update", emptyData);
+        return;
+      }
 
-      // Calculate weighted scores based on business category weightage
-      comments.forEach((comment: CommentWithRelations) => {
-        const weightageScore = comment.businessCategory.weightageScore || 1.0;
+      // Calculate weighted scores for each sentiment
+      let positiveWeight = 0;
+      let negativeWeight = 0;
+      let neutralWeight = 0;
+      let totalWeight = 0;
 
+      // Category-wise breakdown
+      const userWeights = { positive: 0, negative: 0, neutral: 0, total: 0 };
+      const businessWeights = { positive: 0, negative: 0, neutral: 0, total: 0 };
+
+      comments.forEach(comment => {
+        const weightageScore = comment.company?.businessCategory?.weightageScore || 1;
+        const categoryType = comment.company?.businessCategory?.categoryType;
+        
+        totalWeight += weightageScore;
+
+        // Calculate overall weighted sentiment
         switch (comment.sentiment) {
-          case 'POSITIVE':
-            weightedData.totalWeightedScore += weightageScore;
+          case 'Positive':
+            positiveWeight += weightageScore;
             break;
-          case 'NEGATIVE':
-            weightedData.totalWeightedScore -= weightageScore;
+          case 'Negative':
+            negativeWeight += weightageScore;
             break;
-          case 'NEUTRAL':
-            weightedData.totalWeightedScore += (weightageScore * 0.3);
+          case 'Neutral':
+            neutralWeight += weightageScore;
             break;
+        }
+
+        // Calculate category-wise weighted sentiment
+        if (categoryType === 'USER') {
+          userWeights.total += weightageScore;
+          switch (comment.sentiment) {
+            case 'Positive':
+              userWeights.positive += weightageScore;
+              break;
+            case 'Negative':
+              userWeights.negative += weightageScore;
+              break;
+            case 'Neutral':
+              userWeights.neutral += weightageScore;
+              break;
+          }
+        } else if (categoryType === 'BUSINESS') {
+          businessWeights.total += weightageScore;
+          switch (comment.sentiment) {
+            case 'Positive':
+              businessWeights.positive += weightageScore;
+              break;
+            case 'Negative':
+              businessWeights.negative += weightageScore;
+              break;
+            case 'Neutral':
+              businessWeights.neutral += weightageScore;
+              break;
+          }
         }
       });
 
-      // Calculate percentages (simplified for socket emission)
-      if (weightedData.totalAnalyzedComments > 0) {
-        const positiveComments = comments.filter((c: CommentWithRelations) => c.sentiment === 'POSITIVE').length;
-        const negativeComments = comments.filter((c: CommentWithRelations) => c.sentiment === 'NEGATIVE').length;
-        const neutralComments = comments.filter((c: CommentWithRelations) => c.sentiment === 'NEUTRAL').length;
+      // Calculate weighted percentages
+      const weightedPercentages = {
+        positive: totalWeight > 0 ? Math.round((positiveWeight / totalWeight) * 100 * 100) / 100 : 0,
+        negative: totalWeight > 0 ? Math.round((negativeWeight / totalWeight) * 100 * 100) / 100 : 0,
+        neutral: totalWeight > 0 ? Math.round((neutralWeight / totalWeight) * 100 * 100) / 100 : 0
+      };
 
-        weightedData.weightedPercentages.positive = parseFloat(((positiveComments / weightedData.totalAnalyzedComments) * 100).toFixed(2));
-        weightedData.weightedPercentages.negative = parseFloat(((negativeComments / weightedData.totalAnalyzedComments) * 100).toFixed(2));
-        weightedData.weightedPercentages.neutral = parseFloat(((neutralComments / weightedData.totalAnalyzedComments) * 100).toFixed(2));
-      }
+      // Calculate category-wise percentages
+      const categoryBreakdown = {
+        user: {
+          positive: userWeights.total > 0 ? Math.round((userWeights.positive / userWeights.total) * 100 * 100) / 100 : 0,
+          negative: userWeights.total > 0 ? Math.round((userWeights.negative / userWeights.total) * 100 * 100) / 100 : 0,
+          neutral: userWeights.total > 0 ? Math.round((userWeights.neutral / userWeights.total) * 100 * 100) / 100 : 0,
+          totalWeight: Math.round(userWeights.total * 100) / 100
+        },
+        business: {
+          positive: businessWeights.total > 0 ? Math.round((businessWeights.positive / businessWeights.total) * 100 * 100) / 100 : 0,
+          negative: businessWeights.total > 0 ? Math.round((businessWeights.negative / businessWeights.total) * 100 * 100) / 100 : 0,
+          neutral: businessWeights.total > 0 ? Math.round((businessWeights.neutral / businessWeights.total) * 100 * 100) / 100 : 0,
+          totalWeight: Math.round(businessWeights.total * 100) / 100
+        }
+      };
 
-      this.io.emit("weighted-sentiment-update", weightedData);
+      const responseData = {
+        totalAnalyzedComments: comments.length,
+        totalWeightedScore: Math.round(totalWeight * 100) / 100,
+        weightedPercentages,
+        categoryBreakdown,
+        rawWeights: {
+          positive: Math.round(positiveWeight * 100) / 100,
+          negative: Math.round(negativeWeight * 100) / 100,
+          neutral: Math.round(neutralWeight * 100) / 100
+        }
+      };
+
+      this.io.emit("weighted-total-count-update", responseData);
+
+      // console.log({
+      //   eventName: "weighted-total-count-update",
+      //   data: responseData,
+      //   connectedClients: this.io.engine.clientsCount
+      // });
 
     } catch (error) {
-      console.error(`❌ [SocketService] Error in weighted sentiment update:`, error);
+      console.error(`❌ [SocketService] Error in weighted count update:`, error);
     }
   }
 
   /**
    * Start periodic sentiment data broadcasting
    */
-  public startPeriodicUpdates(intervalMs: number = 30000): void {
+  public startPeriodicUpdates(intervalMs: number = 60000): void {
     
     setInterval(async () => {
-      await Promise.all([
-        this.emitLatestSentimentData("sentiment-update"),
-        this.emitNormalSentimentUpdate(),
-        this.emitIndustrialistSentimentUpdate(),
-        this.emitWeightedSentimentUpdate()
-      ]);
+      try {
+        // Execute sequentially to avoid race conditions
+        await this.emitLatestSentimentData("total-count-update");
+        await this.emitNormalSentimentUpdate();
+        await this.emitIndustrialistSentimentUpdate();
+        await this.emitWeightedSentimentUpdate();
+      } catch (error) {
+        console.error(`❌ [SocketService] Error in periodic updates:`, error instanceof Error ? error.message : String(error));
+      }
     }, intervalMs);
   }
 }

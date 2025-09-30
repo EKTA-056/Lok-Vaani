@@ -40,8 +40,8 @@ connectDB()
     const socketService = new SocketService(io);
     global.socketService = socketService;
 
-    // Start periodic updates (every 30 seconds)
-    socketService.startPeriodicUpdates(30000);
+    // Start periodic updates (every 60 seconds)
+    socketService.startPeriodicUpdates(60000);
 
     // Start the server
     server.listen(PORT, () => {

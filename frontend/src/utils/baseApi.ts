@@ -4,6 +4,8 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
+const socketUrl = import.meta.env.VITE_SOCKET_URL;
+
 // Add auth token to requests
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
@@ -14,3 +16,4 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+export { socketUrl };

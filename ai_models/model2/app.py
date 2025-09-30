@@ -3,7 +3,7 @@ import json
 import torch
 from flask import Flask, render_template, request
 import pandas as pd
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import T5Tokenizer, T5ForConditionalGeneration
 from transformers import pipeline as hf_pipeline
 from deep_translator import GoogleTranslator
 from langdetect import detect
@@ -32,7 +32,9 @@ def load_draft_context():
 DRAFT_CONTEXT = load_draft_context()
 
 # Initialize summarization model
-print("Loading TinyLlama model for summarization...")
+print("Loading FLAN-T5-base model for summarization...")
+summarizer = None  # Initialize to None first
+
 try:
     # Suppress TensorFlow warnings for cleaner output
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -42,39 +44,34 @@ try:
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using device: {device}")
     
-    # Load model with optimizations
-    tokenizer = AutoTokenizer.from_pretrained(
-        "TinyLlama/TinyLlama-1.1B-Chat-v1.0", 
-        cache_dir="./model_cache"
-    )
-    
-    model = AutoModelForCausalLM.from_pretrained(
-        "TinyLlama/TinyLlama-1.1B-Chat-v1.0", 
-        device_map="auto",
-        dtype=torch.float16 if device == "cuda" else torch.float32,
-        cache_dir="./model_cache",
-        low_cpu_mem_usage=True
-    )
-    
-    # Create optimized pipeline
+    # Try simpler approach first
     summarizer = hf_pipeline(
-        "text-generation",
-        model=model,
-        tokenizer=tokenizer
+        "text2text-generation",
+        model="google/flan-t5-base",
+        device=0 if device == "cuda" else -1,
+        model_kwargs={"cache_dir": "./model_cache"}
     )
     
-    print("TinyLlama model loaded successfully!")
+    print("FLAN-T5-base model loaded successfully!")
+    print(f"Summarizer created: {summarizer is not None}")
+    
 except Exception as e:
     print(f"Warning: Could not load summarization model: {e}")
+    print(f"Error details: {str(e)}")
+    import traceback
+    traceback.print_exc()
     summarizer = None
 
 def generate_summary(text):
-    """Generate summary for translated comment using TinyLlama model"""
+    """Generate summary for translated comment using FLAN-T5-base model"""
+    print(f"DEBUG: Summarizer status: {summarizer is not None}")
+    print(f"DEBUG: Summarizer type: {type(summarizer)}")
+    
     if summarizer is None:
         return "Summary unavailable - model not loaded"
     
     try:
-        # Calculate adaptive summary length based on comment length
+        # Calculate adaptive summary length based on comment length (following user's exact conditions)
         comment_length = len(text.strip().split())
         if comment_length <= 50:
             max_tokens = 30  # Short summary for short comments
@@ -85,46 +82,49 @@ def generate_summary(text):
         else:
             max_tokens = 150  # Maximum summary for very long comments
         
-        # Use compact context for efficient processing
-        context_summary = {
-            "topic": DRAFT_CONTEXT.get("consultation_details", {}).get("subject", "MDP firms establishment"),
-            "focus": DRAFT_CONTEXT.get("focus_areas", ["auditing", "consulting", "legal"]),
-            "key_issues": DRAFT_CONTEXT.get("key_asymmetries", {}).get("indian_firm_limitations", [])[:3]
-        }
+        print(f"DEBUG: Comment length: {comment_length}, max_tokens: {max_tokens}")
         
-        # Optimized prompt for faster processing
-        prompt = f"""MCA eConsultation Analysis - Topic: {context_summary['topic']}
-
-Key Issues: {', '.join(context_summary['key_issues'])}
-Focus Areas: {', '.join(context_summary['focus'])}
-
-Stakeholder Comment: {text.strip()}
-
-Analyze this comment and provide a concise summary focusing on:
-- Main concerns raised
-- Specific suggestions or recommendations  
-- Regulatory changes mentioned
-- Overall sentiment (supportive/critical/neutral)
-
-Summary:"""
-        
-        # Generate with optimized parameters (fixed temperature=0.7, adaptive length)
-        summary = summarizer(
-            prompt, 
-            max_new_tokens=max_tokens,
-            temperature=0.7,  # Fixed temperature for consistent results
-            return_full_text=False,
-            do_sample=True,
-            pad_token_id=tokenizer.eos_token_id if tokenizer.pad_token_id is None else tokenizer.pad_token_id,
-            num_return_sequences=1,
-            clean_up_tokenization_spaces=True
+        # Prepare compact context summary for prompt injection
+        context_subject = DRAFT_CONTEXT.get("consultation_details", {}).get("subject", "MDP firms establishment")
+        context_focus = DRAFT_CONTEXT.get("focus_areas", ["auditing", "consulting", "legal"])
+        context_issues = DRAFT_CONTEXT.get("key_asymmetries", {}).get("indian_firm_limitations", [])[:3]
+        # Format context for prompt
+        context_str = f"Consultation subject: {context_subject}. Focus areas: {', '.join(context_focus)}. Key issues: {', '.join(context_issues)}."
+        # Compose prompt with context and instruction for single paragraph
+        prompt = (
+            f"Summarize the following comment in the context of the Indian Multi-Disciplinary Partnership (MDP) firms policy consultation. "
+            f"{context_str} "
+            f"Comment: {text.strip()} "
+            f"Write the summary as a single coherent paragraph."
         )
         
-        return summary[0]['generated_text'].strip()
+        print(f"DEBUG: Prompt length: {len(prompt)} characters")
+        print(f"DEBUG: About to call summarizer...")
+        
+        # Generate with T5 optimized parameters
+        summary = summarizer(
+            prompt, 
+            max_length=max_tokens + 50,  # Increased padding for T5 to get proper output
+            min_length=25,  # Increased minimum length for detailed analysis
+            temperature=0.7,
+            do_sample=True,
+            num_return_sequences=1,
+            clean_up_tokenization_spaces=True,
+            early_stopping=True,
+            no_repeat_ngram_size=3  # Prevent repetition
+        )
+        
+        print(f"DEBUG: Summary generated: {len(summary)} results")
+        result = summary[0]['generated_text'].strip()
+        print(f"DEBUG: Final result: {result[:100]}...")
+        return result
     
     except Exception as e:
         print(f"Summary generation error: {e}")
-        return "Summary generation failed"
+        print(f"Error type: {type(e)}")
+        import traceback
+        traceback.print_exc()
+        return f"Summary generation failed: {str(e)}"
 
 # Initialize sentiment analysis model  
 try:

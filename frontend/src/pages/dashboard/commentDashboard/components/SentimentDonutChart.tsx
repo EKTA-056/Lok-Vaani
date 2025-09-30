@@ -1,34 +1,33 @@
 import React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
-import type { CommentStats } from './dashboardData';
+import type { CommentStats } from '@/types';
 
 interface SentimentDonutChartProps {
   data: CommentStats;
-  totalComments: number;
 }
 
-const SentimentDonutChart: React.FC<SentimentDonutChartProps> = ({ data, totalComments }) => {
+const SentimentDonutChart: React.FC<SentimentDonutChartProps> = ({ data }) => {
   // Calculate percentages
-  const positivePercentage = ((data.positive / totalComments) * 100).toFixed(1);
-  const negativePercentage = ((data.negative / totalComments) * 100).toFixed(1);
-  const neutralPercentage = ((data.neutral / totalComments) * 100).toFixed(1);
+  const positivePercentage = (data.positive).toFixed(1);
+  const negativePercentage = (data.negative).toFixed(1);
+  const neutralPercentage = (data.neutral).toFixed(1);
 
   // Prepare data for donut chart
   const chartData = [
     { 
-      label: 'Positive', 
+      label: `Positive :        ${positivePercentage}%`,
       value: data.positive, 
       color: '#10b981', // emerald-500
       percentage: positivePercentage
     },
     { 
-      label: 'Negative', 
+      label: `Negative :        ${negativePercentage}%`, 
       value: data.negative, 
       color: '#ef4444', // red-500
       percentage: negativePercentage
     },
     { 
-      label: 'Neutral', 
+      label: `Neutral :        ${neutralPercentage}%`, 
       value: data.neutral, 
       color: '#f59e0b', // amber-500
       percentage: neutralPercentage
@@ -50,7 +49,7 @@ const SentimentDonutChart: React.FC<SentimentDonutChartProps> = ({ data, totalCo
             innerRadius: 60, 
             outerRadius: 120, 
             data: chartData,
-            highlightScope: {  },
+            highlightScope: { },
             faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
           }]}
           {...settings}
@@ -82,27 +81,7 @@ const SentimentDonutChart: React.FC<SentimentDonutChartProps> = ({ data, totalCo
             },
           }}
         />
-      </div>
-
-      {/* Legend */}
-      <div className="flex flex-col space-y-3 w-full max-w-sm">
-        {chartData.map((item, index) => (
-          <div key={index} className="flex items-center justify-between">
-            <div className="flex items-center">
-              <div 
-                className="w-4 h-4 rounded-sm mr-3"
-                style={{ backgroundColor: item.color }}
-              />
-              <span className="text-sm font-medium text-slate-700">
-                {item.label}
-              </span>
-            </div>
-            <span className="text-sm font-semibold text-slate-600">
-              {item.percentage}%
-            </span>
-          </div>
-        ))}
-      </div>
+      </div>     
     </div>
   );
 };

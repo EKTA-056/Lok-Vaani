@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
-import type { WeightageData } from './dashboardData';
+import type { WeightageData } from '@/types';
 
 interface SentimentWeightageChartProps {
   data: WeightageData[];
