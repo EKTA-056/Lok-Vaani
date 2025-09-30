@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { loginAsync, clearError, getCurrentUserAsync } from '../../store/slices/authSlice';
+import { loginAsync, clearError } from '../../store/slices/authSlice';
 import { validateEmail, validateRequired } from '../../utils/validators';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
@@ -59,10 +59,9 @@ const Login: React.FC = () => {
     e.preventDefault();
     if (!validateForm()) return;
     try {
-      const data = await dispatch(loginAsync(formData)).unwrap();
-      console.log('Login successful:', data);
-      dispatch(getCurrentUserAsync());
-      navigate('/draft');
+      await dispatch(loginAsync(formData)).unwrap();
+      console.log('Login successful');
+      navigate('/');
     } catch {
       setErrors({ general: 'Invalid email or password' });
     }
@@ -77,9 +76,6 @@ const Login: React.FC = () => {
         {/* Logo & Title */}
         <div className="flex flex-col items-center">
           <img src={logo} alt="Logo" className="h-18 w-36" />
-          <h2 className="mt-4 text-2xl font-bold text-gray-800 tracking-wide">
-            NCO Classification Portal
-          </h2>
           <p className="mt-1 text-md font-bold text-gray-500">
             Please sign in to continue
           </p>
@@ -160,7 +156,7 @@ const Login: React.FC = () => {
 
           {/* Demo account */}
           <p className="text-center text-sm text-gray-500 mt-4">
-            For demo access, email <strong>test@gmail.com</strong> and password <strong>DAsort</strong>
+            For demo, email <strong>lokvaani@gmail.com</strong> and password <strong>lokvaani</strong>
           </p>
         </form>
       </div>

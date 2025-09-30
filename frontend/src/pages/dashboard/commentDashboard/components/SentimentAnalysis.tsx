@@ -64,8 +64,6 @@ const SentimentAnalysis: React.FC = () => {
       }
     }, [socketData, isConnected, dispatch]);
     
-    console.log("Weightage socketData:", socketData);
-    console.log("Weighted percentages:", weightedSocketData?.weightedPercentages);
   return (
     <div className="rounded-xl pt-8 border border-gray-100 transition-shadow duration-300">
       {/* Charts Container - Side by Side */}

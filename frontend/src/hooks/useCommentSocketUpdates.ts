@@ -49,7 +49,6 @@ export const useCommentSocketUpdates = ({
   // Update Redux state when main socket data changes
   useEffect(() => {
     if (mainSocket.data && mainSocket.isConnected) {
-      console.log('🔄 [useCommentSocketUpdates] Updating main comment counts:', mainSocket.data);
       dispatch(updateSocketCommentCounts(mainSocket.data));
     }
   }, [mainSocket.data, mainSocket.isConnected, dispatch]);
@@ -57,7 +56,6 @@ export const useCommentSocketUpdates = ({
   // Update Redux state when normal user socket data changes
   useEffect(() => {
     if (normalSocket.data && normalSocket.isConnected) {
-      console.log('🔄 [useCommentSocketUpdates] Updating normal user data:', normalSocket.data);
       dispatch(updateSocketCategoryData({
         type: 'normal',
         data: normalSocket.data
@@ -68,7 +66,6 @@ export const useCommentSocketUpdates = ({
   // Update Redux state when industrialist socket data changes
   useEffect(() => {
     if (industrialistSocket.data && industrialistSocket.isConnected) {
-      console.log('🔄 [useCommentSocketUpdates] Updating industrialist data:', industrialistSocket.data);
       dispatch(updateSocketCategoryData({
         type: 'industrialist',
         data: industrialistSocket.data
@@ -78,14 +75,6 @@ export const useCommentSocketUpdates = ({
 
   // Log connection status
   useEffect(() => {
-    const connections = {
-      main: mainSocket.isConnected,
-      normal: normalSocket.isConnected,
-      industrialist: industrialistSocket.isConnected
-    };
-    
-    console.log('🌐 [useCommentSocketUpdates] Socket connections:', connections);
-    
     const errors = [
       mainSocket.error && `Main: ${mainSocket.error}`,
       normalSocket.error && `Normal: ${normalSocket.error}`,

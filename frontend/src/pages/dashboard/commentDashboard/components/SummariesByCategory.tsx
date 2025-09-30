@@ -9,77 +9,106 @@ type SummaryData = {
   updateType: 'Weekly' | 'Manual';
 };
 
-// --- MOCK DATA (Cleaned up and expanded) ---
 const mockSummaries: SummaryData[] = [
   {
     id: 'sum_overall',
     category: 'Overall Summary',
-    summaryText:
-      'Public feedback highlights a strong consensus on the need for balanced regulation. While supportive voices endorse the draft, constructive criticism calls for greater clarity on enforcement and a deeper consideration of business impacts to ensure adaptability.',
+    summaryText: 'Public feedback highlights a strong consensus on the need for balanced regulation. While supportive voices endorse the draft, constructive criticism calls for greater clarity on enforcement and a deeper consideration of business impacts to ensure adaptability.',
     lastUpdated: '29-Sep-2025 09:00 AM',
     updateType: 'Weekly',
   },
   {
-    id: 'sum_prof',
-    category: 'By Professionals',
-    summaryText:
-      'Professionals, particularly from the legal and financial sectors, largely support the initiative but raise significant concerns about the ambiguity in Clause 5.2. They strongly suggest adding a more detailed framework for auditor certification to prevent misinterpretation and potential legal challenges.',
+    id: 'sum_corporate_debtor',
+    category: 'Corporate Debtor',
+    summaryText: 'Corporate Debtors largely support the MDP proposal, seeing it as a way to access more integrated and cost-effective advisory services for restructuring and compliance, which could simplify the insolvency process.',
     lastUpdated: '29-Sep-2025 09:00 AM',
     updateType: 'Weekly',
   },
   {
-    id: 'sum_corp',
-    category: 'By Corporates',
-    summaryText:
-      'Corporate stakeholders are cautiously optimistic. Their feedback focuses on the potential for increased compliance burdens and recommends a phased rollout of the new rules to allow businesses adequate time to adapt their internal processes.',
-    lastUpdated: '29-Sep-2025 09:00 AM',
-    updateType: 'Weekly',
-  },
-  {
-    id: 'sum_users',
-    category: 'By Users',
-    summaryText:
-      "Individual users and consumer groups are overwhelmingly supportive, praising the draft's focus on consumer protection and data privacy. Their suggestions mainly involve strengthening penalties for non-compliance and improving transparency.",
-    lastUpdated: '29-Sep-2025 09:00 AM',
-    updateType: 'Weekly',
-  },
-  {
-    id: 'sum_academics',
-    category: 'By Academics',
-    summaryText:
-      'Academics emphasize the importance of empirical evaluation and recommend pilot programs to assess the draft’s real-world impact before full-scale implementation.',
+    id: 'sum_personal_guarantor',
+    category: 'Personal Guarantor to a Corporate Debtor',
+    summaryText: 'Feedback from Personal Guarantors indicates support for the MDP framework, as they believe integrated professional services could lead to better and more efficient corporate resolution outcomes, thereby reducing their personal liability risk.',
     lastUpdated: '29-Sep-2025 09:00 AM',
     updateType: 'Weekly',
   },
   {
     id: 'sum_investors',
-    category: 'By Investors',
-    summaryText:
-      'Investors express cautious optimism but seek more clarity on the draft’s implications for market stability and investment security, suggesting regular review mechanisms.',
+    category: 'Investors',
+    summaryText: 'Investors are cautiously optimistic, supporting the potential for MDPs to create stronger, globally competitive Indian firms. However, they express significant concerns about maintaining audit independence and corporate governance standards within a multidisciplinary setup.',
     lastUpdated: '29-Sep-2025 09:00 AM',
     updateType: 'Weekly',
   },
   {
-    id: 'sum_ngos',
-    category: 'By NGOs',
-    summaryText:
-      'NGOs advocate for stronger safeguards for vulnerable groups and urge the inclusion of more robust grievance redressal mechanisms within the draft.',
+    id: 'sum_insolvency_professional_entity',
+    category: 'Insolvency Professional Entity',
+    summaryText: 'Insolvency Professional Entities are strongly in favor of the draft, viewing it as a landmark reform. They highlight that MDPs will enable them to form strategic alliances with legal and financial experts to offer comprehensive, end-to-end resolution services.',
+    lastUpdated: '29-Sep-2025 09:00 AM',
+    updateType: 'Weekly',
+  },
+  {
+    id: 'sum_partnership_firms',
+    category: 'Partnership firms',
+    summaryText: 'Existing partnership firms welcome the opportunity to expand their service offerings through MDPs. Their suggestions focus on ensuring the new framework provides a level playing field and does not create undue advantages for larger, foreign-affiliated networks.',
     lastUpdated: '29-Sep-2025 09:00 AM',
     updateType: 'Weekly',
   },
   {
     id: 'sum_others',
-    category: 'By Others',
-    summaryText:
-      'Other stakeholders, including small business owners and local bodies, highlight the need for simplified compliance procedures and greater outreach for awareness.',
+    category: 'Others',
+    summaryText: 'Comments from the "Others" category show a mixed but generally positive sentiment. The feedback includes a variety of niche suggestions and concerns that do not fall into the other predefined stakeholder groups.',
+    lastUpdated: '29-Sep-2025 09:00 AM',
+    updateType: 'Weekly',
+  },
+  {
+    id: 'sum_academics',
+    category: 'Academics',
+    summaryText: 'Academics support the proposal in principle, citing international precedents for MDPs. Their feedback strongly recommends a cautious, phased implementation with a robust regulatory framework to address potential ethical conflicts and monopolistic practices.',
+    lastUpdated: '29-Sep-2025 09:00 AM',
+    updateType: 'Weekly',
+  },
+  {
+    id: 'sum_user',
+    category: 'User',
+    summaryText: 'General users view the MDP initiative positively, focusing on the "Atmanirbhar Bharat" aspect. They believe creating strong Indian firms will generate more high-skilled jobs and enhance national prestige in the global professional services market.',
+    lastUpdated: '29-Sep-2025 09:00 AM',
+    updateType: 'Weekly',
+  },
+  {
+    id: 'sum_insolvency_professional_agency',
+    category: 'Insolvency Professional Agency',
+    summaryText: 'Regulatory agencies for Insolvency Professionals express a neutral but cautious stance. Their primary concern is maintaining professional standards, ethics, and disciplinary oversight in a complex multi-disciplinary environment.',
+    lastUpdated: '29-Sep-2025 09:00 AM',
+    updateType: 'Weekly',
+  },
+  {
+    id: 'sum_general',
+    category: 'General',
+    summaryText: 'General comments provide a balanced overview of public sentiment. There is broad support for the goal of strengthening Indian firms, coupled with suggestions for ensuring the reforms are implemented carefully and fairly.',
+    lastUpdated: '29-Sep-2025 09:00 AM',
+    updateType: 'Weekly',
+  },
+  {
+    id: 'sum_insolvency_professional',
+    category: 'Insolvency Professional',
+    summaryText: 'Individual Insolvency Professionals are highly enthusiastic about the MDP draft. They see it as a significant opportunity to broaden their practice, collaborate with other experts, and offer more holistic solutions to clients.',
+    lastUpdated: '29-Sep-2025 09:00 AM',
+    updateType: 'Weekly',
+  },
+  {
+    id: 'sum_proprietorship_firms',
+    category: 'Proprietorship firms',
+    summaryText: 'Proprietorship firms express mixed feelings. While some see potential for collaboration and growth, many are concerned about being outcompeted by new, large-scale MDPs and advocate for protective measures for smaller entities.',
+    lastUpdated: '29-Sep-2025 09:00 AM',
+    updateType: 'Weekly',
+  },
+  {
+    id: 'sum_creditor_corporate_debtor',
+    category: 'Creditor to a Corporate Debtor',
+    summaryText: 'Creditors are largely supportive of the MDP proposal. They believe that integrated advisory firms can lead to more efficient and successful corporate resolutions, which in turn improves the chances of better and faster debt recovery.',
     lastUpdated: '29-Sep-2025 09:00 AM',
     updateType: 'Weekly',
   },
 ];
-// Note: I've shortened the summaryText for brevity in this example. Use your full text.
-
-
-// --- Child Component for a Tab Button ---
 interface TabButtonProps {
   category: string;
   isActive: boolean;

@@ -41,20 +41,10 @@ const CommentAnalysis = () => {
     error, 
     comments,
     commentCounts,
-    categoryCommentCounts
   } = useAppSelector(state => state.comment);
   
   // Use draftId as postId, with proper validation
   const postId = draftId;
-  
-  console.log('🔍 [CommentAnalysis] Redux State Debug:', {
-    commentCounts,
-    categoryCommentCounts,
-    commentsLength: comments?.length || 0,
-    postId,
-    loading,
-    error
-  });
 
   // Initialize comprehensive socket connection for real-time updates
   const { isConnected, connections, errors, refreshAll } = useCommentSocketUpdates({
@@ -69,7 +59,6 @@ const CommentAnalysis = () => {
 
   // Log socket connection status
   useEffect(() => {
-    console.log('🌐 [CommentAnalysis] Socket connections:', connections);
     
     const errorList = Object.entries(errors)
       .filter(([, error]) => error)
