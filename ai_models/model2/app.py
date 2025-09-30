@@ -1,7 +1,10 @@
 import os
+import json
+import torch
 from flask import Flask, render_template, request
 import pandas as pd
-from transformers import pipeline
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+from transformers import pipeline as hf_pipeline
 from deep_translator import GoogleTranslator
 from langdetect import detect
 from google.cloud import translate_v2 as translate
@@ -11,12 +14,131 @@ from flask import Flask, render_template, request, jsonify
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "google_key.json"
 translate_client = translate.Client()
 
-sentiment_model = pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment")
-label_mapping = {
-    "LABEL_0": "Negative",
-    "LABEL_1": "Neutral",
-    "LABEL_2": "Positive"
-}
+# Load draft context from JSON file for summarization
+def load_draft_context():
+    """Load the compact draft context for efficient processing"""
+    try:
+        with open('draft_context.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        # Fallback minimal context if file not found
+        return {
+            "subject": "Indian Multi-Disciplinary Partnership (MDP) firms",
+            "ministry": "Ministry of Corporate Affairs",
+            "key_focus": ["regulatory changes", "global competitiveness", "professional services"]
+        }
+
+# Load context at startup
+DRAFT_CONTEXT = load_draft_context()
+
+# Initialize summarization model
+print("Loading FLAN-T5-base model for summarization...")
+summarizer = None  # Initialize to None first
+
+try:
+    # Suppress TensorFlow warnings for cleaner output
+    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+    os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
+    
+    # Set device - use GPU if available
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Using device: {device}")
+    
+    # Try simpler approach first
+    summarizer = hf_pipeline(
+        "text2text-generation",
+        model="google/flan-t5-base",
+        device=0 if device == "cuda" else -1,
+        model_kwargs={"cache_dir": "./model_cache"}
+    )
+    
+    print("FLAN-T5-base model loaded successfully!")
+    print(f"Summarizer created: {summarizer is not None}")
+    
+except Exception as e:
+    print(f"Warning: Could not load summarization model: {e}")
+    print(f"Error details: {str(e)}")
+    import traceback
+    traceback.print_exc()
+    summarizer = None
+
+def generate_summary(text):
+    """Generate summary for translated comment using FLAN-T5-base model"""
+    print(f"DEBUG: Summarizer status: {summarizer is not None}")
+    print(f"DEBUG: Summarizer type: {type(summarizer)}")
+    
+    if summarizer is None:
+        return "Summary unavailable - model not loaded"
+    
+    try:
+        # Calculate adaptive summary length based on comment length (following user's exact conditions)
+        comment_length = len(text.strip().split())
+        if comment_length <= 50:
+            max_tokens = 30  # Short summary for short comments
+        elif comment_length <= 150:
+            max_tokens = 60  # Medium summary for medium comments
+        elif comment_length <= 300:
+            max_tokens = 100  # Longer summary for longer comments
+        else:
+            max_tokens = 150  # Maximum summary for very long comments
+        
+        print(f"DEBUG: Comment length: {comment_length}, max_tokens: {max_tokens}")
+        
+        # Prepare compact context summary for prompt injection
+        context_subject = DRAFT_CONTEXT.get("consultation_details", {}).get("subject", "MDP firms establishment")
+        context_focus = DRAFT_CONTEXT.get("focus_areas", ["auditing", "consulting", "legal"])
+        context_issues = DRAFT_CONTEXT.get("key_asymmetries", {}).get("indian_firm_limitations", [])[:3]
+        # Format context for prompt
+        context_str = f"Consultation subject: {context_subject}. Focus areas: {', '.join(context_focus)}. Key issues: {', '.join(context_issues)}."
+        # Compose prompt with context and instruction for single paragraph
+        prompt = (
+            f"Summarize the following comment in the context of the Indian Multi-Disciplinary Partnership (MDP) firms policy consultation. "
+            f"{context_str} "
+            f"Comment: {text.strip()} "
+            f"Write the summary as a single coherent paragraph."
+        )
+        
+        print(f"DEBUG: Prompt length: {len(prompt)} characters")
+        print(f"DEBUG: About to call summarizer...")
+        
+        # Generate with T5 optimized parameters
+        summary = summarizer(
+            prompt, 
+            max_length=max_tokens + 50,  # Increased padding for T5 to get proper output
+            min_length=25,  # Increased minimum length for detailed analysis
+            temperature=0.7,
+            do_sample=True,
+            num_return_sequences=1,
+            clean_up_tokenization_spaces=True,
+            early_stopping=True,
+            no_repeat_ngram_size=3  # Prevent repetition
+        )
+        
+        print(f"DEBUG: Summary generated: {len(summary)} results")
+        result = summary[0]['generated_text'].strip()
+        print(f"DEBUG: Final result: {result[:100]}...")
+        return result
+    
+    except Exception as e:
+        print(f"Summary generation error: {e}")
+        print(f"Error type: {type(e)}")
+        import traceback
+        traceback.print_exc()
+        return f"Summary generation failed: {str(e)}"
+
+# Initialize sentiment analysis model  
+try:
+    sentiment_model = hf_pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment")
+    label_mapping = {
+        "LABEL_0": "Negative",
+        "LABEL_1": "Neutral", 
+        "LABEL_2": "Positive"
+    }
+    print("Sentiment analysis model loaded successfully!")
+except Exception as e:
+    print(f"Warning: Could not load sentiment model: {e}")
+    sentiment_model = None
+    label_mapping = {}
 
 def translate_text(text):
     if not text or text.strip() == "":
@@ -41,8 +163,6 @@ def translate_text(text):
             found_hindi_words.append(word)
     
     print(f"Translation Debug: lang={lang}, hindi_word_count={hindi_word_count}, text_length={len(text.split())}")
-    if found_hindi_words:
-        print(f"Found Hindi words: {found_hindi_words}")
  
     # Determine language type
     if lang == "en" and hindi_word_count == 0:
@@ -162,9 +282,17 @@ def analyze():
         language_type = translated_result[1]
         
         # Perform sentiment analysis on translated text
-        result = sentiment_model(translated_comment[:512])[0]
-        sentiment = label_mapping[result['label']]
-        score = result['score']
+        if sentiment_model is not None:
+            result = sentiment_model(translated_comment[:512])[0]
+            sentiment = label_mapping[result['label']]
+            score = result['score']
+        else:
+            sentiment = "Unknown"
+            score = 0.0
+        
+        # Generate summary using translated comment
+        print(f"Generating summary for translated comment ({len(translated_comment.split())} words)...")
+        summary = generate_summary(translated_comment)
 
         return jsonify({
             "success": True,
@@ -174,7 +302,7 @@ def analyze():
             "language_type": language_type,
             "sentiment": sentiment,
             "sentimentScore": round(score, 4),
-            "summary": "",  # Placeholder for future summary feature
+            "summary": summary,  # Generated summary placed here
             "score": round(score, 4)
         })
     

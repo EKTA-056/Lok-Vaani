@@ -3,6 +3,7 @@ import { app } from "./app";
 import { connectDB } from "./db/index";
 import { createServer } from "http";
 import { Server as SocketIOServer } from "socket.io";
+import SocketService from "./services/socketService";
 
 // Type declaration for BigInt JSON serialization and Socket.IO global
 declare global {
@@ -10,6 +11,7 @@ declare global {
     toJSON(): string;
   }
   var io: SocketIOServer;
+  var socketService: SocketService;
 }
 
 // Add BigInt serialization support
@@ -34,18 +36,17 @@ connectDB()
     // Make io globally available for Inngest functions
     global.io = io;
 
-    io.on("connection", (socket) => {
-      console.log("A user connected:", socket.id);
+    // Initialize socket service for real-time sentiment updates
+    const socketService = new SocketService(io);
+    global.socketService = socketService;
 
-      socket.on("disconnect", () => {
-        console.log("User disconnected:", socket.id);
-      });
-    });
+    // Start periodic updates (every 60 seconds)
+    socketService.startPeriodicUpdates(60000);
 
     // Start the server
     server.listen(PORT, () => {
       console.log(`✅ Server is running on http://localhost:${PORT}`);
-      // console.log(`✅ Inngest endpoint: http://localhost:${PORT}/api/v1/inngest`);
+      console.log(`🔌 Socket.io server running for real-time sentiment updates`);
     });
 
     // Error handling for server-level errors

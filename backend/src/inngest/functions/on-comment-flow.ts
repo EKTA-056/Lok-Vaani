@@ -11,7 +11,7 @@ export const commentFetchScheduler = inngest.createFunction(
   async ({ step }) => {
     let response;
     let attempts = 0;
-    const maxAttempts = 3;
+    const maxAttempts = 1;
 
     while (attempts < maxAttempts) {
       response = await step.run(`fetch-from-model1-attempt-${attempts + 1}`, async () => {
@@ -54,72 +54,132 @@ export const commentFetchScheduler = inngest.createFunction(
 // 2. Process RAW comments: send to Model 2, update DB as ANALYZED
 export const processRawComments = inngest.createFunction(
   { id: "process-raw-comments" },
-  { cron:  "*/2 * * * *" },
+  { cron:  "*/1 * * * *" },
   async ({ step }) => {
-    // STEP 1: Find a comment eligible for processing
-    const comment = await step.run("find-raw-comment", async () => {
-      return await prisma.comment.findFirst({
-        where: {
-          status: "RAW",
-          processingAttempts: { lt: 3 }
+    // Process up to 3 eligible RAW comments per run
+    const maxCommentsPerRun = 3;
+    let processedCount = 0;
+    let lastProcessedCommentId = null;
+    let anyProcessed = false;
+    let errors: any[] = [];
+
+    for (let i = 0; i < maxCommentsPerRun; i++) {
+      let comment;
+      try {
+        // Find next eligible comment
+        comment = await step.run(`find-raw-comment-${i+1}`, async () => {
+          return await prisma.comment.findFirst({
+            where: {
+              status: "RAW",
+              processingAttempts: { lt: 3 }
+            }
+          });
+        });
+      } catch (err) {
+        console.error(`Error finding raw comment (iteration ${i+1}):`, err);
+        errors.push({ step: `find-raw-comment-${i+1}`, error: err || err });
+        continue;
+      }
+      if (!comment) {
+        if (i === 0) {
+          return new ApiResponse(200, "No eligible comments", "Skipped");
         }
-      });
-    });
-    if (!comment) return new ApiResponse(200, "No eligible comments", "Skipped");
-    
-    // STEP 2: Try sending to Model 2 up to 3 times
-    let model2Response;
-    let attempts = comment.processingAttempts;
-    const maxAttempts = 3;
-
-    while (attempts < maxAttempts) {
-      model2Response = await step.run(`call-model2-attempt-${attempts + 1}`, async () => {
-        return await axios.post(`${process.env.MODEL2_API_URL}/analyze`, {
-          comment: comment.rawComment
-        }, { timeout: 20000 });
-      });
-
-      if (model2Response?.data?.success) {
         break;
       }
 
-      // Increment processingAttempts after each failed attempt
-      attempts++;
-      await prisma.comment.update({
-        where: { id: comment.id },
-        data: { processingAttempts: attempts }
-      });
-    }
-
-    // If all attempts failed, mark as FAILED for manual review
-    if (attempts === maxAttempts && !model2Response?.data?.success) {
-      const error = model2Response?.data?.error || model2Response?.statusText || "Unknown error";
-      await prisma.comment.update({
-        where: { id: comment.id },
-        data: {
-          status: "FAILED",
-          processingError: error
+      // Only one call to Model 2 per comment, 60s timeout
+      let model2Response;
+      try {
+        model2Response = await step.run(`call-model2-attempt-${comment.id}-1`, async () => {
+          return await axios.post(`${process.env.MODEL2_API_URL}/analyze`, {
+            comment: comment.rawComment
+          }, { timeout: 60000 });
+        });
+      } catch (err) {
+        // Enhanced Axios error handling with type assertions
+        let errorInfo: any = { step: `call-model2-attempt-${comment.id}-1` };
+        const axiosErr = err as any;
+        if (axiosErr && axiosErr.isAxiosError) {
+          errorInfo.error = axiosErr.message;
+          errorInfo.code = axiosErr.code;
+          errorInfo.axiosConfig = {
+            url: axiosErr.config?.url,
+            method: axiosErr.config?.method,
+            timeout: axiosErr.config?.timeout
+          };
+          if (axiosErr.code === 'ECONNABORTED') {
+            errorInfo.type = 'timeout';
+          }
+          if (axiosErr.response) {
+            errorInfo.status = axiosErr.response.status;
+            errorInfo.statusText = axiosErr.response.statusText;
+            errorInfo.data = axiosErr.response.data;
+          }
+        } else {
+          errorInfo.error = (err as any)?.message || err;
         }
-      });
-      return new ApiResponse(500, "Model 2 processing failed", "Error");
+        console.error(`Error calling Model 2 (comment ${comment.id}, attempt 1):`, errorInfo);
+        errors.push(errorInfo);
+        // Increment processingAttempts after failed attempt
+        try {
+          await prisma.comment.update({
+            where: { id: comment.id },
+            data: { processingAttempts: comment.processingAttempts + 1 }
+          });
+        } catch (err) {
+          console.error(`Error updating processingAttempts (comment ${comment.id}):`, err);
+          errors.push({ step: `update-processingAttempts-${comment.id}`, error: (err as any)?.message || err });
+        }
+        continue; // Move to next comment
+      }
+
+      // If Model 2 failed (no .data.success), mark as FAILED
+      if (!model2Response?.data?.success) {
+        const error = model2Response?.data?.error || model2Response?.statusText || "Unknown error";
+        try {
+          await prisma.comment.update({
+            where: { id: comment.id },
+            data: {
+              status: "FAILED",
+              processingError: error
+            }
+          });
+        } catch (err) {
+          console.error(`Error marking comment as FAILED (comment ${comment.id}):`, err);
+          errors.push({ step: `mark-failed-${comment.id}`, error: (err as any)?.message || err });
+        }
+        continue; // Move to next comment
+      }
+
+      // If successful, update as ANALYZED
+      try {
+        await prisma.comment.update({
+          where: { id: comment.id },
+          data: {
+            standardComment: model2Response?.data?.translated,
+            language: model2Response?.data?.language_type,
+            sentiment: model2Response?.data?.sentiment,
+            sentimentScore: model2Response?.data?.sentimentScore,
+            summary: model2Response?.data?.summary,
+            status: "ANALYZED",
+            processedAt: new Date(),
+            processingError: null
+          }
+        });
+        processedCount++;
+        lastProcessedCommentId = comment.id;
+        anyProcessed = true;
+      } catch (err) {
+        console.error(`Error updating comment as ANALYZED (comment ${comment.id}):`, err);
+        errors.push({ step: `update-analyzed-${comment.id}`, error: (err as any)?.message || err });
+      }
     }
 
-    // If successful, update as ANALYZED
-    await prisma.comment.update({
-      where: { id: comment.id },
-      data: {
-        standardComment: model2Response?.data?.translated,
-        language: model2Response?.data?.language_type,
-        sentiment: model2Response?.data?.sentiment,
-        sentimentScore: model2Response?.data?.sentimentScore,
-        summary: model2Response?.data?.summary,
-        status: "ANALYZED",
-        processedAt: new Date(),
-        processingError: null
-      }
-    });
-
-    return new ApiResponse(200, { status: "analyzed", commentId: comment.id }, "Comment processed and updated");
+    if (anyProcessed) {
+      return new ApiResponse(200, { status: "analyzed", processedCount, lastProcessedCommentId, errors }, "Comments processed and updated");
+    } else {
+      return new ApiResponse(200, { message: "No eligible comments", errors }, "Skipped");
+    }
   }
 );
 

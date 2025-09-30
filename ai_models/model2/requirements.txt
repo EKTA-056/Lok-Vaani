@@ -2,11 +2,14 @@
 
 numpy==1.24.4
 torch==2.6.0+cpu
-transformers
+# transformers
 requests
-flask
+# flask
 deep-translator
 langdetect
 google-cloud-translate
 pandas
 gunicorn==21.2.0
+transformers>=4.30.0
+flask>=2.3.0
+accelerate>=0.20.0

@@ -24,9 +24,7 @@ interface RegisterData {
   email: string;
   password: string;
   name: string;
-  role?: 'USER' | 'ADMIN';
-  phone?: string;
-  region?: string;
+  role?: 'ANALYST' | 'ADMIN';
 }
 
 export const authService = {
@@ -41,7 +39,7 @@ export const authService = {
   },
 
   async getCurrentUser(): Promise<User> {
-    const response = await api.get('/users/profile');
+    const response = await api.get('/users/user-profile');
     
     return response.data.data; // Extract data from ApiResponse wrapper
   },

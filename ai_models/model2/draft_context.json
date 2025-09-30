@@ -1,0 +1,49 @@
+{
+  "consultation_details": {
+    "subject": "Establishment of Indian Multi-Disciplinary Partnership (MDP) firms",
+    "ministry": "Ministry of Corporate Affairs, Government of India",
+    "reference_date": "17-09-2025",
+    "submission_deadline": "30.09.2025",
+    "submission_channels": ["e-Consultation Module", "so-pimca@gov.in"],
+    "authority": "Under Secretary to the Government of India"
+  },
+  "market_context": {
+    "global_market_size": "$240 billion consulting and auditing industry",
+    "current_challenge": "Indian firms remain marginal players due to structural and regulatory barriers",
+    "strategic_goal": "Build indigenous professional service giants for Atmanirbhar Bharat"
+  },
+  "key_asymmetries": {
+    "international_advantages": [
+      "Integrated multidisciplinary services (audit, tax, legal, consulting, ESG)",
+      "Global networks with scale and uniform methodologies",
+      "Strong brand reputation as trust multipliers",
+      "Partnership structures with clear accountability",
+      "Technology alliances and proprietary platforms",
+      "Investment in talent development and global mobility"
+    ],
+    "indian_firm_limitations": [
+      "Advertising and marketing restrictions",
+      "MDP structure limitations", 
+      "Fragmented licensing across regulators",
+      "Public procurement criteria favoring international firms",
+      "Standalone operations without global collaboration"
+    ]
+  },
+  "current_statistics": {
+    "total_firms": 95000,
+    "proprietorships": 70000,
+    "firms_with_10_plus_partners": 400
+  },
+  "focus_areas": [
+    "auditing", "tax advisory", "legal services", "management consulting", 
+    "deal advisory", "ESG compliance", "forensics", "technology services"
+  ],
+  "regulatory_questions": [
+    "Specific regulatory changes for global competitiveness",
+    "Safeguards for MDP implementation", 
+    "Dispute resolution mechanisms",
+    "International best practices adoption",
+    "Brand building without solicitation restrictions",
+    "Competitive barriers in current regulations"
+  ]
+}

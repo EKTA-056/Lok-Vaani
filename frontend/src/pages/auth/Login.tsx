@@ -20,7 +20,7 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard');
+      navigate('/');
     }
   }, [isAuthenticated, navigate]);
 
@@ -59,9 +59,9 @@ const Login: React.FC = () => {
     e.preventDefault();
     if (!validateForm()) return;
     try {
-      const data = await dispatch(loginAsync(formData)).unwrap();
-      console.log('Login successful:', data);
-      navigate('/dashboard');
+      await dispatch(loginAsync(formData)).unwrap();
+      console.log('Login successful');
+      navigate('/');
     } catch {
       setErrors({ general: 'Invalid email or password' });
     }
@@ -76,9 +76,6 @@ const Login: React.FC = () => {
         {/* Logo & Title */}
         <div className="flex flex-col items-center">
           <img src={logo} alt="Logo" className="h-18 w-36" />
-          <h2 className="mt-4 text-2xl font-bold text-gray-800 tracking-wide">
-            NCO Classification Portal
-          </h2>
           <p className="mt-1 text-md font-bold text-gray-500">
             Please sign in to continue
           </p>
@@ -159,7 +156,7 @@ const Login: React.FC = () => {
 
           {/* Demo account */}
           <p className="text-center text-sm text-gray-500 mt-4">
-            For demo access, email <strong>test@gmail.com</strong> and password <strong>DAsort</strong>
+            For demo, email <strong>lokvaani@gmail.com</strong> and password <strong>lokvaani</strong>
           </p>
         </form>
       </div>

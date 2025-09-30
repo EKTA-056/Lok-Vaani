@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { useAuth } from './context/AuthContext';
-import { useAppDispatch } from './hooks/redux';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
 import { getCurrentUserAsync } from './store/slices/authSlice';
+import { useSocketProgress } from './hooks/useSocketProgress';
 
 
 // Public Pages
 import About from './pages/general/About';
-import Contact from './pages/general/Contact';
 // import Help from './pages/general/Help';
 
 // Auth Pages
@@ -18,22 +17,54 @@ import Register from './pages/auth/Register';
 // Private Pages
 // import Dashboard from './pages/dashboard/Dashboard';
 import AdminDashboard from './pages/dashboard/adminDashboard/AdminDashboard';
+import DraftPage from './pages/general/drafts';
 // import UserReports from './pages/dashboard/userDashboard/UserReports';
 // import SearchHistory from './pages/dashboard/userDashboard/SearchHistory';
 import HomePage from './pages/home/HomePage';
 import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
+import CommentList from './pages/dashboard/commentDashboard/CommentList';
+import { getPostsAsync } from './store/slices/postSlice';
+import CommentAnalysis from './pages/dashboard/commentDashboard/CommentAnalysis';
+import { socketUrl } from './utils/baseApi';
 
 function App() {
   const dispatch = useAppDispatch();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAppSelector(state => state.auth);
+
+  // Get comment data for socket initialization
+  const { commentCounts } = useAppSelector(state => state.comment);
+  
+  // Initialize global socket connection
+  const { isConnected, error: socketError } = useSocketProgress({
+    endpoint: `${socketUrl}`,
+    eventName: 'total-count-update',
+    initialData: {
+      positive: commentCounts?.positive || 0,
+      negative: commentCounts?.negative || 0,
+      neutral: commentCounts?.neutral || 0,
+      total: commentCounts?.total || 0
+    },
+    autoConnect: true // Auto-connect globally
+  });
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token && !isAuthenticated) {
+    if (token) {
       dispatch(getCurrentUserAsync());
     }
-  }, [dispatch, isAuthenticated]);
+    dispatch(getPostsAsync());
+  }, [dispatch]);
+
+  // Log socket connection status
+  useEffect(() => {
+    if (isConnected) {
+      console.log('🌐 [App] Global socket connection established');
+    }
+    if (socketError) {
+      console.error('🚨 [App] Global socket error:', socketError);
+    }
+  }, [isConnected, socketError]);
 
   return (
     <>
@@ -53,19 +84,20 @@ function App() {
 
       <div className="min-h-screen bg-gray-50">
         <Navbar />
-        <main className="pt-[72px]">
+        <main className="pt-[88px]">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/drafts" element={isAuthenticated ? <DraftPage /> : <Login />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            
+            <Route path="/drafts/comment-analysis/:draftId" element={isAuthenticated ? <CommentAnalysis /> : <Login />} />
+            <Route path="/drafts/comments-list" element={isAuthenticated ? <CommentList /> : <Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/active" element={<div>frontend active</div>} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        </main>
+        </main> 
         <Footer />
       </div>
     </>
