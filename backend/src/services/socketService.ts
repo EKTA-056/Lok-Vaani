@@ -403,7 +403,7 @@ class SocketService {
   /**
    * Start periodic sentiment data broadcasting
    */
-  public startPeriodicUpdates(intervalMs: number = 60000): void {
+  public startPeriodicUpdates(intervalMs: number = 15000): void {
     
     setInterval(async () => {
       try {
