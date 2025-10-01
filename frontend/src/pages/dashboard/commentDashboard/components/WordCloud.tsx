@@ -8,12 +8,12 @@ const WordCloud: React.FC = () => {
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 hover:shadow-md transition-all duration-300">
           {/* Word Cloud Image */}
           <div className="flex justify-center">
-            <div className="w-full max-w-4xl">
+            <div className="w-full max-w-5xl">
               <img 
-                src="/assets/word_cloud.png" 
+                src="/assets/wordcloud.jpeg" 
                 alt="Word Cloud Analysis - Most frequently used words in comments"
                 className="w-full h-auto rounded-lg shadow-sm"
-                style={{ maxHeight: '400px', objectFit: 'contain' }}
+                style={{ maxHeight: '400px', }}
               />
             </div>
           </div>
