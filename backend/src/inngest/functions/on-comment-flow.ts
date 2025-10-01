@@ -11,7 +11,7 @@ export const commentFetchScheduler = inngest.createFunction(
   async ({ step }) => {
     let response;
     let attempts = 0;
-    const maxAttempts = 1;
+    const maxAttempts = 3;
 
     while (attempts < maxAttempts) {
       response = await step.run(`fetch-from-model1-attempt-${attempts + 1}`, async () => {
