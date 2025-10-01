@@ -41,7 +41,7 @@ connectDB()
     global.socketService = socketService;
 
     // Start periodic updates (every 60 seconds)
-    socketService.startPeriodicUpdates(60000);
+    socketService.startPeriodicUpdates(15000);
 
     // Start the server
     server.listen(PORT, () => {
