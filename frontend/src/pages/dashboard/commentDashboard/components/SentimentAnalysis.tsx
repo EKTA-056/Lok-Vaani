@@ -4,6 +4,7 @@ import SentimentDonutChart from './SentimentDonutChart';
 import { updateSocketWeightage } from '../../../../store/slices/commentSlice';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux';
 import { useSocketProgress } from '../../../../hooks/useSocketProgress';
+import { socketUrl } from '@/utils/baseApi';
 
 // Interface for weighted socket data
 interface WeightedSocketData {
@@ -41,7 +42,7 @@ const SentimentAnalysis: React.FC = () => {
     
     // Initialize socket for real-time updates
     const { isConnected, data: socketData } = useSocketProgress({
-      endpoint: 'http://localhost:4000',
+      endpoint: `${socketUrl}`,
       eventName: 'weighted-total-count-update',
       initialData: {
         positive: commentsWeightage?.weightedPercentages?.positive || 0,
