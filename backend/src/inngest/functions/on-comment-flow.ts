@@ -4,50 +4,99 @@ import ApiResponse from "../../utility/ApiResponse";
 import { inngest } from "../client";
 import axios from "axios";
 
-// 1. Fetch from Model 1 every 15 seconds and save as RAW
+// 1. Fetch from Model 1 every minute and save 3 comments as RAW
 export const commentFetchScheduler = inngest.createFunction(
   { id: "comment-fetch-scheduler" },
   { cron:  "*/1 * * * *"}, // Every 1 minute
   async ({ step }) => {
-    let response;
-    let attempts = 0;
-    const maxAttempts = 3;
+    const commentsToGenerate = 3;
+    const maxAttemptsPerComment = 3;
+    let successfulComments = 0;
+    let errors: any[] = [];
+    const createdComments: any[] = [];
 
-    while (attempts < maxAttempts) {
-      response = await step.run(`fetch-from-model1-attempt-${attempts + 1}`, async () => {
-        return await axios.post(`${process.env.MODEL1_API_URL}/generate`, { timeout: 15000 });
-      });
+    for (let commentIndex = 0; commentIndex < commentsToGenerate; commentIndex++) {
+      let response;
+      let attempts = 0;
+      let commentSuccessful = false;
 
-      if (response?.data?.success) {
-        break;
+      // Try to fetch one comment with retry logic
+      while (attempts < maxAttemptsPerComment && !commentSuccessful) {
+        try {
+          response = await step.run(`fetch-model1-comment-${commentIndex + 1}-attempt-${attempts + 1}`, async () => {
+            return await axios.post(`${process.env.MODEL1_API_URL}/generate`, { timeout: 15000 });
+          });
+
+          if (response?.data?.success) {
+            commentSuccessful = true;
+            break;
+          }
+        } catch (err) {
+          console.error(`Error fetching comment ${commentIndex + 1}, attempt ${attempts + 1}:`, err);
+          errors.push({ 
+            commentIndex: commentIndex + 1, 
+            attempt: attempts + 1, 
+            error: (err as any)?.message || err 
+          });
+        }
+        attempts++;
       }
-      attempts++;
-    }
 
-    if (!response?.data?.success) {
-      return new ApiResponse(200, "No RAW comments fetched" , "Skipped");
-    }
+      // If we got a successful response, save it to database
+      if (commentSuccessful && response?.data?.success) {
+        try {
+          const data = response.data;
+          const newComment = await prisma.comment.create({
+            data: {
+              postId: data.postId,
+              postTitle: data.postTitle,
+              companyId: data.companyId,
+              businessCategoryId: data.businessCategoryId,
+              stakeholderName: data.companyName,
+              rawComment: data.comment,
+              wordCount: data.wordCount,
+              status: "RAW"
+            }
+          });
 
-    const data = response.data;
-
-    const newComment = await prisma.comment.create({
-      data: {
-        postId: data.postId,
-        postTitle: data.postTitle,
-        companyId: data.companyId,
-        businessCategoryId: data.businessCategoryId,
-        stakeholderName: data.companyName,
-        rawComment: data.comment,
-        wordCount: data.wordCount,
-        status: "RAW"
+          if (newComment) {
+            successfulComments++;
+            createdComments.push({ commentId: newComment.id, commentIndex: commentIndex + 1 });
+          } else {
+            errors.push({ 
+              commentIndex: commentIndex + 1, 
+              error: "Failed to save comment to database" 
+            });
+          }
+        } catch (err) {
+          console.error(`Error saving comment ${commentIndex + 1} to database:`, err);
+          errors.push({ 
+            commentIndex: commentIndex + 1, 
+            error: `Database save failed: ${(err as any)?.message || err}` 
+          });
+        }
+      } else {
+        errors.push({ 
+          commentIndex: commentIndex + 1, 
+          error: "Failed to fetch comment after all attempts" 
+        });
       }
-    });
-
-    if (!newComment) {
-      return new ApiResponse(500, "Failed to save RAW comment" , "Error");
     }
 
-    return new ApiResponse(200, { status: "raw", commentId: newComment.id } , "Comment fetched and saved as RAW");
+    if (successfulComments === 0) {
+      return new ApiResponse(200, { 
+        message: "No RAW comments fetched", 
+        errors 
+      }, "Skipped - All attempts failed");
+    }
+
+    return new ApiResponse(200, { 
+      status: "raw", 
+      successfulComments, 
+      totalAttempted: commentsToGenerate,
+      createdComments,
+      errors: errors.length > 0 ? errors : undefined
+    }, `${successfulComments}/${commentsToGenerate} comments fetched and saved as RAW`);
   }
 );
 
