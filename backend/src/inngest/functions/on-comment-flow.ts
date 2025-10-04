@@ -7,9 +7,9 @@ import axios from "axios";
 // 1. Fetch from Model 1 every minute and save 3 comments as RAW
 export const commentFetchScheduler = inngest.createFunction(
   { id: "comment-fetch-scheduler" },
-  { cron:  "*/1 * * * *"}, // Every 1 minute
+  { cron:  "*/10 * * * *"}, // Every 1 minute
   async ({ step }) => {
-    const commentsToGenerate = 3;
+    const commentsToGenerate = 1;
     const maxAttemptsPerComment = 3;
     let successfulComments = 0;
     let errors: any[] = [];
@@ -103,7 +103,7 @@ export const commentFetchScheduler = inngest.createFunction(
 // 2. Process RAW comments: send to Model 2, update DB as ANALYZED
 export const processRawComments = inngest.createFunction(
   { id: "process-raw-comments" },
-  { cron:  "*/1 * * * *" },
+  { cron:  "*/10 * * * *" },
   async ({ step }) => {
     // Process up to 3 eligible RAW comments per run
     const maxCommentsPerRun = 3;
